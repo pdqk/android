@@ -75,6 +75,7 @@
                 android:layout_height="wrap_content" />
 
             <EditText
+                android:inputType="textPassword"
                 android:id="@+id/edt_password_in_register_display"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />

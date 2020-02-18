@@ -75,6 +75,7 @@
                 android:layout_height="wrap_content" />
 
             <EditText
+                android:inputType="textPassword"
                 android:id="@+id/edt_password_in_register_display"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
@@ -110,6 +111,7 @@
             android:layout_weight="1">
 
             <Button
+                android:gravity="center"
                 android:id="@+id/btn_creating_account_with_facebook"
                 android:paddingRight="72dp"
                 android:paddingLeft="72dp"
@@ -151,7 +153,10 @@
             android:layout_weight="1">
 
             <Button
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
                 android:background="@null"
+                android:drawableLeft="@drawable/ic_arrow_left"
                 android:id="@+id/btn_back_to_welcome"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -162,6 +167,9 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <Button
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:drawableRight="@drawable/ic_arrow_right"
                 android:background="@null"
                 android:id="@+id/btn_nav_to_login"
                 android:textSize="15sp"

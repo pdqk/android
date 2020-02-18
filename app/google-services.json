@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "467076733228",
+    "firebase_url": "https://cloneshopee-3d063.firebaseio.com",
+    "project_id": "cloneshopee-3d063",
+    "storage_bucket": "cloneshopee-3d063.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:467076733228:android:5391cb45bdb99beb937489",
+        "android_client_info": {
+          "package_name": "com.example.cloneshopee"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "467076733228-ap7c0ijfd91g79ouq3f4td6uh7qaiti6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.cloneshopee",
+            "certificate_hash": "fb870637e815f214c0b446bccfcf5c3d139c85d2"
+          }
+        },
+        {
+          "client_id": "467076733228-1j31subl4d6e0ghnghe470gg1ndb9d9k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDXoCcI-qDBNQv3dzNd_QDnqbP58jaHK-Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "467076733228-1j31subl4d6e0ghnghe470gg1ndb9d9k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
