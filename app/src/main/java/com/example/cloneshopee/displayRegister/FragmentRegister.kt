@@ -45,7 +45,7 @@ class FragmentRegister : Fragment(){
                 firebaseUsersStore.createNewUser(registerFragmentBinding.edtUsernameInRegisterDisplay.text.toString(), registerFragmentBinding.edtPasswordInRegisterDisplay.text.toString(), activity!!, view)
             }
             if(!Patterns.EMAIL_ADDRESS.matcher(registerFragmentBinding.edtUsernameInRegisterDisplay.text.toString()).matches()){
-                registerFragmentBinding.edtUsernameInRegisterDisplay.error = "Please enter invalid email !"
+                registerFragmentBinding.edtUsernameInRegisterDisplay.error = "Please enter valid email !"
                 registerFragmentBinding.edtUsernameInRegisterDisplay.requestFocus()
             }
         }

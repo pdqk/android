@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.CompoundButton
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import com.example.cloneshopee.R
@@ -42,9 +43,15 @@ class FragmentLogin : Fragment() {
                 firebaseControlLogIn.logIn(loginFragmentBinding.edtUsernameInLoginDisplay.text.toString(), loginFragmentBinding.edtPasswordInLoginDisplay.text.toString(), activity!!, view)
             }
             if(!Patterns.EMAIL_ADDRESS.matcher(loginFragmentBinding.edtUsernameInLoginDisplay.text.toString()).matches()){
-                loginFragmentBinding.edtUsernameInLoginDisplay.error = "Please enter invalid email !"
+                loginFragmentBinding.edtUsernameInLoginDisplay.error = "Please enter valid email !"
                 loginFragmentBinding.edtUsernameInLoginDisplay.requestFocus()
             }
+        }
+        loginFragmentBinding.txtvNavToForgot.setOnClickListener { view: View ->
+            view.findNavController().navigate(R.id.action_fragmentLogin_to_fragmentForgotPassword)
+        }
+        loginFragmentBinding.switchToRememberPass.setOnCheckedChangeListener{buttonView: CompoundButton?, isChecked: Boolean ->
+            
         }
     }
 

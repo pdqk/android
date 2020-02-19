@@ -34,9 +34,20 @@
         <action
             android:id="@+id/action_fragmentLogin_to_fragmentGetStarted"
             app:destination="@id/fragmentGetStarted" />
+        <action
+            android:id="@+id/action_fragmentLogin_to_fragmentForgotPassword"
+            app:destination="@id/fragmentForgotPassword" />
     </fragment>
     <fragment
         android:id="@+id/fragmentGetStarted"
         android:name="com.example.cloneshopee.displayGetStarted.FragmentGetStarted"
         android:label="FragmentGetStarted" />
+    <fragment
+        android:id="@+id/fragmentForgotPassword"
+        android:name="com.example.cloneshopee.displayForgotPassword.FragmentForgotPassword"
+        android:label="FragmentForgotPassword" >
+        <action
+            android:id="@+id/action_fragmentForgotPassword_to_fragmentLogin"
+            app:destination="@id/fragmentLogin" />
+    </fragment>
 </navigation>
