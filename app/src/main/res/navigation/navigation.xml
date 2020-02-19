@@ -31,5 +31,12 @@
         <action
             android:id="@+id/action_fragmentLogin_to_fragmentRegister"
             app:destination="@id/fragmentRegister" />
+        <action
+            android:id="@+id/action_fragmentLogin_to_fragmentGetStarted"
+            app:destination="@id/fragmentGetStarted" />
     </fragment>
+    <fragment
+        android:id="@+id/fragmentGetStarted"
+        android:name="com.example.cloneshopee.displayGetStarted.FragmentGetStarted"
+        android:label="FragmentGetStarted" />
 </navigation>

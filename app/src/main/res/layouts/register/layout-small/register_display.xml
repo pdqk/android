@@ -135,6 +135,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
+            android:orientation="vertical"
             android:gravity="center_horizontal">
 
             <TextView
@@ -142,6 +143,12 @@
                 android:layout_marginTop="12dp"
                 android:textColor="#000000"
                 android:text="Terms of Use and Privacy Policy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <ProgressBar
+                android:id="@+id/progressBar_in_register"
+                android:visibility="invisible"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 

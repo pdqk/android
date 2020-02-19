@@ -38,8 +38,10 @@ class FragmentRegister : Fragment(){
             if(registerFragmentBinding.edtUsernameInRegisterDisplay.text.toString().isEmpty() && registerFragmentBinding.edtPasswordInRegisterDisplay.text.toString().isEmpty()) {
                 registerFragmentBinding.edtUsernameInRegisterDisplay.error = "Please enter your information !"
                 registerFragmentBinding.edtUsernameInRegisterDisplay.requestFocus()
-            }else{
+            }
+            if(registerFragmentBinding.edtUsernameInRegisterDisplay.text.toString().isNotEmpty() && registerFragmentBinding.edtPasswordInRegisterDisplay.text.toString().isNotEmpty()) {
                 firebaseUsersStore = FirebaseUsersStore()
+                registerFragmentBinding.progressBarInRegister?.visibility = View.VISIBLE
                 firebaseUsersStore.createNewUser(registerFragmentBinding.edtUsernameInRegisterDisplay.text.toString(), registerFragmentBinding.edtPasswordInRegisterDisplay.text.toString(), activity!!, view)
             }
             if(!Patterns.EMAIL_ADDRESS.matcher(registerFragmentBinding.edtUsernameInRegisterDisplay.text.toString()).matches()){
