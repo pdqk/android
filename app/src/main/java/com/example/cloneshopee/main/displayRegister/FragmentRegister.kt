@@ -1,4 +1,4 @@
-package com.example.cloneshopee.displayRegister
+package com.example.cloneshopee.main.displayRegister
 
 import android.os.Bundle
 import android.util.Patterns

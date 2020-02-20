@@ -1,5 +1,6 @@
-package com.example.cloneshopee.displayLogin
+package com.example.cloneshopee.main.displayLogin
 
+import android.content.Context.MODE_PRIVATE
 import android.os.Bundle
 import android.util.Patterns
 import androidx.fragment.app.Fragment
@@ -51,9 +52,18 @@ class FragmentLogin : Fragment() {
             view.findNavController().navigate(R.id.action_fragmentLogin_to_fragmentForgotPassword)
         }
         loginFragmentBinding.switchToRememberPass.setOnCheckedChangeListener{buttonView: CompoundButton?, isChecked: Boolean ->
-            
+            if(isChecked){
+                val sharedPreferences = activity!!.getSharedPreferences("checkbox", MODE_PRIVATE)
+                val editor = sharedPreferences.edit()
+                editor.putString("rememberMe", "true")
+                editor.apply()
+            }else{
+                val sharedPreferences = activity!!.getSharedPreferences("checkbox", MODE_PRIVATE)
+                val editor = sharedPreferences.edit()
+                editor.putString("rememberMe", "false")
+                editor.apply()
+            }
         }
     }
-
 
 }

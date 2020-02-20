@@ -1,12 +1,15 @@
 package com.example.cloneshopee.displaySplashScreen
 
+import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.view.WindowManager
 import com.example.cloneshopee.R
+import com.example.cloneshopee.home.HomeActivity
 import com.example.cloneshopee.main.MainActivity
 import java.lang.Exception
 
@@ -23,6 +26,11 @@ class SplashScreen : AppCompatActivity() {
             statusBarColor = Color.TRANSPARENT
         }
 
+        splash()
+        checkAccountWasRemembered()
+    }
+
+    private fun splash(){
         val background = object: Thread(){
             override fun run() {
                 try {
@@ -35,5 +43,15 @@ class SplashScreen : AppCompatActivity() {
             }
         }
         background.start()
+    }
+
+    private fun checkAccountWasRemembered(){
+        val sharedPreferences = getSharedPreferences("checkbox", Context.MODE_PRIVATE)
+        val checked = sharedPreferences.getString("rememberMe", "")
+        if(checked.equals("true")){
+
+        }else{
+            Log.d("nothing", "nothing")
+        }
     }
 }
