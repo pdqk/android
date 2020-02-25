@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
 
@@ -8,7 +9,55 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:weightSum="10">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.3"
+            android:background="@drawable/top_toolbar_in_homepage_background">
+
+            <EditText
+                android:id="@+id/edt_search_in_homepage"
+                android:drawableRight="@drawable/ic_arrow_drop_down_black_24dp"
+                android:paddingRight="12dp"
+                android:drawableLeft="@drawable/ic_search_black_24dp"
+                android:paddingLeft="12dp"
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:layout_marginStart="18dp"
+                android:layout_marginEnd="48dp"
+                android:layout_marginBottom="18dp"
+                android:background="@drawable/search_bar_in_homepage_background"
+                android:text="Search"
+                android:textColor="#aaaaaa"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/txtv_choose_country_in_homepage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="84dp"
+                android:layout_marginBottom="24dp"
+                android:text="Hà Nội"
+                android:textColor="#494949"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:src="@drawable/ic_notifications_bell_button"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/edt_search_in_homepage" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>
 </layout>

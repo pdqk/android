@@ -13,6 +13,11 @@
         android:theme="@style/AppTheme">
         <activity android:name=".home.HomeActivity"
             android:screenOrientation="portrait">
+
+        </activity>
+        <activity
+            android:name="com.example.cloneshopee.displaySplashScreen.SplashScreen"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -20,13 +25,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.cloneshopee.displaySplashScreen.SplashScreen"
+            android:name=".main.MainActivity"
             android:screenOrientation="portrait">
 
         </activity>
-        <activity
-            android:name=".main.MainActivity"
-            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>

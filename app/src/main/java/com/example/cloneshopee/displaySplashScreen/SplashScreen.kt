@@ -26,7 +26,6 @@ class SplashScreen : AppCompatActivity() {
             statusBarColor = Color.TRANSPARENT
         }
 
-        splash()
         checkAccountWasRemembered()
     }
 
@@ -49,9 +48,10 @@ class SplashScreen : AppCompatActivity() {
         val sharedPreferences = getSharedPreferences("checkbox", Context.MODE_PRIVATE)
         val checked = sharedPreferences.getString("rememberMe", "")
         if(checked.equals("true")){
-
+            val intent = Intent(this, HomeActivity::class.java)
+            startActivity(intent)
         }else{
-            Log.d("nothing", "nothing")
+            splash()
         }
     }
 }

@@ -7,7 +7,7 @@
         android:title="" />
     <item
         android:id="@+id/nav_to_search_display"
-        android:icon="@drawable/ic_search_black_24dp"
+        android:icon="@drawable/ic_bill"
         android:title="" />
     <item
         android:id="@+id/nav_to_favorite_display"
