@@ -54,6 +54,8 @@
 
             <EditText
                 android:id="@+id/edt_username_in_login_display"
+                android:maxLines="1"
+                android:inputType="textEmailAddress"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
@@ -76,6 +78,7 @@
 
             <EditText
                 android:inputType="textPassword"
+                android:maxLines="1"
                 android:id="@+id/edt_password_in_login_display"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />

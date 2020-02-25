@@ -15,11 +15,13 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1.3"
+            android:layout_weight="1"
             android:background="@drawable/top_toolbar_in_homepage_background">
 
             <EditText
                 android:id="@+id/edt_search_in_homepage"
+                android:maxLines="1"
+                android:inputType="text"
                 android:drawableRight="@drawable/ic_arrow_drop_down_black_24dp"
                 android:paddingRight="12dp"
                 android:drawableLeft="@drawable/ic_search_black_24dp"
@@ -30,7 +32,7 @@
                 android:layout_marginEnd="48dp"
                 android:layout_marginBottom="18dp"
                 android:background="@drawable/search_bar_in_homepage_background"
-                android:text="Search"
+                android:hint="Search"
                 android:textColor="#aaaaaa"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
