@@ -1,4 +1,4 @@
-package com.example.cloneshopee.home.displayHomePage
+package com.example.cloneshopee.home.displayMe
 
 
 import android.os.Bundle
@@ -8,18 +8,17 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import com.example.cloneshopee.R
-import com.example.cloneshopee.databinding.HomePageDisplayBinding
+import com.example.cloneshopee.databinding.MeDisplayBinding
 
 /**
  * A simple [Fragment] subclass.
  */
-class FragmentHomePage : Fragment() {
-    private lateinit var homePageDisplayBinding: HomePageDisplayBinding
+class FragmentMe : Fragment() {
+    private lateinit var meDisplayBinding: MeDisplayBinding
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        homePageDisplayBinding = DataBindingUtil.inflate(inflater, R.layout.home_page_display, container, false)
+        meDisplayBinding = DataBindingUtil.inflate(inflater, R.layout.me_display, container, false)
 
-        return homePageDisplayBinding.root
+        return meDisplayBinding.root
     }
-
 }

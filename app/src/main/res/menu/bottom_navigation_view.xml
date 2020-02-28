@@ -6,7 +6,7 @@
         android:icon="@drawable/ic_home_page"
         android:title="" />
     <item
-        android:id="@+id/nav_to_search_display"
+        android:id="@+id/nav_to_bill_display"
         android:icon="@drawable/ic_bill"
         android:title="" />
     <item

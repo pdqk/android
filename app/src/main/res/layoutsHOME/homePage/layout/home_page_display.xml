@@ -21,6 +21,7 @@
             <EditText
                 android:id="@+id/edt_search_in_homepage"
                 android:maxLines="1"
+                android:maxLength="20"
                 android:inputType="text"
                 android:drawableRight="@drawable/ic_arrow_drop_down_black_24dp"
                 android:paddingRight="12dp"
@@ -31,6 +32,7 @@
                 android:layout_marginStart="18dp"
                 android:layout_marginEnd="48dp"
                 android:layout_marginBottom="18dp"
+                android:focusable="false"
                 android:background="@drawable/search_bar_in_homepage_background"
                 android:hint="Search"
                 android:textColor="#aaaaaa"

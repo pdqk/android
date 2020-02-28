@@ -34,7 +34,7 @@ class FragmentLogin : Fragment() {
             view.findNavController().navigate(R.id.action_fragmentLogin_to_fragmentRegister)
         }
         loginFragmentBinding.btnLoggingIn.setOnClickListener { view: View ->
-            if(loginFragmentBinding.edtUsernameInLoginDisplay.text.toString().isEmpty() && loginFragmentBinding.edtPasswordInLoginDisplay.text.toString().isEmpty()){
+            if(loginFragmentBinding.edtUsernameInLoginDisplay.text.toString().isEmpty() || loginFragmentBinding.edtPasswordInLoginDisplay.text.toString().isEmpty()){
                 loginFragmentBinding.edtUsernameInLoginDisplay.error = "Please enter your information !"
                 loginFragmentBinding.edtUsernameInLoginDisplay.requestFocus()
             }
