@@ -20,21 +20,21 @@
 
             <EditText
                 android:id="@+id/edt_search_in_homepage"
-                android:maxLines="1"
-                android:maxLength="20"
-                android:inputType="text"
-                android:drawableRight="@drawable/ic_arrow_drop_down_black_24dp"
-                android:paddingRight="12dp"
-                android:drawableLeft="@drawable/ic_search_black_24dp"
-                android:paddingLeft="12dp"
                 android:layout_width="match_parent"
                 android:layout_height="36dp"
                 android:layout_marginStart="18dp"
                 android:layout_marginEnd="48dp"
                 android:layout_marginBottom="18dp"
-                android:focusable="false"
                 android:background="@drawable/search_bar_in_homepage_background"
+                android:drawableLeft="@drawable/ic_search_black_24dp"
+                android:drawableRight="@drawable/ic_arrow_drop_down_black_24dp"
+                android:focusable="false"
                 android:hint="Search"
+                android:inputType="text"
+                android:maxLength="20"
+                android:maxLines="1"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
                 android:textColor="#aaaaaa"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -62,6 +62,30 @@
                 app:layout_constraintStart_toEndOf="@+id/edt_search_in_homepage" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.5">
+
+        </LinearLayout>
+        <LinearLayout
+            android:paddingRight="18dp"
+            android:paddingLeft="18dp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2">
+
+            <com.denzcoskun.imageslider.ImageSlider
+                android:id="@+id/slider_image"
+                app:period="1500"
+                app:delay="0"
+                app:error_image="@drawable/sliderimageerror"
+                app:placeholder="@drawable/sliderimageerror"
+                app:auto_cycle="true"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+        </LinearLayout>
 
     </LinearLayout>
 </layout>

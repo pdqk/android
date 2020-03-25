@@ -8,12 +8,65 @@
   "client": [
     {
       "client_info": {
+        "mobilesdk_app_id": "1:467076733228:android:faf918c64381852f937489",
+        "android_client_info": {
+          "package_name": "com.example.clonenow"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "467076733228-oddpmms9ceihgimli7jlhr5dv3d0ssjo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.clonenow",
+            "certificate_hash": "612b2c2df5f621798b8d4dfc1f63d43207a47850"
+          }
+        },
+        {
+          "client_id": "467076733228-1j31subl4d6e0ghnghe470gg1ndb9d9k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDXoCcI-qDBNQv3dzNd_QDnqbP58jaHK-Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "467076733228-1j31subl4d6e0ghnghe470gg1ndb9d9k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:467076733228:android:5391cb45bdb99beb937489",
         "android_client_info": {
           "package_name": "com.example.cloneshopee"
         }
       },
       "oauth_client": [
+        {
+          "client_id": "467076733228-bp7l0hua3tbbo9qagmq1gboc0t56tpvv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.cloneshopee",
+            "certificate_hash": "822c2fcb1e3e04e4a3f965aad2ac1b8f43d2ddf9"
+          }
+        },
+        {
+          "client_id": "467076733228-fmg3mq85c7mme7i287qo0r88joeu2mjs.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.cloneshopee",
+            "certificate_hash": "612b2c2df5f621798b8d4dfc1f63d43207a47850"
+          }
+        },
         {
           "client_id": "467076733228-ap7c0ijfd91g79ouq3f4td6uh7qaiti6.apps.googleusercontent.com",
           "client_type": 1,
