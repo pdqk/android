@@ -11,6 +11,7 @@ import androidx.databinding.DataBindingUtil
 import com.denzcoskun.imageslider.models.SlideModel
 import com.example.cloneshopee.R
 import com.example.cloneshopee.databinding.HomePageDisplayBinding
+import com.example.cloneshopee.home.coroutines.CoroutineSliderImageHomepage
 import com.example.cloneshopee.home.models.homepageModel.SlideImageModel
 import com.example.cloneshopee.network.API
 import kotlinx.coroutines.CoroutineScope
@@ -27,8 +28,9 @@ import retrofit2.Response
 class FragmentHomePage : Fragment() {
     private lateinit var homePageDisplayBinding: HomePageDisplayBinding
 
-    private var job = Job()
-    private var coroutineScope = CoroutineScope(job + Dispatchers.Main)
+    private var slideImageJob = Job()
+    private var coroutineScope = CoroutineScope(slideImageJob + Dispatchers.Main)
+    var coroutineSliderImageHomepage = CoroutineSliderImageHomepage()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         homePageDisplayBinding = DataBindingUtil.inflate(inflater, R.layout.home_page_display, container, false)
@@ -39,24 +41,11 @@ class FragmentHomePage : Fragment() {
     }
 
     private fun setupSliderImage(){
-        coroutineScope.launch {
-            var getAllSlideImagesDeferred = API.apiService.getAllSlideImages()
-            try{
-                var listResult = getAllSlideImagesDeferred.await()
-                var len = listResult.size - 1
-                var slideModels = ArrayList<SlideModel>()
-                for(i in 0..len){
-                    slideModels.add(SlideModel(listResult[i].IMAGE_URL))
-                }
-                homePageDisplayBinding.sliderImage.setImageList(slideModels, true)
-            }catch (t: Throwable){
-                Toast.makeText(activity, "Failded", Toast.LENGTH_SHORT).show()
-            }
-        }
+        coroutineSliderImageHomepage.onCoroutineGetSlideImage(coroutineScope, activity!!, homePageDisplayBinding)
     }
 
     override fun onStop() {
         super.onStop()
-        job.cancel()
+        coroutineSliderImageHomepage.onCoroutineDone(slideImageJob)
     }
 }
