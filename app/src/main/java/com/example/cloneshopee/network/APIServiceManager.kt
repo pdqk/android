@@ -9,7 +9,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
 
-private const val BASE_URL = "http://10.145.12.35:3000/api/v1.0/public/"
+private const val BASE_URL = "https://clone-now.herokuapp.com/api/v1.0/public/"
 
 private val moshi = Moshi.Builder()
     .add(KotlinJsonAdapterFactory())

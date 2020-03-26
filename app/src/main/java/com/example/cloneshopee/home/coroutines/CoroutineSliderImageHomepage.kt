@@ -22,7 +22,7 @@ class CoroutineSliderImageHomepage {
                 }
                 homePageDisplayBinding.sliderImage.setImageList(slideModels, true)
             }catch (t: Throwable){
-                Toast.makeText(activity, "Failded", Toast.LENGTH_SHORT).show()
+                Toast.makeText(activity, "Failded: " + t, Toast.LENGTH_SHORT).show()
             }
         }
     }
