@@ -1,6 +1,7 @@
 package com.example.cloneshopee.network
 
 import com.example.cloneshopee.home.models.homepageModel.SlideImageModel
+import com.example.cloneshopee.home.models.homepageModel.VoucherModel
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
@@ -26,6 +27,10 @@ interface APIService {
     @GET("slideimages/all")
     fun getAllSlideImages():
             Deferred<List<SlideImageModel>>
+
+    @GET("vouchers/all")
+    fun getAllVouchers():
+            Deferred<List<VoucherModel>>
 }
 
 object API {

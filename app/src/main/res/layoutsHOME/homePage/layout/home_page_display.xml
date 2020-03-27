@@ -1,22 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:tools="http://schemas.android.com/tools"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
     </data>
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:weightSum="10">
+        android:orientation="vertical">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_height="67.5dp"
             android:background="@drawable/top_toolbar_in_homepage_background">
 
             <EditText
@@ -63,401 +61,477 @@
                 app:layout_constraintStart_toEndOf="@+id/edt_search_in_homepage" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-        <LinearLayout
-            android:paddingLeft="18dp"
-            android:paddingRight="18dp"
-            android:gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.8">
 
-            <TextView
-                android:id="@+id/txtv_nav_to_address_receive_order"
-                android:drawableLeft="@drawable/ic_location"
-                android:drawableRight="@drawable/ic_arrow_right"
-                android:textSize="16sp"
-                android:textColor="#1d1d1f"
-                android:gravity="center_vertical"
-                android:text="Chọn địa chỉ nhận hàng"
+        <ScrollView
+            android:scrollbars="none"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-        </LinearLayout>
-        <LinearLayout
-            android:paddingRight="18dp"
-            android:paddingLeft="18dp"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="2">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="54dp"
+                    android:gravity="center"
+                    android:paddingLeft="18dp"
+                    android:paddingRight="18dp">
 
-            <com.denzcoskun.imageslider.ImageSlider
-                android:id="@+id/slider_image"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:auto_cycle="true"
-                app:delay="0"
-                app:error_image="@drawable/sliderimageerror"
-                app:period="1000"
-                app:placeholder="@drawable/sliderimageerror" />
+                    <TextView
+                        android:id="@+id/txtv_nav_to_address_receive_order"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:drawableLeft="@drawable/ic_location"
+                        android:drawableRight="@drawable/ic_arrow_right"
+                        android:gravity="center_vertical"
+                        android:text="Chọn địa chỉ nhận hàng"
+                        android:textColor="#1d1d1f"
+                        android:textSize="16sp" />
 
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.2"></LinearLayout>
+                </LinearLayout>
 
-        <HorizontalScrollView
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="3.3"
-            android:scrollbars="none">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="135dp"
+                    android:paddingLeft="18dp"
+                    android:paddingRight="18dp">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent">
+                    <com.denzcoskun.imageslider.ImageSlider
+                        android:id="@+id/slider_image"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:auto_cycle="true"
+                        app:delay="0"
+                        app:error_image="@drawable/sliderimageerror"
+                        app:period="1000"
+                        app:placeholder="@drawable/sliderimageerror" />
 
-                <ImageView
-                    android:id="@+id/imgv_quan_yeu_thich"
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="13.5dp">
+
+                </LinearLayout>
+
+                <HorizontalScrollView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="18dp"
-                    android:layout_marginTop="6dp"
-                    android:background="@drawable/icon_background"
-                    android:padding="12dp"
-                    android:src="@drawable/ic_like"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:layout_height="222.75dp"
+                    android:scrollbars="none">
 
-                <TextView
-                    android:id="@+id/textView4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:text="Quán yêu \nthích"
-                    android:textColor="#1d1d1f"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/imgv_quan_yeu_thich" />
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent">
 
-                <ImageView
-                    android:id="@+id/imgv_thuc_pham"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="48dp"
-                    android:layout_marginTop="6dp"
-                    android:background="@drawable/icon_background"
-                    android:padding="12dp"
-                    android:src="@drawable/ic_shrimp"
-                    app:layout_constraintStart_toEndOf="@+id/imgv_quan_yeu_thich"
-                    app:layout_constraintTop_toTopOf="parent" />
+                        <ImageView
+                            android:id="@+id/imgv_quan_yeu_thich"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="18dp"
+                            android:layout_marginTop="6dp"
+                            android:background="@drawable/icon_background"
+                            android:padding="12dp"
+                            android:src="@drawable/ic_like"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                    android:id="@+id/textView5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="30dp"
-                    android:text="Thực phẩm"
-                    android:textColor="#1d1d1f"
-                    app:layout_constraintStart_toEndOf="@+id/textView4"
-                    app:layout_constraintTop_toBottomOf="@+id/imgv_thuc_pham" />
+                        <TextView
+                            android:id="@+id/textView4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:text="Quán yêu \nthích"
+                            android:textColor="#1d1d1f"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/imgv_quan_yeu_thich" />
 
-                <ImageView
-                    android:id="@+id/imgv_an_vat"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="48dp"
-                    android:layout_marginTop="6dp"
-                    android:background="@drawable/icon_background"
-                    android:padding="12dp"
-                    android:src="@drawable/ic_sushi"
-                    app:layout_constraintStart_toEndOf="@+id/imgv_thuc_pham"
-                    app:layout_constraintTop_toTopOf="parent" />
+                        <ImageView
+                            android:id="@+id/imgv_thuc_pham"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="48dp"
+                            android:layout_marginTop="6dp"
+                            android:background="@drawable/icon_background"
+                            android:padding="12dp"
+                            android:src="@drawable/ic_shrimp"
+                            app:layout_constraintStart_toEndOf="@+id/imgv_quan_yeu_thich"
+                            app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                    android:id="@+id/textView7"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="40dp"
-                    android:text="Ăn vặt"
-                    android:textColor="#1d1d1f"
-                    app:layout_constraintStart_toEndOf="@+id/textView5"
-                    app:layout_constraintTop_toBottomOf="@+id/imgv_an_vat" />
+                        <TextView
+                            android:id="@+id/textView5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="30dp"
+                            android:text="Thực phẩm"
+                            android:textColor="#1d1d1f"
+                            app:layout_constraintStart_toEndOf="@+id/textView4"
+                            app:layout_constraintTop_toBottomOf="@+id/imgv_thuc_pham" />
 
-                <ImageView
-                    android:id="@+id/imgv_com"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="48dp"
-                    android:layout_marginTop="6dp"
-                    android:background="@drawable/icon_background"
-                    android:padding="12dp"
-                    android:src="@drawable/ic_rice"
-                    app:layout_constraintStart_toEndOf="@+id/imgv_an_vat"
-                    app:layout_constraintTop_toTopOf="parent" />
+                        <ImageView
+                            android:id="@+id/imgv_an_vat"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="48dp"
+                            android:layout_marginTop="6dp"
+                            android:background="@drawable/icon_background"
+                            android:padding="12dp"
+                            android:src="@drawable/ic_sushi"
+                            app:layout_constraintStart_toEndOf="@+id/imgv_thuc_pham"
+                            app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                    android:id="@+id/textView9"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="60dp"
-                    android:text="Cơm"
-                    android:textColor="#1d1d1f"
-                    app:layout_constraintStart_toEndOf="@+id/textView7"
-                    app:layout_constraintTop_toBottomOf="@+id/imgv_com" />
+                        <TextView
+                            android:id="@+id/textView7"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:text="Ăn vặt"
+                            android:textColor="#1d1d1f"
+                            app:layout_constraintStart_toEndOf="@+id/textView5"
+                            app:layout_constraintTop_toBottomOf="@+id/imgv_an_vat" />
 
-                <ImageView
-                    android:id="@+id/imgv_sieu_thi"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="48dp"
-                    android:layout_marginTop="6dp"
-                    android:background="@drawable/icon_background"
-                    android:padding="12dp"
-                    android:src="@drawable/ic_shopping"
-                    app:layout_constraintStart_toEndOf="@+id/imgv_com"
-                    app:layout_constraintTop_toTopOf="parent" />
+                        <ImageView
+                            android:id="@+id/imgv_com"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="48dp"
+                            android:layout_marginTop="6dp"
+                            android:background="@drawable/icon_background"
+                            android:padding="12dp"
+                            android:src="@drawable/ic_rice"
+                            app:layout_constraintStart_toEndOf="@+id/imgv_an_vat"
+                            app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                    android:id="@+id/textView8"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="58dp"
-                    android:text="Siêu thị"
-                    android:textColor="#1d1d1f"
-                    app:layout_constraintStart_toEndOf="@+id/textView9"
-                    app:layout_constraintTop_toBottomOf="@+id/imgv_sieu_thi" />
+                        <TextView
+                            android:id="@+id/textView9"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="60dp"
+                            android:text="Cơm"
+                            android:textColor="#1d1d1f"
+                            app:layout_constraintStart_toEndOf="@+id/textView7"
+                            app:layout_constraintTop_toBottomOf="@+id/imgv_com" />
 
-                <ImageView
-                    android:id="@+id/imgv_ruou_bia"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="48dp"
-                    android:layout_marginTop="6dp"
-                    android:background="@drawable/icon_background"
-                    android:padding="12dp"
-                    android:src="@drawable/ic_whiskey"
-                    app:layout_constraintStart_toEndOf="@+id/imgv_sieu_thi"
-                    app:layout_constraintTop_toTopOf="parent" />
+                        <ImageView
+                            android:id="@+id/imgv_sieu_thi"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="48dp"
+                            android:layout_marginTop="6dp"
+                            android:background="@drawable/icon_background"
+                            android:padding="12dp"
+                            android:src="@drawable/ic_shopping"
+                            app:layout_constraintStart_toEndOf="@+id/imgv_com"
+                            app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                    android:id="@+id/textView10"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="44dp"
-                    android:text="Rượu bia"
-                    android:textColor="#1d1d1f"
-                    app:layout_constraintStart_toEndOf="@+id/textView8"
-                    app:layout_constraintTop_toBottomOf="@+id/imgv_ruou_bia" />
+                        <TextView
+                            android:id="@+id/textView8"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="58dp"
+                            android:text="Siêu thị"
+                            android:textColor="#1d1d1f"
+                            app:layout_constraintStart_toEndOf="@+id/textView9"
+                            app:layout_constraintTop_toBottomOf="@+id/imgv_sieu_thi" />
 
-                <ImageView
-                    android:id="@+id/imgv_lam_dep"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="48dp"
-                    android:layout_marginTop="6dp"
-                    android:background="@drawable/icon_background"
-                    android:padding="12dp"
-                    android:src="@drawable/ic_spa"
-                    app:layout_constraintStart_toEndOf="@+id/imgv_ruou_bia"
-                    app:layout_constraintTop_toTopOf="parent" />
+                        <ImageView
+                            android:id="@+id/imgv_ruou_bia"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="48dp"
+                            android:layout_marginTop="6dp"
+                            android:background="@drawable/icon_background"
+                            android:padding="12dp"
+                            android:src="@drawable/ic_whiskey"
+                            app:layout_constraintStart_toEndOf="@+id/imgv_sieu_thi"
+                            app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                    android:id="@+id/textView11"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="40dp"
-                    android:text="Làm đẹp"
-                    android:textColor="#1d1d1f"
-                    app:layout_constraintStart_toEndOf="@+id/textView10"
-                    app:layout_constraintTop_toBottomOf="@+id/imgv_lam_dep" />
+                        <TextView
+                            android:id="@+id/textView10"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="44dp"
+                            android:text="Rượu bia"
+                            android:textColor="#1d1d1f"
+                            app:layout_constraintStart_toEndOf="@+id/textView8"
+                            app:layout_constraintTop_toBottomOf="@+id/imgv_ruou_bia" />
 
-                <ImageView
-                    android:id="@+id/imgv_giat_ui"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="48dp"
-                    android:layout_marginTop="6dp"
-                    android:layout_marginEnd="18dp"
-                    android:background="@drawable/icon_background"
-                    android:padding="12dp"
-                    android:src="@drawable/ic_household"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/imgv_lam_dep"
-                    app:layout_constraintTop_toTopOf="parent" />
+                        <ImageView
+                            android:id="@+id/imgv_lam_dep"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="48dp"
+                            android:layout_marginTop="6dp"
+                            android:background="@drawable/icon_background"
+                            android:padding="12dp"
+                            android:src="@drawable/ic_spa"
+                            app:layout_constraintStart_toEndOf="@+id/imgv_ruou_bia"
+                            app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="50dp"
-                    android:text="Giặt ủi"
-                    android:textColor="#1d1d1f"
-                    app:layout_constraintStart_toEndOf="@+id/textView11"
-                    app:layout_constraintTop_toBottomOf="@+id/imgv_giat_ui" />
+                        <TextView
+                            android:id="@+id/textView11"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:text="Làm đẹp"
+                            android:textColor="#1d1d1f"
+                            app:layout_constraintStart_toEndOf="@+id/textView10"
+                            app:layout_constraintTop_toBottomOf="@+id/imgv_lam_dep" />
 
-                <!-- under -->
+                        <ImageView
+                            android:id="@+id/imgv_giat_ui"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="48dp"
+                            android:layout_marginTop="6dp"
+                            android:layout_marginEnd="18dp"
+                            android:background="@drawable/icon_background"
+                            android:padding="12dp"
+                            android:src="@drawable/ic_household"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/imgv_lam_dep"
+                            app:layout_constraintTop_toTopOf="parent" />
 
-                <ImageView
-                    android:id="@+id/imgv_giao_hang"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="18dp"
-                    android:layout_marginTop="24dp"
-                    android:background="@drawable/icon_background"
-                    android:padding="12dp"
-                    android:src="@drawable/ic_order"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView4" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="50dp"
+                            android:text="Giặt ủi"
+                            android:textColor="#1d1d1f"
+                            app:layout_constraintStart_toEndOf="@+id/textView11"
+                            app:layout_constraintTop_toBottomOf="@+id/imgv_giat_ui" />
 
-                <TextView
-                    android:id="@+id/textView6"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:text="Giao hàng"
-                    android:textColor="#1d1d1f"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/imgv_giao_hang" />
+                        <!-- under -->
 
-                <ImageView
-                    android:id="@+id/imgv_dat_ban"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="48dp"
-                    android:layout_marginTop="42dp"
-                    android:background="@drawable/icon_background"
-                    android:padding="12dp"
-                    android:src="@drawable/ic_dining_table"
-                    app:layout_constraintStart_toEndOf="@+id/imgv_giao_hang"
-                    app:layout_constraintTop_toBottomOf="@+id/textView5" />
+                        <ImageView
+                            android:id="@+id/imgv_giao_hang"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="18dp"
+                            android:layout_marginTop="24dp"
+                            android:background="@drawable/icon_background"
+                            android:padding="12dp"
+                            android:src="@drawable/ic_order"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
-                <TextView
-                    android:id="@+id/textView13"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="36dp"
-                    android:text="Đặt bàn"
-                    android:textColor="#1d1d1f"
-                    app:layout_constraintStart_toEndOf="@+id/textView6"
-                    app:layout_constraintTop_toBottomOf="@+id/imgv_dat_ban" />
+                        <TextView
+                            android:id="@+id/textView6"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:text="Giao hàng"
+                            android:textColor="#1d1d1f"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/imgv_giao_hang" />
 
-                <ImageView
-                    android:id="@+id/imgv_tra_sua"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="48dp"
-                    android:layout_marginTop="42dp"
-                    android:background="@drawable/icon_background"
-                    android:padding="12dp"
-                    android:src="@drawable/ic_milk"
-                    app:layout_constraintStart_toEndOf="@+id/imgv_dat_ban"
-                    app:layout_constraintTop_toBottomOf="@+id/textView7" />
+                        <ImageView
+                            android:id="@+id/imgv_dat_ban"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="48dp"
+                            android:layout_marginTop="42dp"
+                            android:background="@drawable/icon_background"
+                            android:padding="12dp"
+                            android:src="@drawable/ic_dining_table"
+                            app:layout_constraintStart_toEndOf="@+id/imgv_giao_hang"
+                            app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
-                <TextView
-                    android:id="@+id/textView12"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="48dp"
-                    android:text="Trà sữa"
-                    android:textColor="#1d1d1f"
-                    app:layout_constraintStart_toEndOf="@+id/textView13"
-                    app:layout_constraintTop_toBottomOf="@+id/imgv_tra_sua" />
+                        <TextView
+                            android:id="@+id/textView13"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="36dp"
+                            android:text="Đặt bàn"
+                            android:textColor="#1d1d1f"
+                            app:layout_constraintStart_toEndOf="@+id/textView6"
+                            app:layout_constraintTop_toBottomOf="@+id/imgv_dat_ban" />
 
-                <ImageView
-                    android:id="@+id/imgv_thu_cung"
-                    android:layout_marginTop="42dp"
-                    android:layout_marginStart="48dp"
-                    app:layout_constraintTop_toBottomOf="@+id/textView9"
-                    app:layout_constraintStart_toEndOf="@+id/imgv_tra_sua"
-                    android:padding="12dp"
-                    android:background="@drawable/icon_background"
-                    android:src="@drawable/ic_dog"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                        <ImageView
+                            android:id="@+id/imgv_tra_sua"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="48dp"
+                            android:layout_marginTop="42dp"
+                            android:background="@drawable/icon_background"
+                            android:padding="12dp"
+                            android:src="@drawable/ic_milk"
+                            app:layout_constraintStart_toEndOf="@+id/imgv_dat_ban"
+                            app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
-                <TextView
-                    android:id="@+id/textView14"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="46dp"
-                    android:text="Thú cưng"
-                    android:textColor="#1d1d1f"
-                    app:layout_constraintStart_toEndOf="@+id/textView12"
-                    app:layout_constraintTop_toBottomOf="@+id/imgv_thu_cung" />
+                        <TextView
+                            android:id="@+id/textView12"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="48dp"
+                            android:text="Trà sữa"
+                            android:textColor="#1d1d1f"
+                            app:layout_constraintStart_toEndOf="@+id/textView13"
+                            app:layout_constraintTop_toBottomOf="@+id/imgv_tra_sua" />
 
-                <ImageView
-                    android:id="@+id/imgv_hoa"
-                    android:layout_marginTop="42dp"
-                    android:layout_marginStart="48dp"
-                    app:layout_constraintTop_toBottomOf="@+id/textView8"
-                    app:layout_constraintStart_toEndOf="@+id/imgv_thu_cung"
-                    android:padding="12dp"
-                    android:background="@drawable/icon_background"
-                    android:src="@drawable/ic_bouquet"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                        <ImageView
+                            android:id="@+id/imgv_thu_cung"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="48dp"
+                            android:layout_marginTop="42dp"
+                            android:background="@drawable/icon_background"
+                            android:padding="12dp"
+                            android:src="@drawable/ic_dog"
+                            app:layout_constraintStart_toEndOf="@+id/imgv_tra_sua"
+                            app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
-                <TextView
-                    android:id="@+id/textView15"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="50dp"
-                    android:text="Hoa"
-                    android:textColor="#1d1d1f"
-                    app:layout_constraintStart_toEndOf="@+id/textView14"
-                    app:layout_constraintTop_toBottomOf="@+id/imgv_hoa" />
+                        <TextView
+                            android:id="@+id/textView14"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="46dp"
+                            android:text="Thú cưng"
+                            android:textColor="#1d1d1f"
+                            app:layout_constraintStart_toEndOf="@+id/textView12"
+                            app:layout_constraintTop_toBottomOf="@+id/imgv_thu_cung" />
 
-                <ImageView
-                    android:id="@+id/imgv_thuoc"
-                    android:layout_marginTop="42dp"
-                    android:layout_marginStart="48dp"
-                    app:layout_constraintTop_toBottomOf="@+id/textView10"
-                    app:layout_constraintStart_toEndOf="@+id/imgv_hoa"
-                    android:padding="12dp"
-                    android:background="@drawable/icon_background"
-                    android:src="@drawable/ic_pill"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                        <ImageView
+                            android:id="@+id/imgv_hoa"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="48dp"
+                            android:layout_marginTop="42dp"
+                            android:background="@drawable/icon_background"
+                            android:padding="12dp"
+                            android:src="@drawable/ic_bouquet"
+                            app:layout_constraintStart_toEndOf="@+id/imgv_thu_cung"
+                            app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
-                <TextView
-                    android:id="@+id/textView16"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="62dp"
-                    android:text="Thuốc"
-                    android:textColor="#1d1d1f"
-                    app:layout_constraintStart_toEndOf="@+id/textView15"
-                    app:layout_constraintTop_toBottomOf="@+id/imgv_thuoc" />
+                        <TextView
+                            android:id="@+id/textView15"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="50dp"
+                            android:text="Hoa"
+                            android:textColor="#1d1d1f"
+                            app:layout_constraintStart_toEndOf="@+id/textView14"
+                            app:layout_constraintTop_toBottomOf="@+id/imgv_hoa" />
 
-                <ImageView
-                    android:id="@+id/imgv_giup_viec"
-                    android:layout_marginTop="42dp"
-                    android:layout_marginStart="48dp"
-                    app:layout_constraintTop_toBottomOf="@+id/textView11"
-                    app:layout_constraintStart_toEndOf="@+id/imgv_thuoc"
-                    android:padding="12dp"
-                    android:background="@drawable/icon_background"
-                    android:src="@drawable/ic_helper"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                        <ImageView
+                            android:id="@+id/imgv_thuoc"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="48dp"
+                            android:layout_marginTop="42dp"
+                            android:background="@drawable/icon_background"
+                            android:padding="12dp"
+                            android:src="@drawable/ic_pill"
+                            app:layout_constraintStart_toEndOf="@+id/imgv_hoa"
+                            app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
-                <TextView
-                    android:layout_marginStart="50dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Giúp việc"
-                    android:textColor="#1d1d1f"
-                    app:layout_constraintStart_toEndOf="@+id/textView16"
-                    app:layout_constraintTop_toBottomOf="@+id/imgv_giup_viec" />
+                        <TextView
+                            android:id="@+id/textView16"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="62dp"
+                            android:text="Thuốc"
+                            android:textColor="#1d1d1f"
+                            app:layout_constraintStart_toEndOf="@+id/textView15"
+                            app:layout_constraintTop_toBottomOf="@+id/imgv_thuoc" />
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </HorizontalScrollView>
+                        <ImageView
+                            android:id="@+id/imgv_giup_viec"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="48dp"
+                            android:layout_marginTop="42dp"
+                            android:background="@drawable/icon_background"
+                            android:padding="12dp"
+                            android:src="@drawable/ic_helper"
+                            app:layout_constraintStart_toEndOf="@+id/imgv_thuoc"
+                            app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
-        <LinearLayout
-            android:background="#eeeeee"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.2">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="50dp"
+                            android:text="Giúp việc"
+                            android:textColor="#1d1d1f"
+                            app:layout_constraintStart_toEndOf="@+id/textView16"
+                            app:layout_constraintTop_toBottomOf="@+id/imgv_giup_viec" />
 
-        </LinearLayout>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </HorizontalScrollView>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="13.5dp"
+                    android:background="#eeeeee">
+
+                </LinearLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="178.75dp">
+
+                    <LinearLayout
+                        android:id="@+id/ll1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="6dp"
+                        android:paddingLeft="18dp"
+                        android:paddingRight="18dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="VOUCHER"
+                            android:textColor="#1d1d1f" />
+
+                        <TextView
+                            android:id="@+id/txtv_nav_to_bonus_voucher"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:drawableRight="@drawable/ic_arrow_right"
+                            android:gravity="right"
+                            android:text="Xem thêm"
+                            android:textColor="#1d1d1f" />
+
+                    </LinearLayout>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recycler_vouchers"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="18dp"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/ll1"
+                        tools:listitem="@layout/voucher_recycler_item" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+                <LinearLayout
+                    android:paddingBottom="13.5dp"
+                    android:paddingTop="13.5dp"
+                    android:paddingStart="13.5dp"
+                    android:paddingEnd="13.5dp"
+                    android:background="#eeeeee"
+                    android:layout_width="match_parent"
+                    android:layout_height="165dp">
+
+                    <ImageView
+                        android:scaleType="fitXY"
+                        android:id="@+id/imgv_banner_on_scroll"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
 
     </LinearLayout>
 </layout>
