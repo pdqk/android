@@ -29,7 +29,7 @@ android {
     }
     sourceSets {
         main {
-            res.srcDirs = ['src/main/res', 'src/main/res/layouts/login', 'src/main/res/layouts/register', 'src/main/res/layouts/regiter', 'src/main/res/layouts/get_started', 'src/main/res/layouts/welcome', 'src/main/res/layouts/defaultFolder', 'src/main/res/layouts/main', 'src/main/res/layouts/forgot_password', 'src/main/res/layouts/splash_screen', 'src/main/res/layoutsHOME/home', 'src/main/res/layoutsHOME/defaultFolder', 'src/main/res/layoutsHOME/displayBottomNav', 'src/main/res/layoutsHOME/homePage', 'src/main/res/layoutsHOME/order', 'src/main/res/layoutsHOME/me']
+            res.srcDirs = ['src/main/res', 'src/main/res/layouts/login', 'src/main/res/layouts/register', 'src/main/res/layouts/regiter', 'src/main/res/layouts/get_started', 'src/main/res/layouts/welcome', 'src/main/res/layouts/defaultFolder', 'src/main/res/layouts/main', 'src/main/res/layouts/forgot_password', 'src/main/res/layouts/splash_screen', 'src/main/res/layoutsHOME/home', 'src/main/res/layoutsHOME/defaultFolder', 'src/main/res/layoutsHOME/displayBottomNav', 'src/main/res/layoutsHOME/homePage', 'src/main/res/layoutsHOME/order', 'src/main/res/layoutsHOME/me', 'src/main/res/layoutsHOME/shared']
             assets.srcDirs = ['src/main/assets', 'src/main/res/layouts/main']
         }
     }

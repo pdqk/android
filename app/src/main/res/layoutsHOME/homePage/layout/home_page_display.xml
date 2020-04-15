@@ -513,20 +513,33 @@
                         tools:listitem="@layout/voucher_recycler_item" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
+
                 <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="13.5dp"
+                    android:background="#eeeeee">
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="vertical"
                     android:paddingBottom="13.5dp"
                     android:paddingTop="13.5dp"
                     android:paddingStart="13.5dp"
                     android:paddingEnd="13.5dp"
-                    android:background="#eeeeee"
+                    android:background="#ffffff"
                     android:layout_width="match_parent"
-                    android:layout_height="165dp">
+                    android:layout_height="wrap_content">
 
                     <ImageView
+                        android:layout_marginBottom="13.5dp"
                         android:scaleType="fitXY"
                         android:id="@+id/imgv_banner_on_scroll"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"/>
+                        android:layout_height="130dp"/>
+
+                    <include layout="@layout/dont_have_submenu_layout"
+                        android:id="@+id/dont_have_submenu_in_homepage"/>
 
                 </LinearLayout>
 

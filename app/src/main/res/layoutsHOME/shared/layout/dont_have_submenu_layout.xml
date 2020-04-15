@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <merge
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="525dp">
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tabs_shared"
+                style="@style/MyCustomTabLayout"
+                app:tabMaxWidth="0dp"
+                app:tabBackground="@color/colorPrimaryDark"
+                app:tabIndicatorColor="#554B2E"
+                app:tabTextColor="#1d1d1f"
+                app:tabGravity="fill"
+                app:tabMode="fixed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <androidx.viewpager.widget.ViewPager
+                android:background="@color/colorPrimaryDark"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/viewpager_shared">
+
+            </androidx.viewpager.widget.ViewPager>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+    </merge>
+</layout>

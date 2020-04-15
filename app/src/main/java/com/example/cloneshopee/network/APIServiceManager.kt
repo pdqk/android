@@ -2,6 +2,8 @@ package com.example.cloneshopee.network
 
 import com.example.cloneshopee.home.models.homepageModel.SlideImageModel
 import com.example.cloneshopee.home.models.homepageModel.VoucherModel
+import com.example.cloneshopee.home.models.menuModel.thucphamModel.SubmenuThucPhamModel
+import com.example.cloneshopee.home.models.menuModel.thucphamModel.ThucPhamSlideImageModel
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
@@ -31,6 +33,14 @@ interface APIService {
     @GET("vouchers/all")
     fun getAllVouchers():
             Deferred<List<VoucherModel>>
+
+    @GET("thucphams/allSlideImage")
+    fun getAllThucPhamSlideImage():
+            Deferred<List<ThucPhamSlideImageModel>>
+
+    @GET("submenus/thucpham")
+    fun getAllSubmenuThucPham():
+            Deferred<List<SubmenuThucPhamModel>>
 }
 
 object API {
