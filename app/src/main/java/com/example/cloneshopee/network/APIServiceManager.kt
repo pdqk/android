@@ -2,6 +2,7 @@ package com.example.cloneshopee.network
 
 import com.example.cloneshopee.home.models.homepageModel.SlideImageModel
 import com.example.cloneshopee.home.models.homepageModel.VoucherModel
+import com.example.cloneshopee.home.models.menuModel.ShopModel
 import com.example.cloneshopee.home.models.menuModel.thucphamModel.SubmenuThucPhamModel
 import com.example.cloneshopee.home.models.menuModel.thucphamModel.ThucPhamSlideImageModel
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
@@ -25,22 +26,53 @@ private val retrofit = Retrofit.Builder()
     .build()
 
 interface APIService {
+    /**/
     /*Homepage API*/
     @GET("slideimages/all")
     fun getAllSlideImages():
             Deferred<List<SlideImageModel>>
-
     @GET("vouchers/all")
     fun getAllVouchers():
             Deferred<List<VoucherModel>>
 
-    @GET("thucphams/allSlideImage")
-    fun getAllThucPhamSlideImage():
-            Deferred<List<ThucPhamSlideImageModel>>
-
+    /**/
+    /*API get submenu of menu in homepage*/
     @GET("submenus/thucpham")
     fun getAllSubmenuThucPham():
             Deferred<List<SubmenuThucPhamModel>>
+
+    /**/
+    /*Submenu Thuc pham API*/
+    @GET("thucphams/allSlideImage")
+    fun getAllThucPhamSlideImage():
+            Deferred<List<ThucPhamSlideImageModel>>
+    @GET("thucphams/allSubMenuDacSan")
+    fun getAllSubmenuDacSan():
+            Deferred<List<ShopModel>>
+    @GET("thucphams/allSubMenuAnChay")
+    fun getAllSubmenuAnChay():
+            Deferred<List<ShopModel>>
+    @GET("thucphams/allSubMenuTraiCay")
+    fun getAllSubmenuTraiCay():
+            Deferred<List<ShopModel>>
+    @GET("thucphams/allSubMenuThitTrung")
+    fun getAllSubmenuThitTrung():
+            Deferred<List<ShopModel>>
+    @GET("thucphams/allSubMenuHaiSan")
+    fun getAllSubmenuHaiSan():
+            Deferred<List<ShopModel>>
+    @GET("thucphams/allSubMenuRauCu")
+    fun getAllSubmenuRauCu():
+            Deferred<List<ShopModel>>
+    @GET("thucphams/allSubMenuGaoMi")
+    fun getAllSubmenuGaoMi():
+            Deferred<List<ShopModel>>
+    @GET("thucphams/allSubMenuDoUongAnVat")
+    fun getAllSubmenuDoUongAnVat():
+            Deferred<List<ShopModel>>
+    @GET("thucphams/allSubMenuGiaVi")
+    fun getAllSubmenuGiaVi():
+            Deferred<List<ShopModel>>
 }
 
 object API {

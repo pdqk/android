@@ -5,20 +5,27 @@ import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.view.WindowManager
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProviders
 import com.example.cloneshopee.R
 import com.example.cloneshopee.databinding.HaveSubmenuLayoutBinding
 import com.example.cloneshopee.home.HomeActivity
 import com.example.cloneshopee.home.coroutines.menu.thucpham.CoroutineSlideImageThucPham
-import com.example.cloneshopee.home.coroutines.menu.thucpham.CoroutineSubmenuThucPham
+import com.example.cloneshopee.home.coroutines.menu.thucpham.CoroutineAllSubmenuThucPham
 import com.example.cloneshopee.home.coroutines.menu.thucpham.CoroutineVoucherThucPham
+import com.example.cloneshopee.home.displayHomePage.FragmentNearByMe
 import com.example.cloneshopee.home.recyclerViewAdapter.homepage.ViewPagerAdapter
+import com.example.cloneshopee.home.viewModels.menu.ThucPhamViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 
-class ThucPhamActivity : AppCompatActivity() {
+class ThucPhamActivity : AppCompatActivity(){
+
     private lateinit var haveSubmenuLayoutBinding: HaveSubmenuLayoutBinding
+    private lateinit var thucPhamViewModel: ThucPhamViewModel
 
     private var slideImageJob = Job()
     private var coroutineSlideImageScope = CoroutineScope(slideImageJob + Dispatchers.Main)
@@ -32,7 +39,8 @@ class ThucPhamActivity : AppCompatActivity() {
     var coroutineVoucherThucPham =
         CoroutineVoucherThucPham()
     var coroutineSubmenuThucPham =
-        CoroutineSubmenuThucPham()
+        CoroutineAllSubmenuThucPham()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,11 +51,20 @@ class ThucPhamActivity : AppCompatActivity() {
         setupVoucher()
         setupSubmenuThucPham()
         setupTabLayouts()
+
+        window.apply {
+            clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
+            addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+            decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+            statusBarColor = Color.TRANSPARENT
+        }
+
+        thucPhamViewModel = ViewModelProviders.of(this).get(ThucPhamViewModel::class.java)
     }
 
     private fun buttonControl(){
         haveSubmenuLayoutBinding.imgvBackToHomepage.setOnClickListener { view: View ->
-            var intent = Intent(this, HomeActivity::class.java)
+            val intent = Intent(this, HomeActivity::class.java)
             startActivity(intent)
         }
     }
@@ -71,7 +88,7 @@ class ThucPhamActivity : AppCompatActivity() {
     }
 
     private fun setupSubmenuThucPham(){
-        coroutineSubmenuThucPham.onCoroutineGetSubmenuThucPham(coroutineSubmenuThucPhamScope, haveSubmenuLayoutBinding, this)
+        coroutineSubmenuThucPham.onCoroutineGetSubmenuThucPham(coroutineSubmenuThucPhamScope, haveSubmenuLayoutBinding, this, this)
     }
 
     override fun onStop() {

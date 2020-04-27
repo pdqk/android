@@ -1,20 +1,19 @@
 package com.example.cloneshopee.home
 
 import android.graphics.Color
-import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.FragmentTransaction
-import androidx.navigation.findNavController
 import com.example.cloneshopee.R
 import com.example.cloneshopee.databinding.HomeActivityBinding
 import com.example.cloneshopee.home.displayHomePage.FragmentHomePage
 import com.example.cloneshopee.home.displayMe.FragmentMe
 
-class HomeActivity : AppCompatActivity() {
+class HomeActivity : AppCompatActivity(){
+
     private lateinit var homeActivityBinding: HomeActivityBinding
     private lateinit var homePage: FragmentHomePage
     private lateinit var me: FragmentMe

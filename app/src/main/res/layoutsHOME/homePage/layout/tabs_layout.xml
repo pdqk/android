@@ -8,26 +8,19 @@
     </data>
 
     <LinearLayout
+        android:id="@+id/refreshLayout"
         android:paddingBottom="12dp"
         android:paddingTop="12dp"
-        android:paddingEnd="18dp"
-        android:paddingStart="18dp"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_shop"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             tools:listitem="@layout/shop_recycler_item" />
-
-        <TextView
-            android:textSize="24sp"
-            android:text="Hello"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
 
     </LinearLayout>
 </layout>
