@@ -36,19 +36,15 @@ class FragmentNearByMe : Fragment(){
         tabsLayoutBinding = DataBindingUtil.inflate(inflater, R.layout.tabs_layout, container, false)
 
         thucPhamViewModel = ViewModelProviders.of(activity!!).get(ThucPhamViewModel::class.java)
-        setupSubmenuDacSan()
+        setupSubmenu()
 
         return tabsLayoutBinding.root
     }
 
-    private fun setupSubmenuDacSan(){
-        var position = thucPhamViewModel.position.value
+    private fun setupSubmenu(){
         thucPhamViewModel.position.observe(activity!!, Observer { newPosition ->
-            position = newPosition
-            Toast.makeText(activity, ""+position, Toast.LENGTH_SHORT).show()
+            coroutineGetShopOfSubmenuThucPhamByIndex.onCoroutineGetShopOfSubmenuByIndex(coroutineGetDacSanScope, tabsLayoutBinding, activity!!, newPosition)
         })
-
-        coroutineGetShopOfSubmenuThucPhamByIndex.onCoroutineGetShopOfSubmenuByIndex(coroutineGetDacSanScope, tabsLayoutBinding, activity!!, position)
     }
 
     override fun onDestroy() {

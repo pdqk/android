@@ -2,6 +2,7 @@ package com.example.cloneshopee.home.coroutines.menu.thucpham
 
 import android.app.Activity
 import android.content.Intent
+import android.view.View
 import android.view.WindowManager
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -36,6 +37,10 @@ class CoroutineSubmenuByIndex() {
                 0 -> {
                     val getAllSubmenuDacSanDeffered = API.apiService.getAllSubmenuDacSan()
                     try{
+                        tabsLayoutBinding.pbInTablayout.visibility = View.VISIBLE
+                        activity.window.setFlags(
+                            WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
+                            WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
                         val listResult = getAllSubmenuDacSanDeffered.await()
                         val len = listResult.size - 1
                         val submenuDacSan = ArrayList<ShopModel>()
@@ -58,6 +63,9 @@ class CoroutineSubmenuByIndex() {
                                 submenuDacSan
                             )
                         adapter.notifyDataSetChanged()
+                        tabsLayoutBinding.pbInTablayout.visibility = View.GONE
+                        activity.window.clearFlags(
+                            WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
                         tabsLayoutBinding.recyclerShop.adapter = adapter
                     }catch (t: Throwable){
                         Toast.makeText(activity, "Failded: " + t, Toast.LENGTH_SHORT).show()
@@ -66,6 +74,10 @@ class CoroutineSubmenuByIndex() {
                 1 -> {
                     val getAllSubmenuAnChayDeffered = API.apiService.getAllSubmenuAnChay()
                     try{
+                        tabsLayoutBinding.pbInTablayout.visibility = View.VISIBLE
+                        activity.window.setFlags(
+                            WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
+                            WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
                         val listResult = getAllSubmenuAnChayDeffered.await()
                         val len = listResult.size - 1
                         val submenuAnChay = ArrayList<ShopModel>()
@@ -88,6 +100,9 @@ class CoroutineSubmenuByIndex() {
                                 submenuAnChay
                             )
                         adapter.notifyDataSetChanged()
+                        tabsLayoutBinding.pbInTablayout.visibility = View.GONE
+                        activity.window.clearFlags(
+                            WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
                         tabsLayoutBinding.recyclerShop.adapter = adapter
                     }catch (t: Throwable){
                         Toast.makeText(activity, "Failded: " + t, Toast.LENGTH_SHORT).show()
@@ -96,6 +111,10 @@ class CoroutineSubmenuByIndex() {
                 2 -> {
                     val getAllSubmenuTraiCayDeffered = API.apiService.getAllSubmenuTraiCay()
                     try{
+                        tabsLayoutBinding.pbInTablayout.visibility = View.VISIBLE
+                        activity.window.setFlags(
+                            WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
+                            WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
                         val listResult = getAllSubmenuTraiCayDeffered.await()
                         val len = listResult.size - 1
                         val submenuTraiCay = ArrayList<ShopModel>()
@@ -118,6 +137,9 @@ class CoroutineSubmenuByIndex() {
                                 submenuTraiCay
                             )
                         adapter.notifyDataSetChanged()
+                        tabsLayoutBinding.pbInTablayout.visibility = View.GONE
+                        activity.window.clearFlags(
+                            WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
                         tabsLayoutBinding.recyclerShop.adapter = adapter
                     }catch (t: Throwable){
                         Toast.makeText(activity, "Failded: " + t, Toast.LENGTH_SHORT).show()
@@ -126,6 +148,10 @@ class CoroutineSubmenuByIndex() {
                 3 -> {
                     val getAllSubmenuHaiSanDeffered = API.apiService.getAllSubmenuHaiSan()
                     try{
+                        tabsLayoutBinding.pbInTablayout.visibility = View.VISIBLE
+                        activity.window.setFlags(
+                            WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
+                            WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
                         val listResult = getAllSubmenuHaiSanDeffered.await()
                         val len = listResult.size - 1
                         val submenuHaiSan = ArrayList<ShopModel>()
@@ -148,6 +174,9 @@ class CoroutineSubmenuByIndex() {
                                 submenuHaiSan
                             )
                         adapter.notifyDataSetChanged()
+                        tabsLayoutBinding.pbInTablayout.visibility = View.GONE
+                        activity.window.clearFlags(
+                            WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
                         tabsLayoutBinding.recyclerShop.adapter = adapter
                     }catch (t: Throwable){
                         Toast.makeText(activity, "Failded: " + t, Toast.LENGTH_SHORT).show()
@@ -156,6 +185,10 @@ class CoroutineSubmenuByIndex() {
                 4 -> {
                     val getAllSubmenuRauCuDeffered = API.apiService.getAllSubmenuRauCu()
                     try{
+                        tabsLayoutBinding.pbInTablayout.visibility = View.VISIBLE
+                        activity.window.setFlags(
+                            WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
+                            WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
                         val listResult = getAllSubmenuRauCuDeffered.await()
                         val len = listResult.size - 1
                         val submenuRauCu = ArrayList<ShopModel>()
@@ -178,6 +211,9 @@ class CoroutineSubmenuByIndex() {
                                 submenuRauCu
                             )
                         adapter.notifyDataSetChanged()
+                        tabsLayoutBinding.pbInTablayout.visibility = View.GONE
+                        activity.window.clearFlags(
+                            WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
                         tabsLayoutBinding.recyclerShop.adapter = adapter
                     }catch (t: Throwable){
                         Toast.makeText(activity, "Failded: " + t, Toast.LENGTH_SHORT).show()
@@ -186,6 +222,10 @@ class CoroutineSubmenuByIndex() {
                 5 -> {
                     val getAllSubmenuDoUongAnVatDeffered = API.apiService.getAllSubmenuDoUongAnVat()
                     try{
+                        tabsLayoutBinding.pbInTablayout.visibility = View.VISIBLE
+                        activity.window.setFlags(
+                            WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
+                            WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
                         val listResult = getAllSubmenuDoUongAnVatDeffered.await()
                         val len = listResult.size - 1
                         val submenuDoUongAnVat = ArrayList<ShopModel>()
@@ -208,6 +248,9 @@ class CoroutineSubmenuByIndex() {
                                 submenuDoUongAnVat
                             )
                         adapter.notifyDataSetChanged()
+                        tabsLayoutBinding.pbInTablayout.visibility = View.GONE
+                        activity.window.clearFlags(
+                            WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
                         tabsLayoutBinding.recyclerShop.adapter = adapter
                     }catch (t: Throwable){
                         Toast.makeText(activity, "Failded: " + t, Toast.LENGTH_SHORT).show()
@@ -216,6 +259,10 @@ class CoroutineSubmenuByIndex() {
                 6 -> {
                     val getAllSubmenuGiaViDeffered = API.apiService.getAllSubmenuGiaVi()
                     try{
+                        tabsLayoutBinding.pbInTablayout.visibility = View.VISIBLE
+                        activity.window.setFlags(
+                            WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
+                            WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
                         val listResult = getAllSubmenuGiaViDeffered.await()
                         val len = listResult.size - 1
                         val submenuGiaVi = ArrayList<ShopModel>()
@@ -238,6 +285,9 @@ class CoroutineSubmenuByIndex() {
                                 submenuGiaVi
                             )
                         adapter.notifyDataSetChanged()
+                        tabsLayoutBinding.pbInTablayout.visibility = View.GONE
+                        activity.window.clearFlags(
+                            WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
                         tabsLayoutBinding.recyclerShop.adapter = adapter
                     }catch (t: Throwable){
                         Toast.makeText(activity, "Failded: " + t, Toast.LENGTH_SHORT).show()
@@ -246,6 +296,10 @@ class CoroutineSubmenuByIndex() {
                 7 -> {
                     val getAllSubmenuGaoMiDeffered = API.apiService.getAllSubmenuGaoMi()
                     try{
+                        tabsLayoutBinding.pbInTablayout.visibility = View.VISIBLE
+                        activity.window.setFlags(
+                            WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
+                            WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
                         val listResult = getAllSubmenuGaoMiDeffered.await()
                         val len = listResult.size - 1
                         val submenuGaoMi = ArrayList<ShopModel>()
@@ -268,6 +322,9 @@ class CoroutineSubmenuByIndex() {
                                 submenuGaoMi
                             )
                         adapter.notifyDataSetChanged()
+                        tabsLayoutBinding.pbInTablayout.visibility = View.GONE
+                        activity.window.clearFlags(
+                            WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
                         tabsLayoutBinding.recyclerShop.adapter = adapter
                     }catch (t: Throwable){
                         Toast.makeText(activity, "Failded: " + t, Toast.LENGTH_SHORT).show()
@@ -276,6 +333,10 @@ class CoroutineSubmenuByIndex() {
                 8 -> {
                     val getAllSubmenuThitTrungDeffered = API.apiService.getAllSubmenuThitTrung()
                     try{
+                        tabsLayoutBinding.pbInTablayout.visibility = View.VISIBLE
+                        activity.window.setFlags(
+                            WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
+                            WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
                         val listResult = getAllSubmenuThitTrungDeffered.await()
                         val len = listResult.size - 1
                         val submenuThitTrung = ArrayList<ShopModel>()
@@ -298,6 +359,9 @@ class CoroutineSubmenuByIndex() {
                                 submenuThitTrung
                             )
                         adapter.notifyDataSetChanged()
+                        tabsLayoutBinding.pbInTablayout.visibility = View.GONE
+                        activity.window.clearFlags(
+                            WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
                         tabsLayoutBinding.recyclerShop.adapter = adapter
                     }catch (t: Throwable){
                         Toast.makeText(activity, "Failded: " + t, Toast.LENGTH_SHORT).show()
