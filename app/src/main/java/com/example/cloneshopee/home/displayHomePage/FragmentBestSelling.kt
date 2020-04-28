@@ -12,9 +12,11 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.cloneshopee.R
 import com.example.cloneshopee.databinding.TabsLayoutBinding
+import com.example.cloneshopee.home.coroutines.menu.hoa.CoroutineSubmenuHoaByIndex
 import com.example.cloneshopee.home.coroutines.menu.sieuthi.CoroutineSubmenuSieuThiByIndex
 import com.example.cloneshopee.home.coroutines.menu.thucpham.CoroutineSubmenuByIndex
 import com.example.cloneshopee.home.coroutines.menu.thucung.CoroutineSubmenuThuCungByIndex
+import com.example.cloneshopee.home.viewModels.menu.HoaViewModel
 import com.example.cloneshopee.home.viewModels.menu.SieuThiViewModel
 import com.example.cloneshopee.home.viewModels.menu.ThuCungViewModel
 import com.example.cloneshopee.home.viewModels.menu.ThucPhamViewModel
@@ -31,6 +33,8 @@ class FragmentBestSelling : Fragment() {
     private lateinit var thucPhamViewModel: ThucPhamViewModel
     private lateinit var thuCungViewModel: ThuCungViewModel
     private lateinit var sieuThiViewModel: SieuThiViewModel
+    private lateinit var hoaViewModel: HoaViewModel
+
 
     private var getShopDacSanJob = Job()
     private var coroutineGetDacSanScope = CoroutineScope(getShopDacSanJob + Dispatchers.Main)
@@ -44,12 +48,17 @@ class FragmentBestSelling : Fragment() {
     private var coroutineGetSieuThiScope = CoroutineScope(getShopSieuThiJob + Dispatchers.Main)
     var coroutineGetShopOfSubmenuSieuThiByIndex = CoroutineSubmenuSieuThiByIndex()
 
+    private var getShopHoaJob = Job()
+    private var coroutineGetHoaScope = CoroutineScope(getShopHoaJob + Dispatchers.Main)
+    var coroutineGetShopOfSubmenuHoaByIndex = CoroutineSubmenuHoaByIndex()
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         tabsLayoutBinding = DataBindingUtil.inflate(inflater, R.layout.tabs_layout, container, false)
 
         thucPhamViewModel = ViewModelProviders.of(activity!!).get(ThucPhamViewModel::class.java)
         thuCungViewModel = ViewModelProviders.of(activity!!).get(ThuCungViewModel::class.java)
         sieuThiViewModel = ViewModelProviders.of(activity!!).get(SieuThiViewModel::class.java)
+        hoaViewModel = ViewModelProviders.of(activity!!).get(HoaViewModel::class.java)
 
         setupSubmenu()
 
@@ -74,6 +83,11 @@ class FragmentBestSelling : Fragment() {
                 coroutineGetShopOfSubmenuSieuThiByIndex.onCoroutineGetShopOfSubmenuByIndex(coroutineGetSieuThiScope, tabsLayoutBinding, activity!!, newPosition)
             })
         }
+        if(submenu == "hoa"){
+            hoaViewModel.position.observe(activity!!, Observer { newPosition ->
+                coroutineGetShopOfSubmenuHoaByIndex.onCoroutineGetShopOfSubmenuByIndex(coroutineGetHoaScope, tabsLayoutBinding, activity!!, newPosition)
+            })
+        }
     }
 
     override fun onDestroy() {
@@ -81,5 +95,6 @@ class FragmentBestSelling : Fragment() {
         coroutineGetShopOfSubmenuThucPhamByIndex.onCoroutineDone(getShopDacSanJob)
         coroutineGetShopOfSubmenuThuCungByIndex.onCoroutineDone(getShopThuCungJob)
         coroutineGetShopOfSubmenuSieuThiByIndex.onCoroutineDone(getShopSieuThiJob)
+        coroutineGetShopOfSubmenuHoaByIndex.onCoroutineDone(getShopHoaJob)
     }
 }

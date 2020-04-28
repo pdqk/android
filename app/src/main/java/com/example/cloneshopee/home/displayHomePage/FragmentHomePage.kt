@@ -13,6 +13,7 @@ import com.example.cloneshopee.R
 import com.example.cloneshopee.databinding.HomePageDisplayBinding
 import com.example.cloneshopee.home.coroutines.homepage.CoroutineSliderImageHomepage
 import com.example.cloneshopee.home.coroutines.homepage.CoroutineVoucherHomepage
+import com.example.cloneshopee.home.displayMenuSelected.HoaActivity
 import com.example.cloneshopee.home.displayMenuSelected.SieuThiActivity
 import com.example.cloneshopee.home.displayMenuSelected.ThuCungActivity
 import com.example.cloneshopee.home.displayMenuSelected.ThucPhamActivity
@@ -87,6 +88,13 @@ class FragmentHomePage : Fragment() {
             editor.apply()
             editor.commit()
             val intent = Intent(activity, SieuThiActivity::class.java)
+            startActivity(intent)
+        }
+        homePageDisplayBinding.imgvHoa.setOnClickListener { view: View ->
+            editor.putString("submenu","hoa")
+            editor.apply()
+            editor.commit()
+            val intent = Intent(activity, HoaActivity::class.java)
             startActivity(intent)
         }
     }
