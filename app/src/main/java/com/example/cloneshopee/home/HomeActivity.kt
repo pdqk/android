@@ -31,6 +31,12 @@ class HomeActivity : AppCompatActivity(){
 
         initView()
         bottomNavControl()
+
+        val sharedPreferences = getSharedPreferences("CurrentSubmenu", 0)
+        val editor = sharedPreferences.edit()
+        editor.putString("submenu", "thucpham")
+        editor.apply()
+        editor.commit()
     }
 
     private fun initView(){

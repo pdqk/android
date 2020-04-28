@@ -106,10 +106,5 @@ class ThucPhamActivity : AppCompatActivity(){
         coroutineSliderImageThucPham.onCoroutineDone(slideImageJob)
         coroutineVoucherThucPham.onCoroutineDone(voucherJob)
         coroutineSubmenuThucPham.onCoroutineDone(submenuThucPhamJob)
-        val sharedPreferences = getSharedPreferences("CurrentSubmenu", 0)
-        val editor = sharedPreferences.edit()
-        editor.putString("submenu","thucpham")
-        editor.apply()
-        editor.commit()
     }
 }

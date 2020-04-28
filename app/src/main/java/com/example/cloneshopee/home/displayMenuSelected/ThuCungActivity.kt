@@ -100,10 +100,5 @@ class ThuCungActivity : AppCompatActivity() {
         coroutineSliderImageThuCung.onCoroutineDone(slideImageJob)
         coroutineVoucherThuCung.onCoroutineDone(voucherJob)
         coroutineSubmenuThuCung.onCoroutineDone(submenuThuCungJob)
-        val sharedPreferences = getSharedPreferences("CurrentSubmenu", 0)
-        val editor = sharedPreferences.edit()
-        editor.putString("submenu","thucpham")
-        editor.apply()
-        editor.commit()
     }
 }
