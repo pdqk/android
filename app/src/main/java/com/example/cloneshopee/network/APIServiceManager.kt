@@ -3,6 +3,8 @@ package com.example.cloneshopee.network
 import com.example.cloneshopee.home.models.homepageModel.SlideImageModel
 import com.example.cloneshopee.home.models.homepageModel.VoucherModel
 import com.example.cloneshopee.home.models.menuModel.ShopModel
+import com.example.cloneshopee.home.models.menuModel.sieuthiModel.SieuThiSlideImageModel
+import com.example.cloneshopee.home.models.menuModel.sieuthiModel.SubmenuSieuThiModel
 import com.example.cloneshopee.home.models.menuModel.thucphamModel.SubmenuThucPhamModel
 import com.example.cloneshopee.home.models.menuModel.thucphamModel.ThucPhamSlideImageModel
 import com.example.cloneshopee.home.models.menuModel.thucungModel.SubmenuThuCungModel
@@ -45,6 +47,9 @@ interface APIService {
     @GET("submenus/thucung")
     fun getAllSubmenuThuCung():
             Deferred<List<SubmenuThuCungModel>>
+    @GET("submenus/sieuthi")
+    fun getAllSubmenuSieuThi():
+            Deferred<List<SubmenuSieuThiModel>>
 
     /**/
     /*Submenu Thuc pham API*/
@@ -86,6 +91,42 @@ interface APIService {
             Deferred<List<ThuCungSlideImageModel>>
     @GET("thucungs/allSubMenuThuCung")
     fun getAllSubmenuThuCungs():
+            Deferred<List<ShopModel>>
+
+    /**/
+    /*Submenu Sieu thi API*/
+    @GET("sieuthis/allSlideImage")
+    fun getAllSieuThiSlideImage():
+            Deferred<List<SieuThiSlideImageModel>>
+    @GET("sieuthis/allSubMenuMyPham")
+    fun getAllSubmenuMyPham():
+            Deferred<List<ShopModel>>
+    @GET("sieuthis/allSubMenuTaBim")
+    fun getAllSubmenuTaBim():
+            Deferred<List<ShopModel>>
+    @GET("sieuthis/allSubMenuSua")
+    fun getAllSubmenuSua():
+            Deferred<List<ShopModel>>
+    @GET("sieuthis/allSubMenuDoChoi")
+    fun getAllSubmenuDoChoi():
+            Deferred<List<ShopModel>>
+    @GET("sieuthis/allSubMenuThietBi")
+    fun getAllSubmenuThietBi():
+            Deferred<List<ShopModel>>
+    @GET("sieuthis/allSubMenuDungCu")
+    fun getAllSubmenuDungCu():
+            Deferred<List<ShopModel>>
+    @GET("sieuthis/allSubMenuQuanAo")
+    fun getAllSubmenuQuanAo():
+            Deferred<List<ShopModel>>
+    @GET("sieuthis/allSubMenuGiayDep")
+    fun getAllSubmenuGiayDep():
+            Deferred<List<ShopModel>>
+    @GET("sieuthis/allSubMenuDienTu")
+    fun getAllSubmenuDienTu():
+            Deferred<List<ShopModel>>
+    @GET("sieuthis/allSubMenuTrangSuc")
+    fun getAllSubmenuTrangSuc():
             Deferred<List<ShopModel>>
 }
 

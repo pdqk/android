@@ -1,4 +1,4 @@
-package com.example.cloneshopee.home.coroutines.menu.thucung
+package com.example.cloneshopee.home.coroutines.menu.sieuthi
 
 import android.app.Activity
 import android.widget.Toast
@@ -10,10 +10,10 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
-class CoroutineSlideImageThuCung {
+class CoroutineSlideImageSieuThi {
     fun onCoroutineGetSlideImage(coroutineScope: CoroutineScope, activity: Activity, haveSubmenuLayoutBinding: HaveSubmenuLayoutBinding){
         coroutineScope.launch {
-            var getAllSlideImagesDeferred = API.apiService.getAllThuCungSlideImage()
+            var getAllSlideImagesDeferred = API.apiService.getAllSieuThiSlideImage()
             try{
                 var listResult = getAllSlideImagesDeferred.await()
                 var len = listResult.size - 1

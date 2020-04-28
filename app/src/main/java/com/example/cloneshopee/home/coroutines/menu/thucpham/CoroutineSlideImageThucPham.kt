@@ -20,7 +20,7 @@ class CoroutineSlideImageThucPham {
                 var listResult = getAllSlideImagesDeferred.await()
                 var len = listResult.size - 1
                 var slideModels = ArrayList<SlideModel>()
-                for(i in 0..len){
+                for(i in 1..len){
                     slideModels.add(SlideModel(listResult[i].IMAGE_URL))
                 }
                 haveSubmenuLayoutBinding.sliderImageInHaveSubmenu.setImageList(slideModels, true)
