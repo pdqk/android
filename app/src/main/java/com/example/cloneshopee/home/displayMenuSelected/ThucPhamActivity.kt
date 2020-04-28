@@ -1,4 +1,4 @@
-package com.example.cloneshopee.home.displayMenuShop
+package com.example.cloneshopee.home.displayMenuSelected
 
 import android.content.Intent
 import android.graphics.Color
@@ -7,7 +7,6 @@ import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
 import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.example.cloneshopee.R
 import com.example.cloneshopee.databinding.HaveSubmenuLayoutBinding
@@ -15,7 +14,6 @@ import com.example.cloneshopee.home.HomeActivity
 import com.example.cloneshopee.home.coroutines.menu.thucpham.CoroutineSlideImageThucPham
 import com.example.cloneshopee.home.coroutines.menu.thucpham.CoroutineAllSubmenuThucPham
 import com.example.cloneshopee.home.coroutines.menu.thucpham.CoroutineVoucherThucPham
-import com.example.cloneshopee.home.displayHomePage.FragmentNearByMe
 import com.example.cloneshopee.home.recyclerViewAdapter.homepage.ViewPagerAdapter
 import com.example.cloneshopee.home.viewModels.menu.ThucPhamViewModel
 import kotlinx.coroutines.CoroutineScope
@@ -63,8 +61,13 @@ class ThucPhamActivity : AppCompatActivity(){
     }
 
     private fun buttonControl(){
+        val sharedPreferences = getSharedPreferences("CurrentSubmenu",0)
+        val editor = sharedPreferences.edit()
         haveSubmenuLayoutBinding.imgvBackToHomepage.setOnClickListener { view: View ->
             val intent = Intent(this, HomeActivity::class.java)
+            editor.putString("submenu","thucpham")
+            editor.apply()
+            editor.commit()
             startActivity(intent)
         }
     }
@@ -103,5 +106,10 @@ class ThucPhamActivity : AppCompatActivity(){
         coroutineSliderImageThucPham.onCoroutineDone(slideImageJob)
         coroutineVoucherThucPham.onCoroutineDone(voucherJob)
         coroutineSubmenuThucPham.onCoroutineDone(submenuThucPhamJob)
+        val sharedPreferences = getSharedPreferences("CurrentSubmenu", 0)
+        val editor = sharedPreferences.edit()
+        editor.putString("submenu","thucpham")
+        editor.apply()
+        editor.commit()
     }
 }

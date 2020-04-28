@@ -1,29 +1,32 @@
-package com.example.cloneshopee.home.coroutines.menu.thucpham
+package com.example.cloneshopee.home.coroutines.menu.thucung
 
 import android.app.Activity
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cloneshopee.databinding.HaveSubmenuLayoutBinding
+import com.example.cloneshopee.home.displayMenuSelected.ThuCungActivity
 import com.example.cloneshopee.home.displayMenuSelected.ThucPhamActivity
 import com.example.cloneshopee.home.models.menuModel.thucphamModel.SubmenuThucPhamModel
+import com.example.cloneshopee.home.models.menuModel.thucungModel.SubmenuThuCungModel
 import com.example.cloneshopee.home.recyclerViewAdapter.menu.thucpham.SubmenuThucPhamAdapter
+import com.example.cloneshopee.home.recyclerViewAdapter.menu.thucung.SubmenuThuCungAdapter
 import com.example.cloneshopee.network.API
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
-class CoroutineAllSubmenuThucPham {
-    fun onCoroutineGetSubmenuThucPham(coroutineScope: CoroutineScope, haveSubmenuLayoutBinding: HaveSubmenuLayoutBinding, activity: Activity, thucPhamActivity: ThucPhamActivity){
+class CoroutineAllSubmenuThuCung {
+    fun onCoroutineGetSubmenuThuCung(coroutineScope: CoroutineScope, haveSubmenuLayoutBinding: HaveSubmenuLayoutBinding, activity: Activity, thucCungActivity: ThuCungActivity){
         coroutineScope.launch {
-            val getAllSubmenuThucPhamDeffered = API.apiService.getAllSubmenuThucPham()
+            val getAllSubmenuThuCungDeffered = API.apiService.getAllSubmenuThuCung()
             try{
-                val listResult = getAllSubmenuThucPhamDeffered.await()
+                val listResult = getAllSubmenuThuCungDeffered.await()
                 val len = listResult.size - 1
-                val submenuThucPham = ArrayList<SubmenuThucPhamModel>()
+                val submenuThuCung = ArrayList<SubmenuThuCungModel>()
                 for(i in 0..len){
-                    submenuThucPham.add(
-                        SubmenuThucPhamModel(
+                    submenuThuCung.add(
+                        SubmenuThuCungModel(
                             listResult[i]._id,
                             listResult[i].IMAGE_URL,
                             listResult[i].NAME,
@@ -33,9 +36,9 @@ class CoroutineAllSubmenuThucPham {
                 }
                 haveSubmenuLayoutBinding.recyclerSubmenu.layoutManager = LinearLayoutManager(activity, RecyclerView.HORIZONTAL, false)
                 val adapter =
-                    SubmenuThucPhamAdapter(
-                        submenuThucPham,
-                        thucPhamActivity
+                    SubmenuThuCungAdapter(
+                        submenuThuCung,
+                        thucCungActivity
                     )
                 haveSubmenuLayoutBinding.recyclerSubmenu.adapter = adapter
             }catch (t: Throwable){

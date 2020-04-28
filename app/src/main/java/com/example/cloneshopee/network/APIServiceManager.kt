@@ -5,6 +5,8 @@ import com.example.cloneshopee.home.models.homepageModel.VoucherModel
 import com.example.cloneshopee.home.models.menuModel.ShopModel
 import com.example.cloneshopee.home.models.menuModel.thucphamModel.SubmenuThucPhamModel
 import com.example.cloneshopee.home.models.menuModel.thucphamModel.ThucPhamSlideImageModel
+import com.example.cloneshopee.home.models.menuModel.thucungModel.SubmenuThuCungModel
+import com.example.cloneshopee.home.models.menuModel.thucungModel.ThuCungSlideImageModel
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
@@ -40,6 +42,9 @@ interface APIService {
     @GET("submenus/thucpham")
     fun getAllSubmenuThucPham():
             Deferred<List<SubmenuThucPhamModel>>
+    @GET("submenus/thucung")
+    fun getAllSubmenuThuCung():
+            Deferred<List<SubmenuThuCungModel>>
 
     /**/
     /*Submenu Thuc pham API*/
@@ -72,6 +77,15 @@ interface APIService {
             Deferred<List<ShopModel>>
     @GET("thucphams/allSubMenuGiaVi")
     fun getAllSubmenuGiaVi():
+            Deferred<List<ShopModel>>
+
+    /**/
+    /*Submenu Thu cung API*/
+    @GET("thucungs/allSlideImage")
+    fun getAllThuCungSlideImage():
+            Deferred<List<ThuCungSlideImageModel>>
+    @GET("thucungs/allSubMenuThuCung")
+    fun getAllSubmenuThuCungs():
             Deferred<List<ShopModel>>
 }
 

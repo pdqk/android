@@ -8,18 +8,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
 import androidx.databinding.DataBindingUtil
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.cloneshopee.R
 import com.example.cloneshopee.databinding.HomePageDisplayBinding
 import com.example.cloneshopee.home.coroutines.homepage.CoroutineSliderImageHomepage
 import com.example.cloneshopee.home.coroutines.homepage.CoroutineVoucherHomepage
-import com.example.cloneshopee.home.displayMenuShop.ThucPhamActivity
-import com.example.cloneshopee.home.models.homepageModel.VoucherModel
+import com.example.cloneshopee.home.displayMenuSelected.ThuCungActivity
+import com.example.cloneshopee.home.displayMenuSelected.ThucPhamActivity
 import com.example.cloneshopee.home.recyclerViewAdapter.homepage.ViewPagerAdapter
-import com.example.cloneshopee.home.recyclerViewAdapter.homepage.VoucherAdapter
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -68,8 +64,21 @@ class FragmentHomePage : Fragment() {
     }
 
     private fun setupMenuNavigation(){
+        val sharedPreferences = activity!!.getSharedPreferences("CurrentSubmenu", 0)
+        val editor = sharedPreferences.edit()
+
         homePageDisplayBinding.imgvThucPham.setOnClickListener { view: View ->
-            var intent = Intent(activity, ThucPhamActivity::class.java)
+            editor.putString("submenu","thucpham")
+            editor.apply()
+            editor.commit()
+            val intent = Intent(activity, ThucPhamActivity::class.java)
+            startActivity(intent)
+        }
+        homePageDisplayBinding.imgvThuCung.setOnClickListener { view: View ->
+            editor.putString("submenu","thucung")
+            editor.apply()
+            editor.commit()
+            val intent = Intent(activity, ThuCungActivity::class.java)
             startActivity(intent)
         }
     }

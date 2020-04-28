@@ -5,7 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class ThucPhamViewModel: ViewModel() {
+class ThuCungViewModel : ViewModel() {
     private val _position = MutableLiveData<Int>()
     val position : LiveData<Int>
         get() = _position
