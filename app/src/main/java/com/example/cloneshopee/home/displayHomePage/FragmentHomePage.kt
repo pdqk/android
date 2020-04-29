@@ -108,6 +108,13 @@ class FragmentHomePage : Fragment() {
             val intent = Intent(activity, ThuocActivity::class.java)
             startActivity(intent)
         }
+        homePageDisplayBinding.imgvLamDep.setOnClickListener { view: View ->
+            editor.putString("submenu","lamdep")
+            editor.apply()
+            editor.commit()
+            val intent = Intent(activity, LamDepActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     override fun onStop() {

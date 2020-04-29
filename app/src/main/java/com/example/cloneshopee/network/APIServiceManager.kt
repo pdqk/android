@@ -5,6 +5,8 @@ import com.example.cloneshopee.home.models.homepageModel.VoucherModel
 import com.example.cloneshopee.home.models.menuModel.ShopModel
 import com.example.cloneshopee.home.models.menuModel.hoaModel.HoaSlideImageModel
 import com.example.cloneshopee.home.models.menuModel.hoaModel.SubmenuHoaModel
+import com.example.cloneshopee.home.models.menuModel.lamdepModel.LamDepSlideImageModel
+import com.example.cloneshopee.home.models.menuModel.lamdepModel.SubmenuLamDepModel
 import com.example.cloneshopee.home.models.menuModel.ruoubiaModel.RuouBiaSlideImageModel
 import com.example.cloneshopee.home.models.menuModel.ruoubiaModel.SubmenuRuouBiaModel
 import com.example.cloneshopee.home.models.menuModel.sieuthiModel.SieuThiSlideImageModel
@@ -65,6 +67,9 @@ interface APIService {
     @GET("submenus/thuoc")
     fun getAllSubmenuThuoc():
             Deferred<List<SubmenuThuocModel>>
+    @GET("submenus/lamdep")
+    fun getAllSubmenuLamDep():
+            Deferred<List<SubmenuLamDepModel>>
 
     /**/
     /*Submenu Thuc pham API*/
@@ -202,6 +207,39 @@ interface APIService {
             Deferred<List<ShopModel>>
     @GET("thuocs/allSubMenuHoaMyPham")
     fun getAllSubmenuHoaMyPham():
+            Deferred<List<ShopModel>>
+
+    /**/
+    /*Submenu Hoa API*/
+    @GET("lamdeps/allSlideImage")
+    fun getAllLamDepSlideImage():
+            Deferred<List<LamDepSlideImageModel>>
+    @GET("lamdeps/allSubMenuNail")
+    fun getAllSubmenuNail():
+            Deferred<List<ShopModel>>
+    @GET("lamdeps/allSubMenuMassage")
+    fun getAllSubmenuMassage():
+            Deferred<List<ShopModel>>
+    @GET("lamdeps/allSubMenuToc")
+    fun getAllSubmenuToc():
+            Deferred<List<ShopModel>>
+    @GET("lamdeps/allSubMenuDa")
+    fun getAllSubmenuDa():
+            Deferred<List<ShopModel>>
+    @GET("lamdeps/allSubMenuPhongKham")
+    fun getAllSubmenuPhongKham():
+            Deferred<List<ShopModel>>
+    @GET("lamdeps/allSubMenuNoiMi")
+    fun getAllSubmenuNoiMi():
+            Deferred<List<ShopModel>>
+    @GET("lamdeps/allSubMenuTattoo")
+    fun getAllSubmenuTattoo():
+            Deferred<List<ShopModel>>
+    @GET("lamdeps/allSubMenuNhaKhoa")
+    fun getAllSubmenuNhaKhoa():
+            Deferred<List<ShopModel>>
+    @GET("lamdeps/allSubMenuMakeUp")
+    fun getAllSubmenuMakeUp():
             Deferred<List<ShopModel>>
 }
 

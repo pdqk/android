@@ -13,6 +13,7 @@ import androidx.lifecycle.ViewModelProviders
 import com.example.cloneshopee.R
 import com.example.cloneshopee.databinding.TabsLayoutBinding
 import com.example.cloneshopee.home.coroutines.menu.hoa.CoroutineSubmenuHoaByIndex
+import com.example.cloneshopee.home.coroutines.menu.lamdep.CoroutineSubmenuLamDepByIndex
 import com.example.cloneshopee.home.coroutines.menu.ruoubia.CoroutineSubmenuRuouBiaByIndex
 import com.example.cloneshopee.home.coroutines.menu.sieuthi.CoroutineSubmenuSieuThiByIndex
 import com.example.cloneshopee.home.coroutines.menu.thucpham.CoroutineSubmenuByIndex
@@ -35,6 +36,8 @@ class FragmentBestSelling : Fragment() {
     private lateinit var hoaViewModel: HoaViewModel
     private lateinit var ruouBiaViewModel: RuouBiaViewModel
     private lateinit var thuocViewModel: ThuocViewModel
+    private lateinit var lamDepViewModel: LamDepViewModel
+
 
     private var getShopDacSanJob = Job()
     private var coroutineGetDacSanScope = CoroutineScope(getShopDacSanJob + Dispatchers.Main)
@@ -60,6 +63,10 @@ class FragmentBestSelling : Fragment() {
     private var coroutineGetThuocScope = CoroutineScope(getShopThuocJob + Dispatchers.Main)
     var coroutineGetShopOfSubmenuThuocByIndex = CoroutineSubmenuThuocByIndex()
 
+    private var getShopLamDepJob = Job()
+    private var coroutineGetLamDepScope = CoroutineScope(getShopLamDepJob + Dispatchers.Main)
+    var coroutineGetShopOfSubmenuLamDepByIndex = CoroutineSubmenuLamDepByIndex()
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         tabsLayoutBinding = DataBindingUtil.inflate(inflater, R.layout.tabs_layout, container, false)
 
@@ -69,6 +76,7 @@ class FragmentBestSelling : Fragment() {
         hoaViewModel = ViewModelProviders.of(activity!!).get(HoaViewModel::class.java)
         ruouBiaViewModel = ViewModelProviders.of(activity!!).get(RuouBiaViewModel::class.java)
         thuocViewModel = ViewModelProviders.of(activity!!).get(ThuocViewModel::class.java)
+        lamDepViewModel = ViewModelProviders.of(activity!!).get(LamDepViewModel::class.java)
 
         setupSubmenu()
 
@@ -108,6 +116,11 @@ class FragmentBestSelling : Fragment() {
                 coroutineGetShopOfSubmenuThuocByIndex.onCoroutineGetShopOfSubmenuByIndex(coroutineGetThuocScope, tabsLayoutBinding, activity!!, newPosition)
             })
         }
+        if(submenu == "lamdep"){
+            lamDepViewModel.position.observe(activity!!, Observer { newPosition ->
+                coroutineGetShopOfSubmenuLamDepByIndex.onCoroutineGetShopOfSubmenuByIndex(coroutineGetLamDepScope, tabsLayoutBinding, activity!!, newPosition)
+            })
+        }
     }
 
     override fun onDestroy() {
@@ -118,5 +131,6 @@ class FragmentBestSelling : Fragment() {
         coroutineGetShopOfSubmenuHoaByIndex.onCoroutineDone(getShopHoaJob)
         coroutineGetShopOfSubmenuRuouBiaByIndex.onCoroutineDone(getShopRuouBiaJob)
         coroutineGetShopOfSubmenuThuocByIndex.onCoroutineDone(getShopThuocJob)
+        coroutineGetShopOfSubmenuLamDepByIndex.onCoroutineDone(getShopLamDepJob)
     }
 }
