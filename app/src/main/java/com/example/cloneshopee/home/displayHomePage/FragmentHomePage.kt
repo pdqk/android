@@ -13,10 +13,7 @@ import com.example.cloneshopee.R
 import com.example.cloneshopee.databinding.HomePageDisplayBinding
 import com.example.cloneshopee.home.coroutines.homepage.CoroutineSliderImageHomepage
 import com.example.cloneshopee.home.coroutines.homepage.CoroutineVoucherHomepage
-import com.example.cloneshopee.home.displayMenuSelected.HoaActivity
-import com.example.cloneshopee.home.displayMenuSelected.SieuThiActivity
-import com.example.cloneshopee.home.displayMenuSelected.ThuCungActivity
-import com.example.cloneshopee.home.displayMenuSelected.ThucPhamActivity
+import com.example.cloneshopee.home.displayMenuSelected.*
 import com.example.cloneshopee.home.recyclerViewAdapter.homepage.ViewPagerAdapter
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -95,6 +92,20 @@ class FragmentHomePage : Fragment() {
             editor.apply()
             editor.commit()
             val intent = Intent(activity, HoaActivity::class.java)
+            startActivity(intent)
+        }
+        homePageDisplayBinding.imgvRuouBia.setOnClickListener { view: View ->
+            editor.putString("submenu","ruoubia")
+            editor.apply()
+            editor.commit()
+            val intent = Intent(activity, RuouBiaActivity::class.java)
+            startActivity(intent)
+        }
+        homePageDisplayBinding.imgvThuoc.setOnClickListener { view: View ->
+            editor.putString("submenu","thuoc")
+            editor.apply()
+            editor.commit()
+            val intent = Intent(activity, ThuocActivity::class.java)
             startActivity(intent)
         }
     }

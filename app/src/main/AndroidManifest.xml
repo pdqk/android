@@ -11,7 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".home.displayMenuSelected.HoaActivity"></activity>
+        <activity android:name=".home.displayMenuSelected.ThuocActivity"></activity>
+        <activity android:name=".home.displayMenuSelected.RuouBiaActivity" />
+        <activity android:name=".home.displayMenuSelected.HoaActivity" />
         <activity android:name=".home.displayMenuSelected.SieuThiActivity" />
         <activity android:name=".home.displayMenuSelected.ThuCungActivity" />
         <activity android:name=".home.displayMenuSelected.ThucPhamActivity" />

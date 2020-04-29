@@ -5,12 +5,16 @@ import com.example.cloneshopee.home.models.homepageModel.VoucherModel
 import com.example.cloneshopee.home.models.menuModel.ShopModel
 import com.example.cloneshopee.home.models.menuModel.hoaModel.HoaSlideImageModel
 import com.example.cloneshopee.home.models.menuModel.hoaModel.SubmenuHoaModel
+import com.example.cloneshopee.home.models.menuModel.ruoubiaModel.RuouBiaSlideImageModel
+import com.example.cloneshopee.home.models.menuModel.ruoubiaModel.SubmenuRuouBiaModel
 import com.example.cloneshopee.home.models.menuModel.sieuthiModel.SieuThiSlideImageModel
 import com.example.cloneshopee.home.models.menuModel.sieuthiModel.SubmenuSieuThiModel
 import com.example.cloneshopee.home.models.menuModel.thucphamModel.SubmenuThucPhamModel
 import com.example.cloneshopee.home.models.menuModel.thucphamModel.ThucPhamSlideImageModel
 import com.example.cloneshopee.home.models.menuModel.thucungModel.SubmenuThuCungModel
 import com.example.cloneshopee.home.models.menuModel.thucungModel.ThuCungSlideImageModel
+import com.example.cloneshopee.home.models.menuModel.thuocModel.SubmenuThuocModel
+import com.example.cloneshopee.home.models.menuModel.thuocModel.ThuocSlideImageModel
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
@@ -55,6 +59,12 @@ interface APIService {
     @GET("submenus/hoa")
     fun getAllSubmenuHoa():
             Deferred<List<SubmenuHoaModel>>
+    @GET("submenus/ruoubia")
+    fun getAllSubmenuRuouBia():
+            Deferred<List<SubmenuRuouBiaModel>>
+    @GET("submenus/thuoc")
+    fun getAllSubmenuThuoc():
+            Deferred<List<SubmenuThuocModel>>
 
     /**/
     /*Submenu Thuc pham API*/
@@ -153,6 +163,45 @@ interface APIService {
             Deferred<List<ShopModel>>
     @GET("hoas/allSubMenuCayCanh")
     fun getAllSubmenuCayCanh():
+            Deferred<List<ShopModel>>
+
+    /**/
+    /*Submenu Ruou bia API*/
+    @GET("ruoubias/allSlideImage")
+    fun getAllRuouBiaSlideImage():
+            Deferred<List<RuouBiaSlideImageModel>>
+    @GET("ruoubias/allSubMenuBia")
+    fun getAllSubmenuBia():
+            Deferred<List<ShopModel>>
+    @GET("ruoubias/allSubMenuRuou")
+    fun getAllSubmenuRuou():
+            Deferred<List<ShopModel>>
+
+    /**/
+    /*Submenu Thuoc API*/
+    @GET("thuocs/allSlideImage")
+    fun getAllThuocSlideImage():
+            Deferred<List<ThuocSlideImageModel>>
+    @GET("thuocs/allSubMenuBCS")
+    fun getAllSubmenuBCS():
+            Deferred<List<ShopModel>>
+    @GET("thuocs/allSubMenuVitamins")
+    fun getAllSubmenuVitamins():
+            Deferred<List<ShopModel>>
+    @GET("thuocs/allSubMenuThuocTay")
+    fun getAllSubmenuThuocTay():
+            Deferred<List<ShopModel>>
+    @GET("thuocs/allSubMenuThietBi")
+    fun getAllSubmenuThietBiYTe():
+            Deferred<List<ShopModel>>
+    @GET("thuocs/allSubMenuKhauTrang")
+    fun getAllSubmenuKhauTrang():
+            Deferred<List<ShopModel>>
+    @GET("thuocs/allSubMenuKhanCap")
+    fun getAllSubmenuKhanCap():
+            Deferred<List<ShopModel>>
+    @GET("thuocs/allSubMenuHoaMyPham")
+    fun getAllSubmenuHoaMyPham():
             Deferred<List<ShopModel>>
 }
 

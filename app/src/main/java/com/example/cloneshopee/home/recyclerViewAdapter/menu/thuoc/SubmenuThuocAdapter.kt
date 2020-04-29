@@ -1,4 +1,4 @@
-package com.example.cloneshopee.home.recyclerViewAdapter.menu.hoa
+package com.example.cloneshopee.home.recyclerViewAdapter.menu.thuoc
 
 import android.graphics.Color
 import android.view.LayoutInflater
@@ -10,14 +10,14 @@ import androidx.cardview.widget.CardView
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cloneshopee.R
-import com.example.cloneshopee.home.displayMenuSelected.HoaActivity
-import com.example.cloneshopee.home.models.menuModel.hoaModel.SubmenuHoaModel
-import com.example.cloneshopee.home.viewModels.menu.HoaViewModel
+import com.example.cloneshopee.home.displayMenuSelected.ThuocActivity
+import com.example.cloneshopee.home.models.menuModel.thuocModel.SubmenuThuocModel
+import com.example.cloneshopee.home.viewModels.menu.ThuocViewModel
 import com.squareup.picasso.Picasso
 
-class SubmenuHoaAdapter(val submenuHoaList: ArrayList<SubmenuHoaModel>, val hoaActivity: HoaActivity): RecyclerView.Adapter<SubmenuHoaAdapter.ViewHolder>() {
+class SubmenuThuocAdapter(val submenuThuocList: ArrayList<SubmenuThuocModel>, val thuocActivity: ThuocActivity): RecyclerView.Adapter<SubmenuThuocAdapter.ViewHolder>() {
     var default_index = 0
-    private lateinit var hoaViewModel: HoaViewModel
+    private lateinit var thuocViewModel: ThuocViewModel
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from((parent?.context)).inflate(R.layout.submenu_recycler_item, parent, false)
@@ -25,17 +25,17 @@ class SubmenuHoaAdapter(val submenuHoaList: ArrayList<SubmenuHoaModel>, val hoaA
     }
 
     override fun getItemCount(): Int {
-        return submenuHoaList.size
+        return submenuThuocList.size
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val submenuHoaModel: SubmenuHoaModel = submenuHoaList[position]
-        Picasso.get().load(submenuHoaModel.IMAGE_URL).resize(48,48).centerCrop().into(holder.imgvIcon)
-        holder.txtvName?.text = submenuHoaModel.NAME
+        val submenuThuocModel: SubmenuThuocModel = submenuThuocList[position]
+        Picasso.get().load(submenuThuocModel.IMAGE_URL).resize(48,48).centerCrop().into(holder.imgvIcon)
+        holder.txtvName?.text = submenuThuocModel.NAME
 
         holder.itemView.setOnClickListener { view: View ->
-            hoaViewModel = ViewModelProviders.of(hoaActivity).get(HoaViewModel::class.java)
-            hoaViewModel.onPositionChanged(position)
+            thuocViewModel = ViewModelProviders.of(thuocActivity).get(ThuocViewModel::class.java)
+            thuocViewModel.onPositionChanged(position)
             default_index = position
             notifyDataSetChanged()
         }

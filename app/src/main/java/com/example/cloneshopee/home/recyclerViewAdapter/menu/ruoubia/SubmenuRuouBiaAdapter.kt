@@ -1,4 +1,4 @@
-package com.example.cloneshopee.home.recyclerViewAdapter.menu.hoa
+package com.example.cloneshopee.home.recyclerViewAdapter.menu.ruoubia
 
 import android.graphics.Color
 import android.view.LayoutInflater
@@ -10,14 +10,17 @@ import androidx.cardview.widget.CardView
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cloneshopee.R
-import com.example.cloneshopee.home.displayMenuSelected.HoaActivity
+import com.example.cloneshopee.home.displayMenuSelected.RuouBiaActivity
 import com.example.cloneshopee.home.models.menuModel.hoaModel.SubmenuHoaModel
+import com.example.cloneshopee.home.models.menuModel.ruoubiaModel.SubmenuRuouBiaModel
+import com.example.cloneshopee.home.recyclerViewAdapter.menu.hoa.SubmenuHoaAdapter
 import com.example.cloneshopee.home.viewModels.menu.HoaViewModel
+import com.example.cloneshopee.home.viewModels.menu.RuouBiaViewModel
 import com.squareup.picasso.Picasso
 
-class SubmenuHoaAdapter(val submenuHoaList: ArrayList<SubmenuHoaModel>, val hoaActivity: HoaActivity): RecyclerView.Adapter<SubmenuHoaAdapter.ViewHolder>() {
+class SubmenuRuouBiaAdapter(val submenuRuouBiaList: ArrayList<SubmenuRuouBiaModel>, val ruouBiaActivity: RuouBiaActivity): RecyclerView.Adapter<SubmenuRuouBiaAdapter.ViewHolder>() {
     var default_index = 0
-    private lateinit var hoaViewModel: HoaViewModel
+    private lateinit var ruouBiaViewModel: RuouBiaViewModel
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from((parent?.context)).inflate(R.layout.submenu_recycler_item, parent, false)
@@ -25,17 +28,17 @@ class SubmenuHoaAdapter(val submenuHoaList: ArrayList<SubmenuHoaModel>, val hoaA
     }
 
     override fun getItemCount(): Int {
-        return submenuHoaList.size
+        return submenuRuouBiaList.size
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val submenuHoaModel: SubmenuHoaModel = submenuHoaList[position]
-        Picasso.get().load(submenuHoaModel.IMAGE_URL).resize(48,48).centerCrop().into(holder.imgvIcon)
-        holder.txtvName?.text = submenuHoaModel.NAME
+        val submenuRuouBiaModel: SubmenuRuouBiaModel = submenuRuouBiaList[position]
+        Picasso.get().load(submenuRuouBiaModel.IMAGE_URL).resize(48,48).centerCrop().into(holder.imgvIcon)
+        holder.txtvName?.text = submenuRuouBiaModel.NAME
 
         holder.itemView.setOnClickListener { view: View ->
-            hoaViewModel = ViewModelProviders.of(hoaActivity).get(HoaViewModel::class.java)
-            hoaViewModel.onPositionChanged(position)
+            ruouBiaViewModel = ViewModelProviders.of(ruouBiaActivity).get(RuouBiaViewModel::class.java)
+            ruouBiaViewModel.onPositionChanged(position)
             default_index = position
             notifyDataSetChanged()
         }

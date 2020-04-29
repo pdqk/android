@@ -13,13 +13,12 @@ import androidx.lifecycle.ViewModelProviders
 import com.example.cloneshopee.R
 import com.example.cloneshopee.databinding.TabsLayoutBinding
 import com.example.cloneshopee.home.coroutines.menu.hoa.CoroutineSubmenuHoaByIndex
+import com.example.cloneshopee.home.coroutines.menu.ruoubia.CoroutineSubmenuRuouBiaByIndex
 import com.example.cloneshopee.home.coroutines.menu.sieuthi.CoroutineSubmenuSieuThiByIndex
 import com.example.cloneshopee.home.coroutines.menu.thucpham.CoroutineSubmenuByIndex
 import com.example.cloneshopee.home.coroutines.menu.thucung.CoroutineSubmenuThuCungByIndex
-import com.example.cloneshopee.home.viewModels.menu.HoaViewModel
-import com.example.cloneshopee.home.viewModels.menu.SieuThiViewModel
-import com.example.cloneshopee.home.viewModels.menu.ThuCungViewModel
-import com.example.cloneshopee.home.viewModels.menu.ThucPhamViewModel
+import com.example.cloneshopee.home.coroutines.menu.thuoc.CoroutineSubmenuThuocByIndex
+import com.example.cloneshopee.home.viewModels.menu.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -34,7 +33,8 @@ class FragmentFastDelivery : Fragment() {
     private lateinit var thuCungViewModel: ThuCungViewModel
     private lateinit var sieuThiViewModel: SieuThiViewModel
     private lateinit var hoaViewModel: HoaViewModel
-
+    private lateinit var ruouBiaViewModel: RuouBiaViewModel
+    private lateinit var thuocViewModel: ThuocViewModel
 
     private var getShopDacSanJob = Job()
     private var coroutineGetDacSanScope = CoroutineScope(getShopDacSanJob + Dispatchers.Main)
@@ -52,6 +52,14 @@ class FragmentFastDelivery : Fragment() {
     private var coroutineGetHoaScope = CoroutineScope(getShopHoaJob + Dispatchers.Main)
     var coroutineGetShopOfSubmenuHoaByIndex = CoroutineSubmenuHoaByIndex()
 
+    private var getShopRuouBiaJob = Job()
+    private var coroutineGetRuouBiaScope = CoroutineScope(getShopRuouBiaJob + Dispatchers.Main)
+    var coroutineGetShopOfSubmenuRuouBiaByIndex = CoroutineSubmenuRuouBiaByIndex()
+
+    private var getShopThuocJob = Job()
+    private var coroutineGetThuocScope = CoroutineScope(getShopThuocJob + Dispatchers.Main)
+    var coroutineGetShopOfSubmenuThuocByIndex = CoroutineSubmenuThuocByIndex()
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         tabsLayoutBinding = DataBindingUtil.inflate(inflater, R.layout.tabs_layout, container, false)
 
@@ -59,6 +67,8 @@ class FragmentFastDelivery : Fragment() {
         thuCungViewModel = ViewModelProviders.of(activity!!).get(ThuCungViewModel::class.java)
         sieuThiViewModel = ViewModelProviders.of(activity!!).get(SieuThiViewModel::class.java)
         hoaViewModel = ViewModelProviders.of(activity!!).get(HoaViewModel::class.java)
+        ruouBiaViewModel = ViewModelProviders.of(activity!!).get(RuouBiaViewModel::class.java)
+        thuocViewModel = ViewModelProviders.of(activity!!).get(ThuocViewModel::class.java)
 
         setupSubmenu()
 
@@ -88,6 +98,16 @@ class FragmentFastDelivery : Fragment() {
                 coroutineGetShopOfSubmenuHoaByIndex.onCoroutineGetShopOfSubmenuByIndex(coroutineGetHoaScope, tabsLayoutBinding, activity!!, newPosition)
             })
         }
+        if(submenu == "ruoubia"){
+            ruouBiaViewModel.position.observe(activity!!, Observer { newPosition ->
+                coroutineGetShopOfSubmenuRuouBiaByIndex.onCoroutineGetShopOfSubmenuByIndex(coroutineGetRuouBiaScope, tabsLayoutBinding, activity!!, newPosition)
+            })
+        }
+        if(submenu == "thuoc"){
+            thuocViewModel.position.observe(activity!!, Observer { newPosition ->
+                coroutineGetShopOfSubmenuThuocByIndex.onCoroutineGetShopOfSubmenuByIndex(coroutineGetThuocScope, tabsLayoutBinding, activity!!, newPosition)
+            })
+        }
     }
 
     override fun onDestroy() {
@@ -96,6 +116,8 @@ class FragmentFastDelivery : Fragment() {
         coroutineGetShopOfSubmenuThuCungByIndex.onCoroutineDone(getShopThuCungJob)
         coroutineGetShopOfSubmenuSieuThiByIndex.onCoroutineDone(getShopSieuThiJob)
         coroutineGetShopOfSubmenuHoaByIndex.onCoroutineDone(getShopHoaJob)
+        coroutineGetShopOfSubmenuRuouBiaByIndex.onCoroutineDone(getShopRuouBiaJob)
+        coroutineGetShopOfSubmenuThuocByIndex.onCoroutineDone(getShopThuocJob)
     }
 
 }

@@ -39,7 +39,7 @@
                     android:background="@drawable/search_bar_in_homepage_background"
                     android:drawableLeft="@drawable/ic_search_black_24dp"
                     android:focusable="false"
-                    android:hint="Tìm shop thực phẩm"
+                    android:hint="Tìm shop"
                     android:inputType="text"
                     android:maxLength="20"
                     android:maxLines="1"
