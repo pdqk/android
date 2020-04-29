@@ -12,6 +12,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.cloneshopee.R
 import com.example.cloneshopee.databinding.TabsLayoutBinding
+import com.example.cloneshopee.home.coroutines.menu.giatui.CoroutineSubmenuGiatUiByIndex
 import com.example.cloneshopee.home.coroutines.menu.hoa.CoroutineSubmenuHoaByIndex
 import com.example.cloneshopee.home.coroutines.menu.lamdep.CoroutineSubmenuLamDepByIndex
 import com.example.cloneshopee.home.coroutines.menu.ruoubia.CoroutineSubmenuRuouBiaByIndex
@@ -37,7 +38,7 @@ class FragmentBestSelling : Fragment() {
     private lateinit var ruouBiaViewModel: RuouBiaViewModel
     private lateinit var thuocViewModel: ThuocViewModel
     private lateinit var lamDepViewModel: LamDepViewModel
-
+    private lateinit var giatUiViewModel: GiatUiViewModel
 
     private var getShopDacSanJob = Job()
     private var coroutineGetDacSanScope = CoroutineScope(getShopDacSanJob + Dispatchers.Main)
@@ -67,6 +68,10 @@ class FragmentBestSelling : Fragment() {
     private var coroutineGetLamDepScope = CoroutineScope(getShopLamDepJob + Dispatchers.Main)
     var coroutineGetShopOfSubmenuLamDepByIndex = CoroutineSubmenuLamDepByIndex()
 
+    private var getShopGiatUiJob = Job()
+    private var coroutineGetGiatUiScope = CoroutineScope(getShopGiatUiJob + Dispatchers.Main)
+    var coroutineGetShopOfSubmenuGiatUiByIndex = CoroutineSubmenuGiatUiByIndex()
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         tabsLayoutBinding = DataBindingUtil.inflate(inflater, R.layout.tabs_layout, container, false)
 
@@ -77,6 +82,7 @@ class FragmentBestSelling : Fragment() {
         ruouBiaViewModel = ViewModelProviders.of(activity!!).get(RuouBiaViewModel::class.java)
         thuocViewModel = ViewModelProviders.of(activity!!).get(ThuocViewModel::class.java)
         lamDepViewModel = ViewModelProviders.of(activity!!).get(LamDepViewModel::class.java)
+        giatUiViewModel = ViewModelProviders.of(activity!!).get(GiatUiViewModel::class.java)
 
         setupSubmenu()
 
@@ -121,6 +127,11 @@ class FragmentBestSelling : Fragment() {
                 coroutineGetShopOfSubmenuLamDepByIndex.onCoroutineGetShopOfSubmenuByIndex(coroutineGetLamDepScope, tabsLayoutBinding, activity!!, newPosition)
             })
         }
+        if(submenu == "giatui"){
+            giatUiViewModel.position.observe(activity!!, Observer { newPosition ->
+                coroutineGetShopOfSubmenuGiatUiByIndex.onCoroutineGetShopOfSubmenuByIndex(coroutineGetGiatUiScope, tabsLayoutBinding, activity!!, newPosition)
+            })
+        }
     }
 
     override fun onDestroy() {
@@ -132,5 +143,6 @@ class FragmentBestSelling : Fragment() {
         coroutineGetShopOfSubmenuRuouBiaByIndex.onCoroutineDone(getShopRuouBiaJob)
         coroutineGetShopOfSubmenuThuocByIndex.onCoroutineDone(getShopThuocJob)
         coroutineGetShopOfSubmenuLamDepByIndex.onCoroutineDone(getShopLamDepJob)
+        coroutineGetShopOfSubmenuGiatUiByIndex.onCoroutineDone(getShopGiatUiJob)
     }
 }

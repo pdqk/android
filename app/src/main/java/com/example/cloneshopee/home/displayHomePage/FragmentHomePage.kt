@@ -115,6 +115,13 @@ class FragmentHomePage : Fragment() {
             val intent = Intent(activity, LamDepActivity::class.java)
             startActivity(intent)
         }
+        homePageDisplayBinding.imgvGiatUi.setOnClickListener { view: View ->
+            editor.putString("submenu","giatui")
+            editor.apply()
+            editor.commit()
+            val intent = Intent(activity, GiatUiActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     override fun onStop() {

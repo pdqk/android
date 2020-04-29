@@ -3,6 +3,8 @@ package com.example.cloneshopee.network
 import com.example.cloneshopee.home.models.homepageModel.SlideImageModel
 import com.example.cloneshopee.home.models.homepageModel.VoucherModel
 import com.example.cloneshopee.home.models.menuModel.ShopModel
+import com.example.cloneshopee.home.models.menuModel.giatuiModel.GiatUiSlideImageModel
+import com.example.cloneshopee.home.models.menuModel.giatuiModel.SubmenuGiatUiModel
 import com.example.cloneshopee.home.models.menuModel.hoaModel.HoaSlideImageModel
 import com.example.cloneshopee.home.models.menuModel.hoaModel.SubmenuHoaModel
 import com.example.cloneshopee.home.models.menuModel.lamdepModel.LamDepSlideImageModel
@@ -70,6 +72,9 @@ interface APIService {
     @GET("submenus/lamdep")
     fun getAllSubmenuLamDep():
             Deferred<List<SubmenuLamDepModel>>
+    @GET("submenus/giatui")
+    fun getAllSubmenuGiatUi():
+            Deferred<List<SubmenuGiatUiModel>>
 
     /**/
     /*Submenu Thuc pham API*/
@@ -240,6 +245,27 @@ interface APIService {
             Deferred<List<ShopModel>>
     @GET("lamdeps/allSubMenuMakeUp")
     fun getAllSubmenuMakeUp():
+            Deferred<List<ShopModel>>
+
+    /**/
+    /*Submenu Giat ui API*/
+    @GET("giatuis/allSlideImage")
+    fun getAllGiatUiSlideImage():
+            Deferred<List<GiatUiSlideImageModel>>
+    @GET("giatuis/allSubMenuGiatUi")
+    fun getAllSubmenuGiatUis():
+            Deferred<List<ShopModel>>
+    @GET("giatuis/allSubMenuGiay")
+    fun getAllSubmenuGiay():
+            Deferred<List<ShopModel>>
+    @GET("giatuis/allSubMenuThuBong")
+    fun getAllSubmenuThuBong():
+            Deferred<List<ShopModel>>
+    @GET("giatuis/allSubMenuGiatHap")
+    fun getAllSubmenuGiatHap():
+            Deferred<List<ShopModel>>
+    @GET("giatuis/allSubMenuVeSinhCongNghiep")
+    fun getAllSubmenuVeSinhCongNghiep():
             Deferred<List<ShopModel>>
 }
 
