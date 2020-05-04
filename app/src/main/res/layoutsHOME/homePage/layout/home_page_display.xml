@@ -529,7 +529,7 @@
                     android:paddingEnd="13.5dp"
                     android:background="#ffffff"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="700dp">
 
                     <ImageView
                         android:layout_marginBottom="13.5dp"

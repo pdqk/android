@@ -167,43 +167,6 @@ class CoroutineSubmenuLamDepByIndex {
                     }
                 }
                 4 -> {
-                    val getAllSubmenuPhongKhamDeffered = API.apiService.getAllSubmenuPhongKham()
-                    try{
-                        tabsLayoutBinding.pbInTablayout.visibility = View.VISIBLE
-                        activity.window.setFlags(
-                            WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
-                            WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
-                        val listResult = getAllSubmenuPhongKhamDeffered.await()
-                        val len = listResult.size - 1
-                        val submenuPhongKham = ArrayList<ShopModel>()
-                        for(i in 0..len){
-                            submenuPhongKham.add(
-                                ShopModel(
-                                    listResult[i]._id,
-                                    listResult[i].IMAGE_URL,
-                                    listResult[i].NAME,
-                                    listResult[i].ADDRESS,
-                                    listResult[i].RATING,
-                                    listResult[i].VOUCHER_DESCRIPTION,
-                                    listResult[i].SUBMENU_NAME
-                                )
-                            )
-                        }
-                        tabsLayoutBinding.recyclerShop.layoutManager = LinearLayoutManager(activity, RecyclerView.VERTICAL, false)
-                        val adapter =
-                            ShopAdapter(
-                                submenuPhongKham
-                            )
-                        adapter.notifyDataSetChanged()
-                        tabsLayoutBinding.pbInTablayout.visibility = View.GONE
-                        activity.window.clearFlags(
-                            WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
-                        tabsLayoutBinding.recyclerShop.adapter = adapter
-                    }catch (t: Throwable){
-                        Toast.makeText(activity, "Failded: " + t, Toast.LENGTH_SHORT).show()
-                    }
-                }
-                5 -> {
                     val getAllSubmenuNoiMiDeffered = API.apiService.getAllSubmenuNoiMi()
                     try{
                         tabsLayoutBinding.pbInTablayout.visibility = View.VISIBLE
@@ -240,7 +203,7 @@ class CoroutineSubmenuLamDepByIndex {
                         Toast.makeText(activity, "Failded: " + t, Toast.LENGTH_SHORT).show()
                     }
                 }
-                6 -> {
+                5 -> {
                     val getAllSubmenuTattooDeffered = API.apiService.getAllSubmenuTattoo()
                     try{
                         tabsLayoutBinding.pbInTablayout.visibility = View.VISIBLE
@@ -277,7 +240,7 @@ class CoroutineSubmenuLamDepByIndex {
                         Toast.makeText(activity, "Failded: " + t, Toast.LENGTH_SHORT).show()
                     }
                 }
-                7 -> {
+                6 -> {
                     val getAllSubmenuNhaKhoaDeffered = API.apiService.getAllSubmenuNhaKhoa()
                     try{
                         tabsLayoutBinding.pbInTablayout.visibility = View.VISIBLE
@@ -314,7 +277,7 @@ class CoroutineSubmenuLamDepByIndex {
                         Toast.makeText(activity, "Failded: " + t, Toast.LENGTH_SHORT).show()
                     }
                 }
-                8 -> {
+                7 -> {
                     val getAllSubmenuMakeUpDeffered = API.apiService.getAllSubmenuMakeUp()
                     try{
                         tabsLayoutBinding.pbInTablayout.visibility = View.VISIBLE
@@ -341,6 +304,43 @@ class CoroutineSubmenuLamDepByIndex {
                         val adapter =
                             ShopAdapter(
                                 submenuMakeUp
+                            )
+                        adapter.notifyDataSetChanged()
+                        tabsLayoutBinding.pbInTablayout.visibility = View.GONE
+                        activity.window.clearFlags(
+                            WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
+                        tabsLayoutBinding.recyclerShop.adapter = adapter
+                    }catch (t: Throwable){
+                        Toast.makeText(activity, "Failded: " + t, Toast.LENGTH_SHORT).show()
+                    }
+                }
+                8 -> {
+                    val getAllSubmenuPhongKhamDeffered = API.apiService.getAllSubmenuPhongKham()
+                    try{
+                        tabsLayoutBinding.pbInTablayout.visibility = View.VISIBLE
+                        activity.window.setFlags(
+                            WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
+                            WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
+                        val listResult = getAllSubmenuPhongKhamDeffered.await()
+                        val len = listResult.size - 1
+                        val submenuPhongKham = ArrayList<ShopModel>()
+                        for(i in 0..len){
+                            submenuPhongKham.add(
+                                ShopModel(
+                                    listResult[i]._id,
+                                    listResult[i].IMAGE_URL,
+                                    listResult[i].NAME,
+                                    listResult[i].ADDRESS,
+                                    listResult[i].RATING,
+                                    listResult[i].VOUCHER_DESCRIPTION,
+                                    listResult[i].SUBMENU_NAME
+                                )
+                            )
+                        }
+                        tabsLayoutBinding.recyclerShop.layoutManager = LinearLayoutManager(activity, RecyclerView.VERTICAL, false)
+                        val adapter =
+                            ShopAdapter(
+                                submenuPhongKham
                             )
                         adapter.notifyDataSetChanged()
                         tabsLayoutBinding.pbInTablayout.visibility = View.GONE

@@ -19,43 +19,6 @@ class CoroutineSubmenuSieuThiByIndex {
         coroutineScope.launch {
             when(index){
                 0 -> {
-                    val getAllSubmenuMyPhamDeffered = API.apiService.getAllSubmenuMyPham()
-                    try{
-                        tabsLayoutBinding.pbInTablayout.visibility = View.VISIBLE
-                        activity.window.setFlags(
-                            WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
-                            WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
-                        val listResult = getAllSubmenuMyPhamDeffered.await()
-                        val len = listResult.size - 1
-                        val submenuMyPham = ArrayList<ShopModel>()
-                        for(i in 0..len){
-                            submenuMyPham.add(
-                                ShopModel(
-                                    listResult[i]._id,
-                                    listResult[i].IMAGE_URL,
-                                    listResult[i].NAME,
-                                    listResult[i].ADDRESS,
-                                    listResult[i].RATING,
-                                    listResult[i].VOUCHER_DESCRIPTION,
-                                    listResult[i].SUBMENU_NAME
-                                )
-                            )
-                        }
-                        tabsLayoutBinding.recyclerShop.layoutManager = LinearLayoutManager(activity, RecyclerView.VERTICAL, false)
-                        val adapter =
-                            ShopAdapter(
-                                submenuMyPham
-                            )
-                        adapter.notifyDataSetChanged()
-                        tabsLayoutBinding.pbInTablayout.visibility = View.GONE
-                        activity.window.clearFlags(
-                            WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
-                        tabsLayoutBinding.recyclerShop.adapter = adapter
-                    }catch (t: Throwable){
-                        Toast.makeText(activity, "Failded: " + t, Toast.LENGTH_SHORT).show()
-                    }
-                }
-                1 -> {
                     val getAllSubmenuTaBimDeffered = API.apiService.getAllSubmenuTaBim()
                     try{
                         tabsLayoutBinding.pbInTablayout.visibility = View.VISIBLE
@@ -92,7 +55,7 @@ class CoroutineSubmenuSieuThiByIndex {
                         Toast.makeText(activity, "Failded: " + t, Toast.LENGTH_SHORT).show()
                     }
                 }
-                2 -> {
+                1 -> {
                     val getAllSubmenuSuaDeffered = API.apiService.getAllSubmenuSua()
                     try{
                         tabsLayoutBinding.pbInTablayout.visibility = View.VISIBLE
@@ -129,7 +92,7 @@ class CoroutineSubmenuSieuThiByIndex {
                         Toast.makeText(activity, "Failded: " + t, Toast.LENGTH_SHORT).show()
                     }
                 }
-                3 -> {
+                2 -> {
                     val getAllSubmenuDoChoiDeffered = API.apiService.getAllSubmenuDoChoi()
                     try{
                         tabsLayoutBinding.pbInTablayout.visibility = View.VISIBLE
@@ -166,44 +129,7 @@ class CoroutineSubmenuSieuThiByIndex {
                         Toast.makeText(activity, "Failded: " + t, Toast.LENGTH_SHORT).show()
                     }
                 }
-                4 -> {
-                    val getAllSubmenuThietBiDeffered = API.apiService.getAllSubmenuThietBi()
-                    try{
-                        tabsLayoutBinding.pbInTablayout.visibility = View.VISIBLE
-                        activity.window.setFlags(
-                            WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
-                            WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
-                        val listResult = getAllSubmenuThietBiDeffered.await()
-                        val len = listResult.size - 1
-                        val submenuThietBi = ArrayList<ShopModel>()
-                        for(i in 0..len){
-                            submenuThietBi.add(
-                                ShopModel(
-                                    listResult[i]._id,
-                                    listResult[i].IMAGE_URL,
-                                    listResult[i].NAME,
-                                    listResult[i].ADDRESS,
-                                    listResult[i].RATING,
-                                    listResult[i].VOUCHER_DESCRIPTION,
-                                    listResult[i].SUBMENU_NAME
-                                )
-                            )
-                        }
-                        tabsLayoutBinding.recyclerShop.layoutManager = LinearLayoutManager(activity, RecyclerView.VERTICAL, false)
-                        val adapter =
-                            ShopAdapter(
-                                submenuThietBi
-                            )
-                        adapter.notifyDataSetChanged()
-                        tabsLayoutBinding.pbInTablayout.visibility = View.GONE
-                        activity.window.clearFlags(
-                            WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
-                        tabsLayoutBinding.recyclerShop.adapter = adapter
-                    }catch (t: Throwable){
-                        Toast.makeText(activity, "Failded: " + t, Toast.LENGTH_SHORT).show()
-                    }
-                }
-                5 -> {
+                3 -> {
                     val getAllSubmenuDungCuDeffered = API.apiService.getAllSubmenuDungCu()
                     try{
                         tabsLayoutBinding.pbInTablayout.visibility = View.VISIBLE
@@ -240,7 +166,7 @@ class CoroutineSubmenuSieuThiByIndex {
                         Toast.makeText(activity, "Failded: " + t, Toast.LENGTH_SHORT).show()
                     }
                 }
-                6 -> {
+                4 -> {
                     val getAllSubmenuQuanAoDeffered = API.apiService.getAllSubmenuQuanAo()
                     try{
                         tabsLayoutBinding.pbInTablayout.visibility = View.VISIBLE
@@ -277,7 +203,7 @@ class CoroutineSubmenuSieuThiByIndex {
                         Toast.makeText(activity, "Failded: " + t, Toast.LENGTH_SHORT).show()
                     }
                 }
-                7 -> {
+                5 -> {
                     val getAllSubmenuGiayDepDeffered = API.apiService.getAllSubmenuGiayDep()
                     try{
                         tabsLayoutBinding.pbInTablayout.visibility = View.VISIBLE
@@ -314,7 +240,7 @@ class CoroutineSubmenuSieuThiByIndex {
                         Toast.makeText(activity, "Failded: " + t, Toast.LENGTH_SHORT).show()
                     }
                 }
-                8 -> {
+                6 -> {
                     val getAllSubmenuDienTuDeffered = API.apiService.getAllSubmenuDienTu()
                     try{
                         tabsLayoutBinding.pbInTablayout.visibility = View.VISIBLE
@@ -351,7 +277,7 @@ class CoroutineSubmenuSieuThiByIndex {
                         Toast.makeText(activity, "Failded: " + t, Toast.LENGTH_SHORT).show()
                     }
                 }
-                9 -> {
+                7 -> {
                     val getAllSubmenuTrangSucDeffered = API.apiService.getAllSubmenuTrangSuc()
                     try{
                         tabsLayoutBinding.pbInTablayout.visibility = View.VISIBLE
@@ -378,6 +304,80 @@ class CoroutineSubmenuSieuThiByIndex {
                         val adapter =
                             ShopAdapter(
                                 submenuTrangSuc
+                            )
+                        adapter.notifyDataSetChanged()
+                        tabsLayoutBinding.pbInTablayout.visibility = View.GONE
+                        activity.window.clearFlags(
+                            WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
+                        tabsLayoutBinding.recyclerShop.adapter = adapter
+                    }catch (t: Throwable){
+                        Toast.makeText(activity, "Failded: " + t, Toast.LENGTH_SHORT).show()
+                    }
+                }
+                8 -> {
+                    val getAllSubmenuMyPhamDeffered = API.apiService.getAllSubmenuMyPham()
+                    try{
+                        tabsLayoutBinding.pbInTablayout.visibility = View.VISIBLE
+                        activity.window.setFlags(
+                            WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
+                            WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
+                        val listResult = getAllSubmenuMyPhamDeffered.await()
+                        val len = listResult.size - 1
+                        val submenuMyPham = ArrayList<ShopModel>()
+                        for(i in 0..len){
+                            submenuMyPham.add(
+                                ShopModel(
+                                    listResult[i]._id,
+                                    listResult[i].IMAGE_URL,
+                                    listResult[i].NAME,
+                                    listResult[i].ADDRESS,
+                                    listResult[i].RATING,
+                                    listResult[i].VOUCHER_DESCRIPTION,
+                                    listResult[i].SUBMENU_NAME
+                                )
+                            )
+                        }
+                        tabsLayoutBinding.recyclerShop.layoutManager = LinearLayoutManager(activity, RecyclerView.VERTICAL, false)
+                        val adapter =
+                            ShopAdapter(
+                                submenuMyPham
+                            )
+                        adapter.notifyDataSetChanged()
+                        tabsLayoutBinding.pbInTablayout.visibility = View.GONE
+                        activity.window.clearFlags(
+                            WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
+                        tabsLayoutBinding.recyclerShop.adapter = adapter
+                    }catch (t: Throwable){
+                        Toast.makeText(activity, "Failded: " + t, Toast.LENGTH_SHORT).show()
+                    }
+                }
+                9 -> {
+                    val getAllSubmenuThietBiDeffered = API.apiService.getAllSubmenuThietBi()
+                    try{
+                        tabsLayoutBinding.pbInTablayout.visibility = View.VISIBLE
+                        activity.window.setFlags(
+                            WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
+                            WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
+                        val listResult = getAllSubmenuThietBiDeffered.await()
+                        val len = listResult.size - 1
+                        val submenuThietBi = ArrayList<ShopModel>()
+                        for(i in 0..len){
+                            submenuThietBi.add(
+                                ShopModel(
+                                    listResult[i]._id,
+                                    listResult[i].IMAGE_URL,
+                                    listResult[i].NAME,
+                                    listResult[i].ADDRESS,
+                                    listResult[i].RATING,
+                                    listResult[i].VOUCHER_DESCRIPTION,
+                                    listResult[i].SUBMENU_NAME
+                                )
+                            )
+                        }
+                        tabsLayoutBinding.recyclerShop.layoutManager = LinearLayoutManager(activity, RecyclerView.VERTICAL, false)
+                        val adapter =
+                            ShopAdapter(
+                                submenuThietBi
                             )
                         adapter.notifyDataSetChanged()
                         tabsLayoutBinding.pbInTablayout.visibility = View.GONE
