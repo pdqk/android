@@ -267,6 +267,24 @@ interface APIService {
     @GET("giatuis/allSubMenuVeSinhCongNghiep")
     fun getAllSubmenuVeSinhCongNghiep():
             Deferred<List<ShopModel>>
+
+    /**/
+    /*Submenu An vat API*/
+    @GET("anvats/allMenuAnVat")
+    fun getAllMenuAnVat():
+            Deferred<List<ShopModel>>
+
+    /**/
+    /*Submenu Tra sua API*/
+    @GET("trasuas/allMenuTraSua")
+    fun getAllMenuTraSua():
+            Deferred<List<ShopModel>>
+
+    /**/
+    /*Submenu Com API*/
+    @GET("coms/allMenuCom")
+    fun getAllMenuCom():
+            Deferred<List<ShopModel>>
 }
 
 object API {

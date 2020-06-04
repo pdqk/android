@@ -12,6 +12,8 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.cloneshopee.R
 import com.example.cloneshopee.databinding.TabsLayoutBinding
+import com.example.cloneshopee.home.coroutines.menu.anvat.CoroutineAllMenuAnVat
+import com.example.cloneshopee.home.coroutines.menu.com.CoroutineAllMenuCom
 import com.example.cloneshopee.home.coroutines.menu.giatui.CoroutineSubmenuGiatUiByIndex
 import com.example.cloneshopee.home.coroutines.menu.hoa.CoroutineSubmenuHoaByIndex
 import com.example.cloneshopee.home.coroutines.menu.lamdep.CoroutineSubmenuLamDepByIndex
@@ -20,6 +22,7 @@ import com.example.cloneshopee.home.coroutines.menu.sieuthi.CoroutineSubmenuSieu
 import com.example.cloneshopee.home.coroutines.menu.thucpham.CoroutineSubmenuByIndex
 import com.example.cloneshopee.home.coroutines.menu.thucung.CoroutineSubmenuThuCungByIndex
 import com.example.cloneshopee.home.coroutines.menu.thuoc.CoroutineSubmenuThuocByIndex
+import com.example.cloneshopee.home.coroutines.menu.trasua.CoroutineAllMenuTraSua
 import com.example.cloneshopee.home.viewModels.menu.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -71,6 +74,18 @@ class FragmentBestSelling : Fragment() {
     private var getShopGiatUiJob = Job()
     private var coroutineGetGiatUiScope = CoroutineScope(getShopGiatUiJob + Dispatchers.Main)
     var coroutineGetShopOfSubmenuGiatUiByIndex = CoroutineSubmenuGiatUiByIndex()
+
+    private var getShopAnVatJob = Job()
+    private var coroutineGetAnVatScope = CoroutineScope(getShopAnVatJob + Dispatchers.Main)
+    var coroutineGetAllMenuAnVat = CoroutineAllMenuAnVat()
+
+    private var getShopTraSuaJob = Job()
+    private var coroutineGetTraSuaScope = CoroutineScope(getShopTraSuaJob + Dispatchers.Main)
+    var coroutineGetAllMenuTraSua = CoroutineAllMenuTraSua()
+
+    private var getShopComJob = Job()
+    private var coroutineGetComScope = CoroutineScope(getShopComJob + Dispatchers.Main)
+    var coroutineGetAllMenuCom = CoroutineAllMenuCom()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         tabsLayoutBinding = DataBindingUtil.inflate(inflater, R.layout.tabs_layout, container, false)
@@ -132,6 +147,15 @@ class FragmentBestSelling : Fragment() {
                 coroutineGetShopOfSubmenuGiatUiByIndex.onCoroutineGetShopOfSubmenuByIndex(coroutineGetGiatUiScope, tabsLayoutBinding, activity!!, newPosition)
             })
         }
+        if(submenu == "anvat"){
+            coroutineGetAllMenuAnVat.onCoroutineGetAllMenuAnVat(coroutineGetAnVatScope, tabsLayoutBinding, activity!!)
+        }
+        if(submenu == "trasua"){
+            coroutineGetAllMenuTraSua.onCoroutineGetAllMenuTraSua(coroutineGetTraSuaScope, tabsLayoutBinding, activity!!)
+        }
+        if(submenu == "com"){
+            coroutineGetAllMenuCom.onCoroutineGetAllMenuCom(coroutineGetComScope, tabsLayoutBinding, activity!!)
+        }
     }
 
     override fun onDestroy() {
@@ -144,5 +168,8 @@ class FragmentBestSelling : Fragment() {
         coroutineGetShopOfSubmenuThuocByIndex.onCoroutineDone(getShopThuocJob)
         coroutineGetShopOfSubmenuLamDepByIndex.onCoroutineDone(getShopLamDepJob)
         coroutineGetShopOfSubmenuGiatUiByIndex.onCoroutineDone(getShopGiatUiJob)
+        coroutineGetAllMenuAnVat.onCoroutineDone(getShopAnVatJob)
+        coroutineGetAllMenuTraSua.onCoroutineDone(getShopTraSuaJob)
+        coroutineGetAllMenuCom.onCoroutineDone(getShopComJob)
     }
 }

@@ -122,6 +122,27 @@ class FragmentHomePage : Fragment() {
             val intent = Intent(activity, GiatUiActivity::class.java)
             startActivity(intent)
         }
+        homePageDisplayBinding.imgvAnVat.setOnClickListener { view: View ->
+            editor.putString("submenu","anvat")
+            editor.apply()
+            editor.commit()
+            val intent = Intent(activity, AnVatActivity::class.java)
+            startActivity(intent)
+        }
+        homePageDisplayBinding.imgvTraSua.setOnClickListener { view: View ->
+            editor.putString("submenu","trasua")
+            editor.apply()
+            editor.commit()
+            val intent = Intent(activity, TraSuaActivity::class.java)
+            startActivity(intent)
+        }
+        homePageDisplayBinding.imgvCom.setOnClickListener { view: View ->
+            editor.putString("submenu","com")
+            editor.apply()
+            editor.commit()
+            val intent = Intent(activity, ComActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     override fun onStop() {
