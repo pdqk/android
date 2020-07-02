@@ -59,7 +59,7 @@ class CoroutineGetDish {
                         allDishesOfTheShopBinding.txtvShopRatingDetail.text = shoprating
 
                         allDishesOfTheShopBinding.recyclerDish.layoutManager = LinearLayoutManager(activity, RecyclerView.VERTICAL, false)
-                        val adapter = DishAdapter(dishOfThucPham)
+                        val adapter = DishAdapter(dishOfThucPham, activity)
                         adapter.notifyDataSetChanged()
                         allDishesOfTheShopBinding.recyclerDish.adapter = adapter
                     }catch (t: Throwable){
@@ -87,7 +87,7 @@ class CoroutineGetDish {
                             }
                         }
                         allDishesOfTheShopBinding.recyclerDish.layoutManager = LinearLayoutManager(activity, RecyclerView.VERTICAL, false)
-                        val adapter = DishAdapter(dishOfThuCung)
+                        val adapter = DishAdapter(dishOfThuCung, activity)
                         adapter.notifyDataSetChanged()
                         allDishesOfTheShopBinding.recyclerDish.adapter = adapter
                     }catch (t: Throwable){
@@ -115,7 +115,7 @@ class CoroutineGetDish {
                             }
                         }
                         allDishesOfTheShopBinding.recyclerDish.layoutManager = LinearLayoutManager(activity, RecyclerView.VERTICAL, false)
-                        val adapter = DishAdapter(dishOfSieuThi)
+                        val adapter = DishAdapter(dishOfSieuThi, activity)
                         adapter.notifyDataSetChanged()
                         allDishesOfTheShopBinding.recyclerDish.adapter = adapter
                     }catch (t: Throwable){
@@ -143,7 +143,7 @@ class CoroutineGetDish {
                             }
                         }
                         allDishesOfTheShopBinding.recyclerDish.layoutManager = LinearLayoutManager(activity, RecyclerView.VERTICAL, false)
-                        val adapter = DishAdapter(dishOfHoa)
+                        val adapter = DishAdapter(dishOfHoa, activity)
                         adapter.notifyDataSetChanged()
                         allDishesOfTheShopBinding.recyclerDish.adapter = adapter
                     }catch (t: Throwable){
@@ -171,7 +171,7 @@ class CoroutineGetDish {
                             }
                         }
                         allDishesOfTheShopBinding.recyclerDish.layoutManager = LinearLayoutManager(activity, RecyclerView.VERTICAL, false)
-                        val adapter = DishAdapter(dishOfRuouBia)
+                        val adapter = DishAdapter(dishOfRuouBia, activity)
                         adapter.notifyDataSetChanged()
                         allDishesOfTheShopBinding.recyclerDish.adapter = adapter
                     }catch (t: Throwable){
@@ -199,7 +199,7 @@ class CoroutineGetDish {
                             }
                         }
                         allDishesOfTheShopBinding.recyclerDish.layoutManager = LinearLayoutManager(activity, RecyclerView.VERTICAL, false)
-                        val adapter = DishAdapter(dishOfThuoc)
+                        val adapter = DishAdapter(dishOfThuoc, activity)
                         adapter.notifyDataSetChanged()
                         allDishesOfTheShopBinding.recyclerDish.adapter = adapter
                     }catch (t: Throwable){
@@ -227,7 +227,7 @@ class CoroutineGetDish {
                             }
                         }
                         allDishesOfTheShopBinding.recyclerDish.layoutManager = LinearLayoutManager(activity, RecyclerView.VERTICAL, false)
-                        val adapter = DishAdapter(dishOfLamDep)
+                        val adapter = DishAdapter(dishOfLamDep, activity)
                         adapter.notifyDataSetChanged()
                         allDishesOfTheShopBinding.recyclerDish.adapter = adapter
                     }catch (t: Throwable){
@@ -255,7 +255,7 @@ class CoroutineGetDish {
                             }
                         }
                         allDishesOfTheShopBinding.recyclerDish.layoutManager = LinearLayoutManager(activity, RecyclerView.VERTICAL, false)
-                        val adapter = DishAdapter(dishOfGiatUi)
+                        val adapter = DishAdapter(dishOfGiatUi, activity)
                         adapter.notifyDataSetChanged()
                         allDishesOfTheShopBinding.recyclerDish.adapter = adapter
                     }catch (t: Throwable){
@@ -283,7 +283,7 @@ class CoroutineGetDish {
                             }
                         }
                         allDishesOfTheShopBinding.recyclerDish.layoutManager = LinearLayoutManager(activity, RecyclerView.VERTICAL, false)
-                        val adapter = DishAdapter(dishOfAnVat)
+                        val adapter = DishAdapter(dishOfAnVat, activity)
                         adapter.notifyDataSetChanged()
                         allDishesOfTheShopBinding.recyclerDish.adapter = adapter
                     }catch (t: Throwable){
@@ -311,7 +311,7 @@ class CoroutineGetDish {
                             }
                         }
                         allDishesOfTheShopBinding.recyclerDish.layoutManager = LinearLayoutManager(activity, RecyclerView.VERTICAL, false)
-                        val adapter = DishAdapter(dishOfTraSua)
+                        val adapter = DishAdapter(dishOfTraSua, activity)
                         adapter.notifyDataSetChanged()
                         allDishesOfTheShopBinding.recyclerDish.adapter = adapter
                     }catch (t: Throwable){
@@ -339,7 +339,7 @@ class CoroutineGetDish {
                             }
                         }
                         allDishesOfTheShopBinding.recyclerDish.layoutManager = LinearLayoutManager(activity, RecyclerView.VERTICAL, false)
-                        val adapter = DishAdapter(dishOfCom)
+                        val adapter = DishAdapter(dishOfCom, activity)
                         adapter.notifyDataSetChanged()
                         allDishesOfTheShopBinding.recyclerDish.adapter = adapter
                     }catch (t: Throwable){

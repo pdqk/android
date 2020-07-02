@@ -29,7 +29,7 @@
 
             <TextView
                 android:id="@+id/txtv_dish_name"
-                android:textSize="20sp"
+                android:textSize="17sp"
                 android:textColor="#1d1d1f"
                 android:text="Tên món ăn"
                 android:layout_width="wrap_content"
@@ -38,10 +38,10 @@
             <TextView
                 android:id="@+id/txtv_dish_like"
                 android:drawableStart="@drawable/like2"
-                android:textSize="16sp"
+                android:textSize="14sp"
                 android:text="8"
                 android:drawablePadding="8dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="30dp"
                 android:layout_marginBottom="4dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
@@ -49,7 +49,7 @@
             <TextView
                 android:id="@+id/txtv_dish_price"
                 android:textColor="#000000"
-                android:textSize="20sp"
+                android:textSize="15sp"
                 android:text="35000đ"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
