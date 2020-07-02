@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".home.displayMenuSelected.ComActivity"></activity>
+        <activity android:name=".home.displayProducts.DishesActivity"></activity>
+        <activity android:name=".home.displayMenuSelected.ComActivity" />
         <activity android:name=".home.displayMenuSelected.TraSuaActivity" />
         <activity android:name=".home.displayMenuSelected.AnVatActivity" />
         <activity android:name=".home.displayMenuSelected.GiatUiActivity" />

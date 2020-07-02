@@ -1,5 +1,6 @@
 package com.example.cloneshopee.network
 
+import com.example.cloneshopee.home.models.dish.DishModel
 import com.example.cloneshopee.home.models.homepageModel.SlideImageModel
 import com.example.cloneshopee.home.models.homepageModel.VoucherModel
 import com.example.cloneshopee.home.models.menuModel.ShopModel
@@ -285,6 +286,42 @@ interface APIService {
     @GET("coms/allMenuCom")
     fun getAllMenuCom():
             Deferred<List<ShopModel>>
+
+    /*
+    * Get Dish Of Shop*/
+    @GET("dishes/getDishOfThucPham")
+    fun getDishOfThucPham():
+            Deferred<List<DishModel>>
+    @GET("dishes/getDishOfAnVat")
+    fun getDishOfAnVat():
+            Deferred<List<DishModel>>
+    @GET("dishes/getDishOfCom")
+    fun getDishOfCom():
+            Deferred<List<DishModel>>
+    @GET("dishes/getDishOfGiatUi")
+    fun getDishOfGiatUi():
+            Deferred<List<DishModel>>
+    @GET("dishes/getDishOfHoa")
+    fun getDishOfHoa():
+            Deferred<List<DishModel>>
+    @GET("dishes/getDishOfLamDep")
+    fun getDishOfLamDep():
+            Deferred<List<DishModel>>
+    @GET("dishes/getDishOfRuouBia")
+    fun getDishOfRuouBia():
+            Deferred<List<DishModel>>
+    @GET("dishes/getDishOfSieuThi")
+    fun getDishOfSieuThi():
+            Deferred<List<DishModel>>
+    @GET("dishes/getDishOfThuCung")
+    fun getDishOfThuCung():
+            Deferred<List<DishModel>>
+    @GET("dishes/getDishOfThuoc")
+    fun getDishOfThuoc():
+            Deferred<List<DishModel>>
+    @GET("dishes/getDishOfTraSua")
+    fun getDishOfTraSua():
+            Deferred<List<DishModel>>
 }
 
 object API {

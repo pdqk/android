@@ -1,19 +1,15 @@
 package com.example.cloneshopee.home.recyclerViewAdapter.menu
 
-import android.app.Activity
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.fragment.app.FragmentActivity
-import androidx.lifecycle.ViewModelProviders
-import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cloneshopee.R
+import com.example.cloneshopee.home.displayProducts.DishesActivity
 import com.example.cloneshopee.home.models.menuModel.ShopModel
-import com.example.cloneshopee.home.recyclerViewAdapter.menu.thucpham.DiffUtilToUpdateRecyclerview
-import com.example.cloneshopee.home.viewModels.menu.ThucPhamViewModel
 import com.squareup.picasso.Picasso
 
 class ShopAdapter(var shopList: ArrayList<ShopModel>): RecyclerView.Adapter<ShopAdapter.ViewHolder>() {
@@ -35,6 +31,20 @@ class ShopAdapter(var shopList: ArrayList<ShopModel>): RecyclerView.Adapter<Shop
         holder.txtvAddress?.text = shopModel.ADDRESS
         holder.txtvRating?.text = shopModel.RATING.toString()
         holder.txtvVoucher?.text = shopModel.VOUCHER_DESCRIPTION
+
+        holder.itemView.setOnClickListener { view: View ->
+            val context = holder.itemView.context
+            val sharedPreferences = context.getSharedPreferences("CurrentShop",0)
+            val editor = sharedPreferences.edit()
+            editor.putString("shopname",shopModel.NAME)
+            editor.putString("shopimage",shopModel.IMAGE_URL)
+            editor.putString("shopaddress",shopModel.ADDRESS)
+            editor.putString("shoprating",shopModel.RATING.toString())
+            editor.apply()
+            editor.commit()
+            val intent = Intent(context, DishesActivity::class.java)
+            context.startActivity(intent)
+        }
     }
 
     class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
@@ -43,24 +53,5 @@ class ShopAdapter(var shopList: ArrayList<ShopModel>): RecyclerView.Adapter<Shop
         val txtvAddress = itemView.findViewById<TextView>(R.id.txtv_shop_address)
         val txtvRating = itemView.findViewById<TextView>(R.id.txtv_shop_rating)
         val txtvVoucher = itemView.findViewById<TextView>(R.id.txtv_shop_voucher)
-    }
-
-    fun insertNewItem(newList:List<ShopModel>){
-        val diffUtilToUpdateRecyclerview = DiffUtilToUpdateRecyclerview(shopList, newList)
-        val diffResult = DiffUtil.calculateDiff(diffUtilToUpdateRecyclerview)
-
-        shopList.addAll(newList)
-        diffResult.dispatchUpdatesTo(this)
-    }
-
-    fun updateItem(newList: ArrayList<ShopModel>){
-        val oldList = shopList
-        val diffResult: DiffUtil.DiffResult = DiffUtil.calculateDiff(
-            DiffUtilToUpdateRecyclerview(
-                oldList, newList
-            )
-        )
-        shopList = newList
-        diffResult.dispatchUpdatesTo(this)
     }
 }
