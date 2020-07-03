@@ -185,6 +185,7 @@
                 android:layout_height="wrap_content" />
 
             <Button
+                android:id="@+id/btn_them_vao_gio_hang"
                 android:textSize="16sp"
                 android:textAllCaps="false"
                 android:textColor="#FF0000"

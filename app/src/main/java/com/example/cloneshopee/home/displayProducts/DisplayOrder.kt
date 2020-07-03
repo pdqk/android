@@ -8,13 +8,13 @@ import android.widget.LinearLayout
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import com.example.cloneshopee.R
 import com.example.cloneshopee.databinding.DishOrderBinding
-import com.example.cloneshopee.home.coroutines.dish.CoroutineControlUI
+import com.example.cloneshopee.home.coroutines.dish.CoroutineLoadImage
+import com.example.cloneshopee.home.viewModels.dish.AllCartPriceViewModel
 import com.example.cloneshopee.home.viewModels.dish.DishViewModel
-import com.squareup.picasso.Picasso
+import com.example.cloneshopee.home.viewModels.dish.GioHangViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -23,9 +23,12 @@ class DisplayOrder: DialogFragment() {
     private lateinit var dishOrderBinding: DishOrderBinding
 
     private lateinit var dishViewModel: DishViewModel
-    private val controlUIJob = Job()
-    private val corouScope = CoroutineScope(controlUIJob + Dispatchers.Main)
-    val coroutineControlUI = CoroutineControlUI()
+    private lateinit var gioHangViewModel: GioHangViewModel
+    private lateinit var allCartPriceViewModel: AllCartPriceViewModel
+
+    private val coroutineImageJob = Job()
+    private val coroutineImageScope = CoroutineScope(coroutineImageJob + Dispatchers.Main)
+    private val coroutineLoadImage = CoroutineLoadImage()
 
     override fun onStart() {
         super.onStart()
@@ -36,6 +39,8 @@ class DisplayOrder: DialogFragment() {
         dishOrderBinding = DataBindingUtil.inflate(inflater, R.layout.dish_order,container, false)
 
         dishViewModel = ViewModelProviders.of(activity!!).get(DishViewModel::class.java)
+        gioHangViewModel = ViewModelProviders.of(activity!!).get(GioHangViewModel::class.java)
+        allCartPriceViewModel = ViewModelProviders.of(activity!!).get(AllCartPriceViewModel::class.java)
 
         uiControl()
 
@@ -45,27 +50,49 @@ class DisplayOrder: DialogFragment() {
     private fun uiControl(){
         val sharedPreferences = activity!!.getSharedPreferences("CurrentDishOrdered", 0)
         val dishprice = sharedPreferences.getLong("dishprice", 0)
+        val dishname = sharedPreferences.getString("dishname", "")
+        val dishlike = sharedPreferences.getString("dishlike", "")
+
+        dishOrderBinding.txtvOrderName.text = dishname
+        dishOrderBinding.txtvOrderLike.text = dishlike
+        dishOrderBinding.txtvOrderPrice.text = dishprice.toString() + "đ"
 
         dishOrderBinding.btnCloseOrder.setOnClickListener {
             dismiss()
+            dishViewModel.onDismiss()
         }
+
+        coroutineLoadImage.onCoroutineLoadImage(coroutineImageScope, activity!!, dishOrderBinding)
+
         dishViewModel.amount.observe(activity!!, Observer { newAmount ->
             if(newAmount >= 1){
-                coroutineControlUI.onCoroutineControllingUI(corouScope, dishOrderBinding, dishViewModel, activity!!)
+                dishOrderBinding.btnDesOrder.setOnClickListener {
+                    dishViewModel.onAmountDec()
+                }
+                dishOrderBinding.btnIncOrder.setOnClickListener {
+                    dishViewModel.onAmountInc()
+                }
             }
             dishOrderBinding.txtvOrderAmount.text = newAmount.toString()
             dishOrderBinding.txtvOrderPriceSum.text = (newAmount * dishprice).toString() + "đ"
+
+            dishOrderBinding.btnThemVaoGioHang.setOnClickListener {
+                dismiss()
+                allCartPriceViewModel.onPlusPrice(activity!!, newAmount * dishprice)
+                gioHangViewModel.onAddToCart()
+                dishViewModel.onDismiss()
+            }
         })
     }
 
     override fun onStop() {
         super.onStop()
-        coroutineControlUI.onCoroutineDone(controlUIJob)
+        coroutineLoadImage.onCoroutineDone(coroutineImageJob)
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        coroutineControlUI.onCoroutineDone(controlUIJob)
+        coroutineLoadImage.onCoroutineDone(coroutineImageJob)
     }
 
 }

@@ -1,6 +1,5 @@
 package com.example.cloneshopee.home.viewModels.dish
 
-import android.app.Activity
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -15,6 +14,7 @@ class DishViewModel : ViewModel() {
 
     init {
         _amount.value = 1
+        index = 1
     }
 
     override fun onCleared() {
@@ -23,8 +23,10 @@ class DishViewModel : ViewModel() {
     }
 
     fun onAmountInc(){
-        _amount.value = _amount.value!!.plus(1)
-        index += 1
+        if(index >= 1){
+            _amount.value = _amount.value!!.plus(1)
+            index += 1
+        }
     }
 
     fun onAmountDec(){
@@ -32,5 +34,10 @@ class DishViewModel : ViewModel() {
             _amount.value = _amount.value!!.minus(1)
             index -= 1
         }
+    }
+
+    fun onDismiss(){
+        _amount.value = 1
+        index = 1
     }
 }
