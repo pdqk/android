@@ -9,9 +9,7 @@ import com.example.cloneshopee.home.displayMenuSelected.RuouBiaActivity
 import com.example.cloneshopee.home.models.menuModel.ruoubiaModel.SubmenuRuouBiaModel
 import com.example.cloneshopee.home.recyclerViewAdapter.menu.ruoubia.SubmenuRuouBiaAdapter
 import com.example.cloneshopee.network.API
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 
 class CoroutineAllSubmenuRuouBia {
     fun onCoroutineGetSubmenuRuouBia(coroutineScope: CoroutineScope, haveSubmenuLayoutBinding: HaveSubmenuLayoutBinding, activity: Activity, ruouBiaActivity: RuouBiaActivity){

@@ -4,15 +4,28 @@ import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.cloneshopee.home.models.dish.CartModel
 
 class AllCartPriceViewModel : ViewModel() {
-
     private val _allCartPrice = MutableLiveData<Long>()
     val allCartPrice : LiveData<Long>
         get() = _allCartPrice
 
+    private val _lishDish = MutableLiveData<ArrayList<CartModel>>()
+    val lishDish : LiveData<ArrayList<CartModel>>
+        get() = _lishDish
+
     init {
         _allCartPrice.value = 0
+        _lishDish.value = ArrayList()
+    }
+
+    fun onAddDishToCart(name: String, price: Long, amount: Long){
+        _lishDish.value!!.add(CartModel(name,price,amount))
+    }
+
+    fun onClearDishFromCart(){
+        _lishDish.value!!.clear()
     }
 
     fun onPlusPrice(activity: FragmentActivity, newPrice: Long){

@@ -9,9 +9,7 @@ import com.example.cloneshopee.home.displayMenuSelected.ThucPhamActivity
 import com.example.cloneshopee.home.models.menuModel.thucphamModel.SubmenuThucPhamModel
 import com.example.cloneshopee.home.recyclerViewAdapter.menu.thucpham.SubmenuThucPhamAdapter
 import com.example.cloneshopee.network.API
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 
 class CoroutineAllSubmenuThucPham {
     fun onCoroutineGetSubmenuThucPham(coroutineScope: CoroutineScope, haveSubmenuLayoutBinding: HaveSubmenuLayoutBinding, activity: Activity, thucPhamActivity: ThucPhamActivity){

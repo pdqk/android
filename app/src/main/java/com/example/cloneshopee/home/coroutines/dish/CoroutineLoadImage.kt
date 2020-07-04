@@ -3,9 +3,7 @@ package com.example.cloneshopee.home.coroutines.dish
 import androidx.fragment.app.FragmentActivity
 import com.example.cloneshopee.databinding.DishOrderBinding
 import com.squareup.picasso.Picasso
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 
 class CoroutineLoadImage {
     fun onCoroutineLoadImage(coroutineScope: CoroutineScope, activity: FragmentActivity, dishOrderBinding: DishOrderBinding){

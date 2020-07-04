@@ -9,9 +9,7 @@ import com.example.cloneshopee.home.displayMenuSelected.LamDepActivity
 import com.example.cloneshopee.home.models.menuModel.lamdepModel.SubmenuLamDepModel
 import com.example.cloneshopee.home.recyclerViewAdapter.menu.lamdep.SubmenuLamDepAdapter
 import com.example.cloneshopee.network.API
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 
 class CoroutineAllSubmenuLamDep {
     fun onCoroutineGetSubmenuLamDep(coroutineScope: CoroutineScope, haveSubmenuLayoutBinding: HaveSubmenuLayoutBinding, activity: Activity, lamDepActivity: LamDepActivity){

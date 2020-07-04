@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.Observer
@@ -12,6 +13,7 @@ import androidx.lifecycle.ViewModelProviders
 import com.example.cloneshopee.R
 import com.example.cloneshopee.databinding.DishOrderBinding
 import com.example.cloneshopee.home.coroutines.dish.CoroutineLoadImage
+import com.example.cloneshopee.home.models.dish.CartModel
 import com.example.cloneshopee.home.viewModels.dish.AllCartPriceViewModel
 import com.example.cloneshopee.home.viewModels.dish.DishViewModel
 import com.example.cloneshopee.home.viewModels.dish.GioHangViewModel
@@ -60,6 +62,7 @@ class DisplayOrder: DialogFragment() {
         dishOrderBinding.btnCloseOrder.setOnClickListener {
             dismiss()
             dishViewModel.onDismiss()
+            coroutineLoadImage.onCoroutineDone(coroutineImageJob)
         }
 
         coroutineLoadImage.onCoroutineLoadImage(coroutineImageScope, activity!!, dishOrderBinding)
@@ -77,10 +80,13 @@ class DisplayOrder: DialogFragment() {
             dishOrderBinding.txtvOrderPriceSum.text = (newAmount * dishprice).toString() + "đ"
 
             dishOrderBinding.btnThemVaoGioHang.setOnClickListener {
+                allCartPriceViewModel.onAddDishToCart(dishname!!,dishprice,newAmount)
+
                 dismiss()
                 allCartPriceViewModel.onPlusPrice(activity!!, newAmount * dishprice)
                 gioHangViewModel.onAddToCart()
                 dishViewModel.onDismiss()
+                coroutineLoadImage.onCoroutineDone(coroutineImageJob)
             }
         })
     }

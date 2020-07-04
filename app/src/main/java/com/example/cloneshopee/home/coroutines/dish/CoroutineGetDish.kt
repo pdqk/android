@@ -9,9 +9,7 @@ import com.example.cloneshopee.home.models.dish.DishModel
 import com.example.cloneshopee.home.recyclerViewAdapter.dish.DishAdapter
 import com.example.cloneshopee.network.API
 import com.squareup.picasso.Picasso
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 
 class CoroutineGetDish {
     fun onCoroutineGetDish(coroutineScope: CoroutineScope ,activity: Activity, allDishesOfTheShopBinding: AllDishesOfTheShopBinding){

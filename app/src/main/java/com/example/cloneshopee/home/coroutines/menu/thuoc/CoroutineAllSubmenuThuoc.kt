@@ -9,9 +9,7 @@ import com.example.cloneshopee.home.displayMenuSelected.ThuocActivity
 import com.example.cloneshopee.home.models.menuModel.thuocModel.SubmenuThuocModel
 import com.example.cloneshopee.home.recyclerViewAdapter.menu.thuoc.SubmenuThuocAdapter
 import com.example.cloneshopee.network.API
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 
 class CoroutineAllSubmenuThuoc {
     fun onCoroutineGetSubmenuThuoc(coroutineScope: CoroutineScope, haveSubmenuLayoutBinding: HaveSubmenuLayoutBinding, activity: Activity, thuocActivity: ThuocActivity){

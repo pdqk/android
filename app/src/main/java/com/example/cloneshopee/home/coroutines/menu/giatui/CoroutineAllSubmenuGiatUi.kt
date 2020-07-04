@@ -9,9 +9,7 @@ import com.example.cloneshopee.home.displayMenuSelected.GiatUiActivity
 import com.example.cloneshopee.home.models.menuModel.giatuiModel.SubmenuGiatUiModel
 import com.example.cloneshopee.home.recyclerViewAdapter.menu.giatui.SubmenuGiatUiAdapter
 import com.example.cloneshopee.network.API
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 
 class CoroutineAllSubmenuGiatUi {
     fun onCoroutineGetSubmenuGiatUi(coroutineScope: CoroutineScope, haveSubmenuLayoutBinding: HaveSubmenuLayoutBinding, activity: Activity, giatUiActivity: GiatUiActivity){

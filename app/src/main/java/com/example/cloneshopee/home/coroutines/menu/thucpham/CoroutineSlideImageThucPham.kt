@@ -8,9 +8,7 @@ import com.example.cloneshopee.databinding.HaveSubmenuLayoutBinding
 import com.example.cloneshopee.databinding.HomePageDisplayBinding
 import com.example.cloneshopee.network.API
 import com.squareup.picasso.Picasso
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 
 class CoroutineSlideImageThucPham {
     fun onCoroutineGetSlideImage(coroutineScope: CoroutineScope, activity: Activity, haveSubmenuLayoutBinding: HaveSubmenuLayoutBinding){

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <RelativeLayout
+        android:background="#eeeeee"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/ll1"
+            android:background="#ffffff"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginEnd="0dp"
+            android:orientation="horizontal"
+            android:weightSum="10">
+
+            <ImageButton
+                android:id="@+id/btn_close_cart"
+                android:background="@null"
+                android:src="@drawable/ic_close"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="50dp" />
+
+            <TextView
+                android:textSize="16sp"
+                android:paddingStart="12dp"
+                android:paddingEnd="0dp"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:textColor="#000000"
+                android:text="Giỏ hàng"
+                android:layout_weight="7"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/txtv_delete_all"
+                android:textSize="14sp"
+                android:textColor="#FF0000"
+                android:gravity="center"
+                android:text="Xóa hết"
+                android:layout_weight="2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:background="#ffffff"
+            android:orientation="horizontal"
+            android:id="@+id/ll2"
+            android:layout_below="@+id/ll1"
+            android:layout_marginTop="1dp"
+            android:layout_width="match_parent"
+            android:layout_height="520dp">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_cart"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:listitem="@layout/cart_recycler_item"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:padding="12dp"
+            android:layout_marginTop="1dp"
+            android:background="#ffffff"
+            android:layout_below="@id/ll2"
+            android:weightSum="10"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_gravity="center"
+                android:id="@+id/txtv_all_cart_price_2"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:text="35000đ"
+                android:layout_weight="5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/btn_thanh_toan_2"
+                android:textSize="16sp"
+                android:textAllCaps="false"
+                android:textColor="#FF0000"
+                android:text="Thanh toán"
+                android:background="@drawable/button_them_vao_gio_hang"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:layout_weight="5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+</layout>

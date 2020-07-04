@@ -8,9 +8,7 @@ import com.example.cloneshopee.databinding.TabsLayoutBinding
 import com.example.cloneshopee.home.models.menuModel.ShopModel
 import com.example.cloneshopee.home.recyclerViewAdapter.menu.ShopAdapter
 import com.example.cloneshopee.network.API
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 
 class CoroutineAllMenuCom {
     fun onCoroutineGetAllMenuCom(coroutineScope: CoroutineScope, tabsLayoutBinding: TabsLayoutBinding, activity: Activity){

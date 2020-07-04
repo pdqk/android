@@ -12,9 +12,7 @@ import com.example.cloneshopee.home.models.menuModel.thucungModel.SubmenuThuCung
 import com.example.cloneshopee.home.recyclerViewAdapter.menu.sieuthi.SubmenuSieuThiAdapter
 import com.example.cloneshopee.home.recyclerViewAdapter.menu.thucung.SubmenuThuCungAdapter
 import com.example.cloneshopee.network.API
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 
 class CoroutineAllSubmenuSieuThi {
     fun onCoroutineGetSubmenuSieuThi(coroutineScope: CoroutineScope, haveSubmenuLayoutBinding: HaveSubmenuLayoutBinding, activity: Activity, sieuThiActivity: SieuThiActivity){

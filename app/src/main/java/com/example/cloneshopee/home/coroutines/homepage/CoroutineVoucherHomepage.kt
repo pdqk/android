@@ -9,9 +9,7 @@ import com.example.cloneshopee.databinding.HomePageDisplayBinding
 import com.example.cloneshopee.home.models.homepageModel.VoucherModel
 import com.example.cloneshopee.home.recyclerViewAdapter.homepage.VoucherAdapter
 import com.example.cloneshopee.network.API
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 
 class CoroutineVoucherHomepage {
     fun onCoroutineGetVoucher(coroutineScope: CoroutineScope, homePageDisplayBinding: HomePageDisplayBinding, activity: FragmentActivity){

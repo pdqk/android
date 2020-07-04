@@ -65,24 +65,29 @@ class DishesActivity : AppCompatActivity() {
 
         allDishesOfTheShopBinding.btnThanhToan.setOnClickListener {
             gioHangViewModel.onClearCart()
-            allCartPriceViewModel.onClearPrice(this)
             val fm = supportFragmentManager
+            val displayCart = DisplayCart()
+            displayCart.show(fm, "TAG")
         }
     }
 
     private fun setupCart(){
         allCartPriceViewModel.allCartPrice.observe(this, Observer { newPrice ->
-            allDishesOfTheShopBinding.txtvAllCartPrice.text = (newPrice).toString()
+            allDishesOfTheShopBinding.txtvAllCartPrice.text = (newPrice).toString() + "đ"
         })
     }
 
     override fun onStop() {
         super.onStop()
         coroutineGetDishOfThucPham.onCoroutineDone(dishOfThucPhamJob)
+        gioHangViewModel.onClearCart()
+        allCartPriceViewModel.onClearPrice(this)
     }
 
     override fun onDestroy() {
         super.onDestroy()
         coroutineGetDishOfThucPham.onCoroutineDone(dishOfThucPhamJob)
+        gioHangViewModel.onClearCart()
+        allCartPriceViewModel.onClearPrice(this)
     }
 }
