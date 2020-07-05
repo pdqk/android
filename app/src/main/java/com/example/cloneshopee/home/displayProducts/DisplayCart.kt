@@ -38,24 +38,35 @@ class DisplayCart: DialogFragment() {
         gioHangViewModel = ViewModelProviders.of(activity!!).get(GioHangViewModel::class.java)
 
         setupCart()
-        uiControl()
+        closeCart()
+        deleteAllDishesInCart()
+        thanhToan()
         setupRecyclerView()
 
         return cartBinding.root
     }
 
     private fun setupCart(){
-        val sharedPreferences = activity!!.getSharedPreferences("CurrentCart", 0)
-        val cartprice = sharedPreferences.getLong("cartprice", 0)
-        cartBinding.txtvAllCartPrice2.text = cartprice.toString() + "đ"
+        allCartPriceViewModel.allCartPrice.observe(activity!!, Observer { newPrice ->
+            cartBinding.txtvAllCartPrice2.text = newPrice.toString() + "đ"
+        })
     }
 
-    private fun uiControl(){
+    private fun closeCart(){
         cartBinding.btnCloseCart.setOnClickListener {
-            dismiss()
-            gioHangViewModel.onAddToCart()
+            val sharedPreferences = activity!!.getSharedPreferences("CurrentCart", 0)
+            val cartprice = sharedPreferences.getLong("cartprice", 0).toInt()
+            if(cartprice == 0){
+                dismiss()
+                gioHangViewModel.onClearCart()
+            }else{
+                dismiss()
+                gioHangViewModel.onAddToCart()
+            }
         }
+    }
 
+    private fun deleteAllDishesInCart(){
         cartBinding.txtvDeleteAll.setOnClickListener {
             val builder = AlertDialog.Builder(activity)
             builder.setTitle("Xóa tất cả")
@@ -69,9 +80,11 @@ class DisplayCart: DialogFragment() {
             builder.setNegativeButton("Không"){dialog, which ->  }
             builder.show()
         }
+    }
 
+    private fun thanhToan(){
         cartBinding.btnThanhToan2.setOnClickListener {
-
+            dismiss()
         }
     }
 

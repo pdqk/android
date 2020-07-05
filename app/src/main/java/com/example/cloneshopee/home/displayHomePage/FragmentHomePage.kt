@@ -13,6 +13,7 @@ import com.example.cloneshopee.R
 import com.example.cloneshopee.databinding.HomePageDisplayBinding
 import com.example.cloneshopee.home.coroutines.homepage.CoroutineSliderImageHomepage
 import com.example.cloneshopee.home.coroutines.homepage.CoroutineVoucherHomepage
+import com.example.cloneshopee.home.displayLocation.DisplayChooseMyLocation
 import com.example.cloneshopee.home.displayMenuSelected.*
 import com.example.cloneshopee.home.recyclerViewAdapter.homepage.ViewPagerAdapter
 import kotlinx.coroutines.CoroutineScope
@@ -40,6 +41,7 @@ class FragmentHomePage : Fragment() {
         setupVoucher()
         setupMenuNavigation()
         setupTabLayouts()
+        setupMyLocation()
 
         return homePageDisplayBinding.root
     }
@@ -60,6 +62,14 @@ class FragmentHomePage : Fragment() {
             Color.parseColor("#FF0000")
         )
         homePageDisplayBinding.dontHaveSubmenuInHomepage.tabsShared.setTabTextColors(Color.parseColor("#1d1d1f"), Color.parseColor("#FF0000"))
+    }
+
+    private fun setupMyLocation(){
+        homePageDisplayBinding.txtvNavToAddressReceiveOrder.setOnClickListener {
+            val fm = activity!!.supportFragmentManager
+            val displayChooseMyLocation = DisplayChooseMyLocation()
+            displayChooseMyLocation.show(fm, "TAG")
+        }
     }
 
     private fun setupMenuNavigation(){

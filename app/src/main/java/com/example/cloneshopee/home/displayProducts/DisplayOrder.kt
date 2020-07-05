@@ -45,8 +45,22 @@ class DisplayOrder: DialogFragment() {
         allCartPriceViewModel = ViewModelProviders.of(activity!!).get(AllCartPriceViewModel::class.java)
 
         uiControl()
+        closeOrder()
+        setupImage()
 
         return dishOrderBinding.root
+    }
+
+    private fun closeOrder(){
+        dishOrderBinding.btnCloseOrder.setOnClickListener {
+            dismiss()
+            dishViewModel.onDismiss()
+            coroutineLoadImage.onCoroutineDone(coroutineImageJob)
+        }
+    }
+
+    private fun setupImage(){
+        coroutineLoadImage.onCoroutineLoadImage(coroutineImageScope, activity!!, dishOrderBinding)
     }
 
     private fun uiControl(){
@@ -58,14 +72,6 @@ class DisplayOrder: DialogFragment() {
         dishOrderBinding.txtvOrderName.text = dishname
         dishOrderBinding.txtvOrderLike.text = dishlike
         dishOrderBinding.txtvOrderPrice.text = dishprice.toString() + "đ"
-
-        dishOrderBinding.btnCloseOrder.setOnClickListener {
-            dismiss()
-            dishViewModel.onDismiss()
-            coroutineLoadImage.onCoroutineDone(coroutineImageJob)
-        }
-
-        coroutineLoadImage.onCoroutineLoadImage(coroutineImageScope, activity!!, dishOrderBinding)
 
         dishViewModel.amount.observe(activity!!, Observer { newAmount ->
             if(newAmount >= 1){
