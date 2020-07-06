@@ -2,6 +2,7 @@ package com.example.cloneshopee.home.displayProducts
 
 import android.app.AlertDialog
 import android.content.DialogInterface
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -15,6 +16,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cloneshopee.R
 import com.example.cloneshopee.databinding.CartBinding
+import com.example.cloneshopee.home.displayLocation.MapsActivity
 import com.example.cloneshopee.home.models.dish.CartModel
 import com.example.cloneshopee.home.recyclerViewAdapter.dish.CartAdapter
 import com.example.cloneshopee.home.viewModels.dish.AllCartPriceViewModel
@@ -84,7 +86,12 @@ class DisplayCart: DialogFragment() {
 
     private fun thanhToan(){
         cartBinding.btnThanhToan2.setOnClickListener {
+            gioHangViewModel.onClearCart()
+            allCartPriceViewModel.onClearPrice(activity!!)
+            allCartPriceViewModel.onClearDishFromCart()
             dismiss()
+            val intent = Intent(activity!!, MapsActivity::class.java)
+            startActivity(intent)
         }
     }
 

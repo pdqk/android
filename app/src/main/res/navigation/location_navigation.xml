@@ -6,5 +6,49 @@
     <fragment
         android:id="@+id/fragmentTinhThanhPho"
         android:name="com.example.cloneshopee.home.displayLocation.FragmentTinhThanhPho"
-        android:label="FragmentTinhThanhPho" />
+        android:label="FragmentTinhThanhPho" >
+        <action
+            android:id="@+id/action_fragmentTinhThanhPho_to_fragmentQuanHuyen"
+            app:destination="@id/fragmentQuanHuyen" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentQuanHuyen"
+        android:name="com.example.cloneshopee.home.displayLocation.FragmentQuanHuyen"
+        android:label="FragmentQuanHuyen" >
+        <action
+            android:id="@+id/action_fragmentQuanHuyen_to_fragmentPhuongThuocBaDinh"
+            app:destination="@id/fragmentPhuongThuocBaDinh" />
+        <action
+            android:id="@+id/action_fragmentQuanHuyen_to_fragmentPhuongThuocHoanKiem"
+            app:destination="@id/fragmentPhuongThuocHoanKiem" />
+        <action
+            android:id="@+id/action_fragmentQuanHuyen_to_fragmentPhuongThuocDongDa"
+            app:destination="@id/fragmentPhuongThuocDongDa" />
+        <action
+            android:id="@+id/action_fragmentQuanHuyen_to_fragmentPhuongThuocThanhXuan"
+            app:destination="@id/fragmentPhuongThuocThanhXuan" />
+        <action
+            android:id="@+id/action_fragmentQuanHuyen_to_fragmentPhuongThuocCauGiay"
+            app:destination="@id/fragmentPhuongThuocCauGiay" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentPhuongThuocBaDinh"
+        android:name="com.example.cloneshopee.home.displayLocation.FragmentPhuongThuocBaDinh"
+        android:label="FragmentPhuongThuocBaDinh" />
+    <fragment
+        android:id="@+id/fragmentPhuongThuocHoanKiem"
+        android:name="com.example.cloneshopee.home.displayLocation.FragmentPhuongThuocHoanKiem"
+        android:label="FragmentPhuongThuocHoanKiem" />
+    <fragment
+        android:id="@+id/fragmentPhuongThuocDongDa"
+        android:name="com.example.cloneshopee.home.displayLocation.FragmentPhuongThuocDongDa"
+        android:label="FragmentPhuongThuocDongDa" />
+    <fragment
+        android:id="@+id/fragmentPhuongThuocThanhXuan"
+        android:name="com.example.cloneshopee.home.displayLocation.FragmentPhuongThuocThanhXuan"
+        android:label="FragmentPhuongThuocThanhXuan" />
+    <fragment
+        android:id="@+id/fragmentPhuongThuocCauGiay"
+        android:name="com.example.cloneshopee.home.displayLocation.FragmentPhuongThuocCauGiay"
+        android:label="FragmentPhuongThuocCauGiay" />
 </navigation>

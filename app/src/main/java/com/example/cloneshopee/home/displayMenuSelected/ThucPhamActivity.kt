@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.cloneshopee.R
 import com.example.cloneshopee.databinding.HaveSubmenuLayoutBinding
@@ -14,8 +15,9 @@ import com.example.cloneshopee.home.HomeActivity
 import com.example.cloneshopee.home.coroutines.menu.thucpham.CoroutineSlideImageThucPham
 import com.example.cloneshopee.home.coroutines.menu.thucpham.CoroutineAllSubmenuThucPham
 import com.example.cloneshopee.home.coroutines.menu.thucpham.CoroutineVoucherThucPham
+import com.example.cloneshopee.home.displayLocation.DisplayChooseMyLocation
 import com.example.cloneshopee.home.recyclerViewAdapter.homepage.ViewPagerAdapter
-import com.example.cloneshopee.home.viewModels.menu.ThucPhamViewModel
+import com.example.cloneshopee.home.viewModels.location.MyLocationViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -23,7 +25,7 @@ import kotlinx.coroutines.Job
 class ThucPhamActivity : AppCompatActivity(){
 
     private lateinit var haveSubmenuLayoutBinding: HaveSubmenuLayoutBinding
-    private lateinit var thucPhamViewModel: ThucPhamViewModel
+    private lateinit var myLocationViewModel: MyLocationViewModel
 
     private var slideImageJob = Job()
     private var coroutineSlideImageScope = CoroutineScope(slideImageJob + Dispatchers.Main)
@@ -44,11 +46,16 @@ class ThucPhamActivity : AppCompatActivity(){
         super.onCreate(savedInstanceState)
         haveSubmenuLayoutBinding = DataBindingUtil.setContentView(this, R.layout.have_submenu_layout)
 
+        myLocationViewModel = ViewModelProviders.of(this).get(MyLocationViewModel::class.java)
+        myLocationViewModel.setupAddress(this)
+
         buttonControl()
         setupSliderImage()
         setupVoucher()
         setupSubmenuThucPham()
         setupTabLayouts()
+        setupMyLocation()
+        displayMyLocation()
 
         window.apply {
             clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
@@ -56,8 +63,20 @@ class ThucPhamActivity : AppCompatActivity(){
             decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
             statusBarColor = Color.TRANSPARENT
         }
+    }
 
-        thucPhamViewModel = ViewModelProviders.of(this).get(ThucPhamViewModel::class.java)
+    private fun setupMyLocation(){
+        haveSubmenuLayoutBinding.txtvNavToAddressReceiveOrderInHaveSubmenu.setOnClickListener {
+            val fm = supportFragmentManager
+            val displayChooseMyLocation = DisplayChooseMyLocation()
+            displayChooseMyLocation.show(fm, "TAG")
+        }
+    }
+
+    private fun displayMyLocation(){
+        myLocationViewModel.myLocation.observe(this, Observer { newLocation ->
+            haveSubmenuLayoutBinding.txtvNavToAddressReceiveOrderInHaveSubmenu.text = newLocation
+        })
     }
 
     private fun buttonControl(){

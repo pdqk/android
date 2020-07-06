@@ -9,6 +9,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import com.example.cloneshopee.R
 import com.example.cloneshopee.databinding.HomePageDisplayBinding
 import com.example.cloneshopee.home.coroutines.homepage.CoroutineSliderImageHomepage
@@ -16,6 +18,7 @@ import com.example.cloneshopee.home.coroutines.homepage.CoroutineVoucherHomepage
 import com.example.cloneshopee.home.displayLocation.DisplayChooseMyLocation
 import com.example.cloneshopee.home.displayMenuSelected.*
 import com.example.cloneshopee.home.recyclerViewAdapter.homepage.ViewPagerAdapter
+import com.example.cloneshopee.home.viewModels.location.MyLocationViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -25,6 +28,8 @@ import kotlinx.coroutines.Job
  */
 class FragmentHomePage : Fragment() {
     private lateinit var homePageDisplayBinding: HomePageDisplayBinding
+
+    private lateinit var myLocationViewModel: MyLocationViewModel
 
     private var slideImageJob = Job()
     private var voucherJob = Job()
@@ -37,11 +42,15 @@ class FragmentHomePage : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         homePageDisplayBinding = DataBindingUtil.inflate(inflater, R.layout.home_page_display, container, false)
 
+        myLocationViewModel = ViewModelProviders.of(activity!!).get(MyLocationViewModel::class.java)
+        myLocationViewModel.setupAddress(activity!!)
+
         setupSliderImage()
         setupVoucher()
         setupMenuNavigation()
         setupTabLayouts()
         setupMyLocation()
+        displayMyLocation()
 
         return homePageDisplayBinding.root
     }
@@ -70,6 +79,12 @@ class FragmentHomePage : Fragment() {
             val displayChooseMyLocation = DisplayChooseMyLocation()
             displayChooseMyLocation.show(fm, "TAG")
         }
+    }
+
+    private fun displayMyLocation(){
+        myLocationViewModel.myLocation.observe(activity!!, Observer { newLocation ->
+            homePageDisplayBinding.txtvNavToAddressReceiveOrder.text = newLocation
+        })
     }
 
     private fun setupMenuNavigation(){

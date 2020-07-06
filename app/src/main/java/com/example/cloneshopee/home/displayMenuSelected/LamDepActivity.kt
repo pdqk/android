@@ -7,19 +7,24 @@ import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import com.example.cloneshopee.R
 import com.example.cloneshopee.databinding.HaveSubmenuLayoutBinding
 import com.example.cloneshopee.home.HomeActivity
 import com.example.cloneshopee.home.coroutines.menu.lamdep.CoroutineAllSubmenuLamDep
 import com.example.cloneshopee.home.coroutines.menu.lamdep.CoroutineSlideImageLamDep
 import com.example.cloneshopee.home.coroutines.menu.lamdep.CoroutineVoucherLamDep
+import com.example.cloneshopee.home.displayLocation.DisplayChooseMyLocation
 import com.example.cloneshopee.home.recyclerViewAdapter.homepage.ViewPagerAdapter
+import com.example.cloneshopee.home.viewModels.location.MyLocationViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 
 class LamDepActivity : AppCompatActivity() {
     private lateinit var haveSubmenuLayoutBinding: HaveSubmenuLayoutBinding
+    private lateinit var myLocationViewModel: MyLocationViewModel
 
     private var slideImageJob = Job()
     private var coroutineSlideImageScope = CoroutineScope(slideImageJob + Dispatchers.Main)
@@ -39,11 +44,16 @@ class LamDepActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         haveSubmenuLayoutBinding = DataBindingUtil.setContentView(this, R.layout.have_submenu_layout)
 
+        myLocationViewModel = ViewModelProviders.of(this).get(MyLocationViewModel::class.java)
+        myLocationViewModel.setupAddress(this)
+
         buttonControl()
         setupTabLayouts()
         setupSliderImage()
         setupVoucher()
         setupSubmenuLamDep()
+        setupMyLocation()
+        displayMyLocation()
 
         window.apply {
             clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
@@ -51,6 +61,20 @@ class LamDepActivity : AppCompatActivity() {
             decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
             statusBarColor = Color.TRANSPARENT
         }
+    }
+
+    private fun setupMyLocation(){
+        haveSubmenuLayoutBinding.txtvNavToAddressReceiveOrderInHaveSubmenu.setOnClickListener {
+            val fm = supportFragmentManager
+            val displayChooseMyLocation = DisplayChooseMyLocation()
+            displayChooseMyLocation.show(fm, "TAG")
+        }
+    }
+
+    private fun displayMyLocation(){
+        myLocationViewModel.myLocation.observe(this, Observer { newLocation ->
+            haveSubmenuLayoutBinding.txtvNavToAddressReceiveOrderInHaveSubmenu.text = newLocation
+        })
     }
 
     private fun buttonControl(){
