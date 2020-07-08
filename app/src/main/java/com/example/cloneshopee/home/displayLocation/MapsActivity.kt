@@ -1,10 +1,17 @@
 package com.example.cloneshopee.home.displayLocation
 
+import android.content.Intent
 import android.graphics.Color
 import android.location.Geocoder
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
+import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProviders
 import com.example.cloneshopee.R
+import com.example.cloneshopee.databinding.ActivityMapsBinding
+import com.example.cloneshopee.home.HomeActivity
+import com.example.cloneshopee.home.viewModels.dish.AllCartPriceViewModel
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -17,14 +24,19 @@ import kotlin.collections.ArrayList
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private lateinit var mMap: GoogleMap
+    private lateinit var activityMapsBinding: ActivityMapsBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_maps)
+        activityMapsBinding = DataBindingUtil.setContentView(this, R.layout.activity_maps)
+
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
+
+        setupPrice()
+        buttonControl()
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
@@ -46,13 +58,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         mMap = googleMap
         mMap.addMarker(MarkerOptions().position(order).title("Tôi"))
         mMap.addMarker(MarkerOptions().position(shop).title(shopname))
-//        mMap.moveCamera(CameraUpdateFactory.newLatLng(order))
-//        mMap.moveCamera(CameraUpdateFactory.newLatLng(shop))
-//        mMap.animateCamera(CameraUpdateFactory.zoomTo(15.0f))
-
-//        val options = PolylineOptions()
-//        options.color(Color.BLUE)
-//        options.width(5f)
         val polyline = mMap.addPolyline(PolylineOptions()
             .clickable(true)
             .color(Color.BLUE).width(5f)
@@ -61,6 +66,23 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                 shop
             )
         )
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(order, 14f))
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(order, 15f))
+    }
+
+    private fun setupPrice(){
+        val sharedPreferences = getSharedPreferences("CurrentCart", 0)
+        val cartprice = sharedPreferences.getLong("cartprice", 0)
+        activityMapsBinding.txtvTongGiaMon.text = cartprice.toString()+"đ"
+
+        val sum = cartprice + 3000 +15000
+        activityMapsBinding.txtvTongTien.text = sum.toString()+"đ"
+    }
+
+    private fun buttonControl(){
+        activityMapsBinding.btnDaNhanHang.setOnClickListener {
+            val fm = supportFragmentManager
+            val fragmentRating = FragmentRating()
+            fragmentRating.show(fm, "TAG")
+        }
     }
 }

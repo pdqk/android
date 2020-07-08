@@ -1,24 +1,221 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:map="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".home.displayLocation.MapsActivity" >
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <fragment
-        android:id="@+id/map"
-        android:name="com.google.android.gms.maps.SupportMapFragment"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="6" />
+    <data>
+
+    </data>
 
     <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="4">
+        android:layout_height="match_parent"
+        tools:context=".home.displayLocation.MapsActivity">
+
+        <fragment
+            android:id="@+id/map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="4" />
+
+        <LinearLayout
+            android:background="#eeeeee"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="5">
+
+            <LinearLayout
+                android:padding="12dp"
+                android:background="#ffffff"
+                android:orientation="horizontal"
+                android:layout_marginTop="1dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:drawableEnd="@drawable/ic_help"
+                    android:textSize="16sp"
+                    android:textColor="#1d1d1f"
+                    android:layout_weight="2"
+                    android:text="Khuyến mại"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/txtv_chon_voucher"
+                    android:drawableEnd="@drawable/ic_arrow_right"
+                    android:gravity="right"
+                    android:textSize="14sp"
+                    android:textColor="#1d1d1f"
+                    android:layout_weight="5"
+                    android:text="Chọn voucher hoặc nhập mã"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:padding="12dp"
+                android:background="#ffffff"
+                android:orientation="horizontal"
+                android:layout_marginTop="1dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:drawableEnd="@drawable/ic_help"
+                    android:textSize="16sp"
+                    android:textColor="#1d1d1f"
+                    android:layout_weight="5"
+                    android:text="Dụng cụ ăn uống nhựa"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content" />
+
+                <Switch
+                    android:checked="true"
+                    android:theme="@style/SCBSwitch"
+                    android:layout_weight="5"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="12dp"
+                android:background="#ffffff"
+                android:padding="12dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:textSize="16sp"
+                    android:textColor="#1d1d1f"
+                    android:layout_weight="1"
+                    android:text="Tổng giá món"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/txtv_tong_gia_mon"
+                    android:gravity="right"
+                    android:textSize="16sp"
+                    android:textColor="#1d1d1f"
+                    android:layout_weight="1"
+                    android:text="25000đ"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="1dp"
+                android:background="#ffffff"
+                android:padding="12dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:drawableEnd="@drawable/ic_help"
+                    android:textSize="16sp"
+                    android:textColor="#1d1d1f"
+                    android:layout_weight="2"
+                    android:text="Phí dịch vụ"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:gravity="right"
+                    android:textSize="16sp"
+                    android:textColor="#1d1d1f"
+                    android:layout_weight="5"
+                    android:text="3000đ"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="1dp"
+                android:background="#ffffff"
+                android:padding="12dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:drawableEnd="@drawable/ic_help"
+                    android:textSize="16sp"
+                    android:textColor="#1d1d1f"
+                    android:layout_weight="2"
+                    android:text="Phí vận chuyển"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:gravity="right"
+                    android:textSize="16sp"
+                    android:textColor="#1d1d1f"
+                    android:layout_weight="4"
+                    android:text="15000đ"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="1dp"
+                android:background="#ffffff"
+                android:padding="12dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:textColor="#000000"
+                    android:layout_weight="2"
+                    android:text="Tổng cộng"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/txtv_tong_tien"
+                    android:textStyle="bold"
+                    android:gravity="right"
+                    android:textSize="20sp"
+                    android:textColor="#000000"
+                    android:layout_weight="4"
+                    android:text="43000đ"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:padding="12dp"
+                android:background="#ffffff"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/btn_da_nhan_hang"
+                    android:textSize="16sp"
+                    android:textColor="#FF0000"
+                    android:textAllCaps="false"
+                    android:text="Đã nhận được hàng"
+                    android:background="@drawable/button_them_vao_gio_hang"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+        </LinearLayout>
 
     </LinearLayout>
-
-</LinearLayout>
+</layout>

@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.Observer
@@ -21,6 +22,7 @@ import com.example.cloneshopee.home.models.dish.CartModel
 import com.example.cloneshopee.home.recyclerViewAdapter.dish.CartAdapter
 import com.example.cloneshopee.home.viewModels.dish.AllCartPriceViewModel
 import com.example.cloneshopee.home.viewModels.dish.GioHangViewModel
+import com.google.gson.Gson
 
 class DisplayCart: DialogFragment() {
     private lateinit var cartBinding: CartBinding
@@ -86,11 +88,10 @@ class DisplayCart: DialogFragment() {
 
     private fun thanhToan(){
         cartBinding.btnThanhToan2.setOnClickListener {
-            gioHangViewModel.onClearCart()
-            allCartPriceViewModel.onClearPrice(activity!!)
-            allCartPriceViewModel.onClearDishFromCart()
             dismiss()
             val intent = Intent(activity!!, MapsActivity::class.java)
+            gioHangViewModel.onClearCart()
+            allCartPriceViewModel.onClearDishFromCart()
             startActivity(intent)
         }
     }

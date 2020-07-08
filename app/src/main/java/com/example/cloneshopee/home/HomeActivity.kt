@@ -9,6 +9,8 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.FragmentTransaction
 import com.example.cloneshopee.R
 import com.example.cloneshopee.databinding.HomeActivityBinding
+import com.example.cloneshopee.home.displayFavorite.FragmentFavorite
+import com.example.cloneshopee.home.displayHistory.FragmentHistory
 import com.example.cloneshopee.home.displayHomePage.FragmentHomePage
 import com.example.cloneshopee.home.displayMe.FragmentMe
 
@@ -17,6 +19,8 @@ class HomeActivity : AppCompatActivity(){
     private lateinit var homeActivityBinding: HomeActivityBinding
     private lateinit var homePage: FragmentHomePage
     private lateinit var me: FragmentMe
+    private lateinit var favorite: FragmentFavorite
+    private lateinit var history: FragmentHistory
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -61,11 +65,21 @@ class HomeActivity : AppCompatActivity(){
                 }
 
                 R.id.nav_to_bill_display -> {
-
+                    history = FragmentHistory()
+                    supportFragmentManager
+                        .beginTransaction()
+                        .replace(R.id.myHomeNavHost, history)
+                        .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                        .commit()
                 }
 
                 R.id.nav_to_favorite_display -> {
-
+                    favorite = FragmentFavorite()
+                    supportFragmentManager
+                        .beginTransaction()
+                        .replace(R.id.myHomeNavHost, favorite)
+                        .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                        .commit()
                 }
 
                 R.id.nav_to_me_display -> {

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="12dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_gravity="center"
+            android:src="@drawable/thankyou"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:padding="4dp"
+            android:textColor="#1d1d1f"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="Cảm ơn bạn đã ủng hộ shop. \nTiếp tục đặt món nào!"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/btn_thanks_ok"
+            android:layout_marginTop="6dp"
+            android:textColor="#FF0000"
+            android:background="@drawable/button_them_vao_gio_hang"
+            android:text="Ok"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp" />
+
+    </LinearLayout>
+</layout>

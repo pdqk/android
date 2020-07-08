@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:background="#eeeeee"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:background="#ffffff"
+            android:padding="12dp"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:gravity="center"
+            android:text="Đánh giá chất lượng"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:padding="12dp"
+            android:background="#ffffff"
+            android:orientation="vertical"
+            android:layout_marginTop="1dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RatingBar
+                android:theme="@style/RatingBar"
+                android:id="@+id/rating_bar"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:padding="12dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/txtv_skip"
+                    android:gravity="center"
+                    android:textSize="20sp"
+                    android:layout_weight="1"
+                    android:textColor="#1d1d1f"
+                    android:text="Bỏ qua"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/txtv_danh_gia"
+                    android:gravity="center"
+                    android:padding="6dp"
+                    android:textColor="#FF0000"
+                    android:textSize="20sp"
+                    android:layout_weight="1"
+                    android:text="Đánh giá"
+                    android:background="@drawable/button_them_vao_gio_hang"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>
