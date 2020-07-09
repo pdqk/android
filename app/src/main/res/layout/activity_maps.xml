@@ -39,36 +39,6 @@
                     android:drawableEnd="@drawable/ic_help"
                     android:textSize="16sp"
                     android:textColor="#1d1d1f"
-                    android:layout_weight="2"
-                    android:text="Khuyến mại"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content" />
-
-                <TextView
-                    android:id="@+id/txtv_chon_voucher"
-                    android:drawableEnd="@drawable/ic_arrow_right"
-                    android:gravity="right"
-                    android:textSize="14sp"
-                    android:textColor="#1d1d1f"
-                    android:layout_weight="5"
-                    android:text="Chọn voucher hoặc nhập mã"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:padding="12dp"
-                android:background="#ffffff"
-                android:orientation="horizontal"
-                android:layout_marginTop="1dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:drawableEnd="@drawable/ic_help"
-                    android:textSize="16sp"
-                    android:textColor="#1d1d1f"
                     android:layout_weight="5"
                     android:text="Dụng cụ ăn uống nhựa"
                     android:layout_width="0dp"
@@ -198,10 +168,11 @@
             </LinearLayout>
 
             <LinearLayout
+                android:gravity="center"
                 android:padding="12dp"
                 android:background="#ffffff"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="match_parent">
 
                 <Button
                     android:id="@+id/btn_da_nhan_hang"

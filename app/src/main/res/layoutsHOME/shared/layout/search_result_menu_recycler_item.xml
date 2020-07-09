@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="@drawable/search_bar_in_homepage_background"
+    android:layout_width="wrap_content"
+    android:padding="12dp"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:textColor="#1d1d1f"
+        android:text="Tên danh mục"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

@@ -27,6 +27,7 @@ import kotlinx.coroutines.Deferred
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
+import retrofit2.http.Path
 
 private const val BASE_URL = "https://clone-now.herokuapp.com/api/v1.0/public/"
 
@@ -322,6 +323,13 @@ interface APIService {
     @GET("dishes/getDishOfTraSua")
     fun getDishOfTraSua():
             Deferred<List<DishModel>>
+
+    /*
+    *  Search API
+    * */
+    @GET("thucphams/{shopname}")
+    fun getShopThucPhamByName(@Path("shopname")shopName: String):
+            Deferred<List<ShopModel>>
 }
 
 object API {
