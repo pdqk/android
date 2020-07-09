@@ -42,6 +42,11 @@ class FragmentLogin : Fragment() {
                 firebaseControlLogIn = FirebaseControlLogIn()
                 loginFragmentBinding.progressBarInLogIn?.visibility = View.VISIBLE
                 firebaseControlLogIn.logIn(loginFragmentBinding.edtUsernameInLoginDisplay.text.toString(), loginFragmentBinding.edtPasswordInLoginDisplay.text.toString(), activity!!, view)
+
+                val sharedPreferences = activity!!.getSharedPreferences("CurrentUser", 0)
+                val editor = sharedPreferences.edit()
+                editor.putString("currentuser", loginFragmentBinding.edtUsernameInLoginDisplay.text.toString())
+                editor.apply()
             }
             if(!Patterns.EMAIL_ADDRESS.matcher(loginFragmentBinding.edtUsernameInLoginDisplay.text.toString()).matches()){
                 loginFragmentBinding.edtUsernameInLoginDisplay.error = "Please enter valid email !"
