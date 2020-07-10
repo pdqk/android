@@ -16,6 +16,7 @@ import com.example.cloneshopee.home.coroutines.menu.thucung.CoroutineAllSubmenuT
 import com.example.cloneshopee.home.coroutines.menu.thucung.CoroutineSlideImageThuCung
 import com.example.cloneshopee.home.coroutines.menu.thucung.CoroutineVoucherThuCung
 import com.example.cloneshopee.home.displayLocation.DisplayChooseMyLocation
+import com.example.cloneshopee.home.displaySearch.SearchActivity
 import com.example.cloneshopee.home.recyclerViewAdapter.homepage.ViewPagerAdapter
 import com.example.cloneshopee.home.viewModels.location.MyLocationViewModel
 import kotlinx.coroutines.CoroutineScope
@@ -55,6 +56,7 @@ class ThuCungActivity : AppCompatActivity() {
         setupTabLayouts()
         setupMyLocation()
         displayMyLocation()
+        navToSearch()
 
         window.apply {
             clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
@@ -110,6 +112,13 @@ class ThuCungActivity : AppCompatActivity() {
 
     private fun setupSubmenuThuCung(){
         coroutineSubmenuThuCung.onCoroutineGetSubmenuThuCung(coroutineSubmenuThuCungScope, haveSubmenuLayoutBinding, this, this)
+    }
+
+    private fun navToSearch(){
+        haveSubmenuLayoutBinding.edtSearchInHaveSubmenuLayout.setOnClickListener {
+            val intent = Intent(this, SearchActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     override fun onStop() {

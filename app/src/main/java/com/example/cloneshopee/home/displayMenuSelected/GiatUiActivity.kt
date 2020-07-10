@@ -16,6 +16,7 @@ import com.example.cloneshopee.home.coroutines.menu.giatui.CoroutineAllSubmenuGi
 import com.example.cloneshopee.home.coroutines.menu.giatui.CoroutineSlideImageGiatUi
 import com.example.cloneshopee.home.coroutines.menu.giatui.CoroutineVoucherGiatUi
 import com.example.cloneshopee.home.displayLocation.DisplayChooseMyLocation
+import com.example.cloneshopee.home.displaySearch.SearchActivity
 import com.example.cloneshopee.home.recyclerViewAdapter.homepage.ViewPagerAdapter
 import com.example.cloneshopee.home.viewModels.location.MyLocationViewModel
 import kotlinx.android.synthetic.main.dont_have_submenu_layout.view.*
@@ -55,6 +56,7 @@ class GiatUiActivity : AppCompatActivity() {
         setupSubmenuGiatUi()
         setupMyLocation()
         displayMyLocation()
+        navToSearch()
 
         window.apply {
             clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
@@ -110,6 +112,13 @@ class GiatUiActivity : AppCompatActivity() {
             Color.parseColor("#FF0000")
         )
         haveSubmenuLayoutBinding.dontHaveSubmenuInHaveSubmenu.tabsShared.setTabTextColors(Color.parseColor("#1d1d1f"), Color.parseColor("#FF0000"))
+    }
+
+    private fun navToSearch(){
+        haveSubmenuLayoutBinding.edtSearchInHaveSubmenuLayout.setOnClickListener {
+            val intent = Intent(this, SearchActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     override fun onStop() {

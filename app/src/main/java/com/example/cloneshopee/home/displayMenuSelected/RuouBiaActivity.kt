@@ -16,6 +16,7 @@ import com.example.cloneshopee.home.coroutines.menu.ruoubia.CoroutineAllSubmenuR
 import com.example.cloneshopee.home.coroutines.menu.ruoubia.CoroutineSlideImageRuouBia
 import com.example.cloneshopee.home.coroutines.menu.ruoubia.CoroutineVoucherRuouBia
 import com.example.cloneshopee.home.displayLocation.DisplayChooseMyLocation
+import com.example.cloneshopee.home.displaySearch.SearchActivity
 import com.example.cloneshopee.home.recyclerViewAdapter.homepage.ViewPagerAdapter
 import com.example.cloneshopee.home.viewModels.location.MyLocationViewModel
 import kotlinx.coroutines.CoroutineScope
@@ -54,6 +55,7 @@ class RuouBiaActivity : AppCompatActivity() {
         setupSubmenuRuouBia()
         setupMyLocation()
         displayMyLocation()
+        navToSearch()
 
         window.apply {
             clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
@@ -109,6 +111,13 @@ class RuouBiaActivity : AppCompatActivity() {
 
     private fun setupSubmenuRuouBia(){
         coroutineSubmenuRuouBia.onCoroutineGetSubmenuRuouBia(coroutineSubmenuRuouBiaScope, haveSubmenuLayoutBinding, this, this)
+    }
+
+    private fun navToSearch(){
+        haveSubmenuLayoutBinding.edtSearchInHaveSubmenuLayout.setOnClickListener {
+            val intent = Intent(this, SearchActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     override fun onStop() {

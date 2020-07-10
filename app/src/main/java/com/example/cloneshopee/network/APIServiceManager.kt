@@ -327,9 +327,44 @@ interface APIService {
     /*
     *  Search API
     * */
+    @GET("dishes/{dishname}")
+    fun getDishByName(@Path("dishname")dishName: String):
+            Deferred<List<DishModel>>
+
     @GET("thucphams/{shopname}")
     fun getShopThucPhamByName(@Path("shopname")shopName: String):
             Deferred<List<ShopModel>>
+    @GET("anvats/{shopname}")
+    fun getShopAnVatByName(@Path("shopname")shopName: String):
+            Deferred<List<ShopModel>>
+    @GET("coms/{shopname}")
+    fun getShopComByName(@Path("shopname")shopName: String):
+            Deferred<List<ShopModel>>
+    @GET("giatuis/{shopname}")
+    fun getShopGiatUiByName(@Path("shopname")shopName: String):
+            Deferred<List<ShopModel>>
+    @GET("hoas/{shopname}")
+    fun getShopHoaByName(@Path("shopname")shopName: String):
+            Deferred<List<ShopModel>>
+    @GET("lamdeps/{shopname}")
+    fun getShopLamDepByName(@Path("shopname")shopName: String):
+            Deferred<List<ShopModel>>
+    @GET("ruoubias/{shopname}")
+    fun getShopRuouBiaByName(@Path("shopname")shopName: String):
+            Deferred<List<ShopModel>>
+    @GET("sieuthis/{shopname}")
+    fun getShopSieuThiByName(@Path("shopname")shopName: String):
+            Deferred<List<ShopModel>>
+    @GET("thucungs/{shopname}")
+    fun getShopThuCungByName(@Path("shopname")shopName: String):
+            Deferred<List<ShopModel>>
+    @GET("thuocs/{shopname}")
+    fun getShopThuocByName(@Path("shopname")shopName: String):
+            Deferred<List<ShopModel>>
+    @GET("trasuas/{shopname}")
+    fun getShopTraSuaByName(@Path("shopname")shopName: String):
+            Deferred<List<ShopModel>>
+
 }
 
 object API {

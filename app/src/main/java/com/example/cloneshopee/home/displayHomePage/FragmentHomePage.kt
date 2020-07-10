@@ -18,6 +18,7 @@ import com.example.cloneshopee.home.coroutines.homepage.CoroutineSliderImageHome
 import com.example.cloneshopee.home.coroutines.homepage.CoroutineVoucherHomepage
 import com.example.cloneshopee.home.displayLocation.DisplayChooseMyLocation
 import com.example.cloneshopee.home.displayMenuSelected.*
+import com.example.cloneshopee.home.displaySearch.Search2Activity
 import com.example.cloneshopee.home.displaySearch.SearchActivity
 import com.example.cloneshopee.home.recyclerViewAdapter.homepage.ViewPagerAdapter
 import com.example.cloneshopee.home.viewModels.location.MyLocationViewModel
@@ -57,6 +58,7 @@ class FragmentHomePage : Fragment() {
         setupTabLayouts()
         setupMyLocation()
         displayMyLocation()
+        navToSearch()
 
         return homePageDisplayBinding.root
     }
@@ -95,6 +97,18 @@ class FragmentHomePage : Fragment() {
 
     private fun setupMenuNavigation(){
         coroutineSetupMenuNavigation.onSettingUpMenuNavigation(setupMenuNavigationScope, activity!!, homePageDisplayBinding)
+    }
+
+    private fun navToSearch(){
+        homePageDisplayBinding.edtSearchInHomepage.setOnClickListener {
+            val intent = Intent(activity!!, Search2Activity::class.java)
+            val sharedPreferences = activity!!.getSharedPreferences("CurrentSubmenu", 0)
+            val editor = sharedPreferences.edit()
+            editor.putString("submenu", "dishes")
+            editor.apply()
+            editor.commit()
+            startActivity(intent)
+        }
     }
 
     override fun onStop() {
