@@ -36,6 +36,35 @@
                 android:layout_height="wrap_content">
 
                 <TextView
+                    android:id="@+id/txtv_trangthai_donhang"
+                    android:drawableEnd="@drawable/ic_help"
+                    android:textSize="16sp"
+                    android:textColor="#1d1d1f"
+                    android:layout_weight="5"
+                    android:text="Chờ xác nhận"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/txtv_thoigian_cho_xacnhan"
+                    android:gravity="right"
+                    android:textSize="16sp"
+                    android:textColor="#1d1d1f"
+                    android:layout_weight="5"
+                    android:text="60s"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:padding="12dp"
+                android:background="#ffffff"
+                android:orientation="horizontal"
+                android:layout_marginTop="1dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
                     android:drawableEnd="@drawable/ic_help"
                     android:textSize="16sp"
                     android:textColor="#1d1d1f"
